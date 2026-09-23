@@ -1,0 +1,28 @@
+{
+  "size": 500,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "prefix": {
+            "request_id": "parte-parte-20260922-normal-"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2026-09-22T12:50:47.101461+00:00",
+              "lte": "2026-09-22T12:52:17.101700+00:00"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

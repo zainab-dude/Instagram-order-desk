@@ -1,0 +1,146 @@
+{
+  "mean_seconds": {
+    "query": "sum(increase(http_request_duration_seconds_sum{method=\"POST\",route=\"/api/orders\"}[120s])) / sum(increase(http_request_duration_seconds_count{method=\"POST\",route=\"/api/orders\"}[120s]))",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1790081998.113,
+              "0.01837322418889724"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "p95_seconds": {
+    "query": "histogram_quantile(0.95, sum by (le) (increase(http_request_duration_seconds_bucket{method=\"POST\",route=\"/api/orders\"}[120s])))",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1790081998.113,
+              "0.024573863636363637"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requests_per_second": {
+    "query": "sum(rate(http_requests_total{method=\"POST\",route=\"/api/orders\"}[120s]))",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1790081998.113,
+              "0.8572081682413899"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "error_percent": {
+    "query": "100 * (sum(increase(http_requests_total{method=\"POST\",route=\"/api/orders\",status_code=~\"4..|5..\"}[120s])) or vector(0)) / clamp_min(sum(increase(http_requests_total{method=\"POST\",route=\"/api/orders\"}[120s])), 1)",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1790081998.113,
+              "0"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "process_cpu_cores": {
+    "query": "rate(process_cpu_seconds_total{job=\"fastapi-app\"}[120s])",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "instance": "app:8000",
+              "job": "fastapi-app"
+            },
+            "value": [
+              1790081998.113,
+              "0.005428985065528801"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "node_cpu_percent": {
+    "query": "100 * (1 - avg(rate(node_cpu_seconds_total{job=\"node-exporter\",mode=\"idle\"}[120s])))",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {},
+            "value": [
+              1790081998.113,
+              "2.0294403383114945"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "scrape_up": {
+    "query": "up{job=~\"fastapi-app|node-exporter\"}",
+    "response": {
+      "status": "success",
+      "data": {
+        "resultType": "vector",
+        "result": [
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "node-exporter:9100",
+              "job": "node-exporter"
+            },
+            "value": [
+              1790081998.113,
+              "1"
+            ]
+          },
+          {
+            "metric": {
+              "__name__": "up",
+              "instance": "app:8000",
+              "job": "fastapi-app"
+            },
+            "value": [
+              1790081998.113,
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

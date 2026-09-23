@@ -1,0 +1,7 @@
+Command executed during final audit:
+docker compose run --rm --no-deps --volume ./tests:/app/tests:ro app python -m pytest -q -p no:cacheprovider
+
+Runtime: deployed app image, Python 3.12; temporary container removed afterward.
+Observed result: 15 passed, 2 warnings in 1.69s.
+Warnings: Starlette/httpx deprecation and anyio.abc.BlockingPortal alias deprecation.
+No failed or skipped tests were reported.

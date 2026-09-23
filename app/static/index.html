@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Desk</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">Instagram order desk</p><h1>Orders & inventory</h1><p>Record DM orders, reserve stock, and move each order through fulfilment.</p></header>
+    <p id="message" role="status"></p>
+    <section class="grid">
+      <form id="product-form" class="panel">
+        <h2>Add product</h2>
+        <label>Name<input name="name" required maxlength="120"></label>
+        <label>Variant<input name="variant" maxlength="120" placeholder="e.g. Medium / Blue"></label>
+        <label>Price<input name="price" type="number" min="0" step="0.01" required></label>
+        <label>Stock quantity<input name="stock_quantity" type="number" min="0" step="1" required></label>
+        <button>Add product</button>
+      </form>
+      <form id="order-form" class="panel">
+        <h2>Record order</h2>
+        <label>Customer reference<input name="customer_reference" required maxlength="120" placeholder="DM-2026-001"></label>
+        <label>Product<select name="product_id" id="product-select" required></select></label>
+        <label>Quantity<input name="quantity" type="number" min="1" step="1" required></label>
+        <button>Reserve stock</button>
+      </form>
+    </section>
+    <section class="panel"><div class="section-heading"><h2>Inventory</h2><button id="refresh" type="button" class="secondary">Refresh</button></div><div id="products"></div></section>
+    <section class="panel"><h2>Orders</h2><div id="orders"></div></section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

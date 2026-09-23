@@ -1,0 +1,610 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-001"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-002"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-003"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-004"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-005"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-006"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-007"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-008"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-009"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-010"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-011"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-012"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-013"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-014"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-015"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-016"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-017"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-018"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-019"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-020"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-021"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-022"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-023"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-024"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-025"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-026"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-027"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-028"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-029"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-030"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-031"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-032"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-033"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-034"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-035"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-036"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-037"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-038"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-039"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-040"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-041"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-042"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-043"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-044"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-045"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-046"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-047"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-048"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-049"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-050"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-051"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-052"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-053"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-054"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-055"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-056"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-057"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-058"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-059"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-060"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-061"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-062"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-063"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-064"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-065"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-066"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-067"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-068"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-069"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-070"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-071"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-072"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-073"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-074"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-075"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-076"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-077"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-078"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-079"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-080"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-081"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-082"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-083"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-084"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-085"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-086"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-087"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-088"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-089"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-090"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-091"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-092"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-093"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-094"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-095"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-096"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-097"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-098"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-099"
+    },
+    {
+      "__name__": "demo_requests_total",
+      "instance": "exporter:8010",
+      "job": "cardinality-demo",
+      "request_id": "cardinality-100"
+    }
+  ]
+}

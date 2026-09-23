@@ -1,0 +1,9 @@
+{
+  "mode": "request-id",
+  "requests": 100,
+  "completed_utc": "2026-09-23T18:26:48.214066+00:00",
+  "observed_at": 1790188009.287,
+  "observed_utc": "2026-09-23T18:26:49.287000+00:00",
+  "observed_count": 100,
+  "query": "count(demo_requests_total)"
+}

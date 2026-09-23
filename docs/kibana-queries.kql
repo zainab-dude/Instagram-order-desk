@@ -1,0 +1,17 @@
+// Run ONE expression at a time in Discover, data view observable-orders-v3-*.
+// Saved proof: 2026-09-22 12:18:43 UTC (17:18:43 Asia/Karachi).
+request_id : "pipeline-proof-20260922171843"
+order_id : 20
+service.name : "instagram-order-desk"
+severity : "WARNING" and message : "order rejected"
+severity : "ERROR"
+
+// Audit traffic: 2026-09-23 around 08:05:43–08:07:00 UTC.
+request_id : normal-20260923T080543Z-*
+request_id : normal-20260923T080543Z-* and message : "order rejected"
+
+// Part E: exact workload windows are in part-e-controlled-problem.md.
+request_id : parte-parte-20260922-normal-*
+request_id : parte-parte-20260922-fault-* and message : "test-only order latency injected"
+request_id : "parte-parte-20260922-fault-005"
+request_id : parte-parte-20260922-recovery-*

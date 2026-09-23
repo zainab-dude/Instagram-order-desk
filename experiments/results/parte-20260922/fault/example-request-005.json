@@ -1,0 +1,207 @@
+[
+    {
+        "_index":  ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+        "_id":  "YkkuyaABnaXZkKJI71Ri",
+        "_score":  null,
+        "_source":  {
+                        "@timestamp":  "2026-09-22T12:54:44.047Z",
+                        "container":  {
+                                          "id":  "47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0",
+                                          "labels":  {
+                                                         "desktop_docker_io/ports/8000/tcp":  ":8000",
+                                                         "com_docker_compose_oneoff":  "False",
+                                                         "com_docker_compose_replace":  "observable-orders-app",
+                                                         "com_docker_compose_project":  "assig1",
+                                                         "desktop_docker_io/binds/1/Target":  "/app/experiment-control",
+                                                         "com_docker_compose_image":  "sha256:76c46769af11cf21bcf94ca19b8edd419e0e9db29f08d585c5afefc325a1599a",
+                                                         "com_docker_compose_project_config_files":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml,C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.experiment.yml",
+                                                         "desktop_docker_io/binds/1/SourceKind":  "hostFile",
+                                                         "desktop_docker_io/ports_scheme":  "v2",
+                                                         "com_docker_compose_depends_on":  "",
+                                                         "com_docker_compose_project_working_dir":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                                                         "com_docker_compose_config-hash":  "3cc310a5f6a14c9f9a9629b60a0aa23837a82c8febe09d6cb521ca6d724bcf01",
+                                                         "com_docker_compose_version":  "5.5.0",
+                                                         "desktop_docker_io/binds/1/Source":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\experiments\\control",
+                                                         "com_docker_compose_service":  "app",
+                                                         "com_docker_compose_container-number":  "1"
+                                                     },
+                                          "image":  {
+                                                        "name":  "assig1-app"
+                                                    },
+                                          "name":  "observable-orders-app"
+                                      },
+                        "pipeline":  "observable-orders-docker",
+                        "host":  {
+                                     "name":  "0f4f8c6d0671"
+                                 },
+                        "ecs":  {
+                                    "version":  "8.0.0"
+                                },
+                        "log":  {
+                                    "file":  {
+                                                 "device_id":  "2112",
+                                                 "inode":  "13359",
+                                                 "path":  "/var/lib/docker/containers/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0-json.log"
+                                             },
+                                    "offset":  174048
+                                },
+                        "stream":  "stdout",
+                        "message":  "{\"duration_ms\":500,\"message\":\"test-only order latency injected\",\"request_id\":\"parte-parte-20260922-fault-005\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-22T12:54:44.047207+00:00\"}\n",
+                        "input":  {
+                                      "type":  "filestream"
+                                  },
+                        "service":  {
+                                        "name":  "instagram-order-desk"
+                                    },
+                        "severity":  "WARNING",
+                        "request_id":  "parte-parte-20260922-fault-005",
+                        "agent":  {
+                                      "id":  "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                                      "name":  "0f4f8c6d0671",
+                                      "type":  "filebeat",
+                                      "version":  "8.15.3",
+                                      "ephemeral_id":  "ec0bfc3c-8951-490d-8f93-b9e25a54bf16"
+                                  }
+                    },
+        "sort":  [
+                     1790081684047
+                 ]
+    },
+    {
+        "_index":  ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+        "_id":  "Y0kuyaABnaXZkKJI71Ri",
+        "_score":  null,
+        "_source":  {
+                        "@timestamp":  "2026-09-22T12:54:44.563Z",
+                        "stream":  "stdout",
+                        "message":  "{\"message\":\"order created\",\"order_id\":120,\"request_id\":\"parte-parte-20260922-fault-005\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-09-22T12:54:44.562820+00:00\"}\n",
+                        "severity":  "INFO",
+                        "request_id":  "parte-parte-20260922-fault-005",
+                        "order_id":  120,
+                        "pipeline":  "observable-orders-docker",
+                        "log":  {
+                                    "offset":  174363,
+                                    "file":  {
+                                                 "path":  "/var/lib/docker/containers/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0-json.log",
+                                                 "device_id":  "2112",
+                                                 "inode":  "13359"
+                                             }
+                                },
+                        "input":  {
+                                      "type":  "filestream"
+                                  },
+                        "container":  {
+                                          "id":  "47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0",
+                                          "labels":  {
+                                                         "com_docker_compose_service":  "app",
+                                                         "com_docker_compose_depends_on":  "",
+                                                         "com_docker_compose_replace":  "observable-orders-app",
+                                                         "com_docker_compose_image":  "sha256:76c46769af11cf21bcf94ca19b8edd419e0e9db29f08d585c5afefc325a1599a",
+                                                         "desktop_docker_io/binds/1/SourceKind":  "hostFile",
+                                                         "com_docker_compose_project_working_dir":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                                                         "desktop_docker_io/binds/1/Source":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\experiments\\control",
+                                                         "desktop_docker_io/ports/8000/tcp":  ":8000",
+                                                         "com_docker_compose_project_config_files":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml,C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.experiment.yml",
+                                                         "com_docker_compose_oneoff":  "False",
+                                                         "com_docker_compose_project":  "assig1",
+                                                         "desktop_docker_io/binds/1/Target":  "/app/experiment-control",
+                                                         "com_docker_compose_version":  "5.5.0",
+                                                         "desktop_docker_io/ports_scheme":  "v2",
+                                                         "com_docker_compose_config-hash":  "3cc310a5f6a14c9f9a9629b60a0aa23837a82c8febe09d6cb521ca6d724bcf01",
+                                                         "com_docker_compose_container-number":  "1"
+                                                     },
+                                          "image":  {
+                                                        "name":  "assig1-app"
+                                                    },
+                                          "name":  "observable-orders-app"
+                                      },
+                        "service":  {
+                                        "name":  "instagram-order-desk"
+                                    },
+                        "ecs":  {
+                                    "version":  "8.0.0"
+                                },
+                        "host":  {
+                                     "name":  "0f4f8c6d0671"
+                                 },
+                        "agent":  {
+                                      "name":  "0f4f8c6d0671",
+                                      "type":  "filebeat",
+                                      "version":  "8.15.3",
+                                      "ephemeral_id":  "ec0bfc3c-8951-490d-8f93-b9e25a54bf16",
+                                      "id":  "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730"
+                                  }
+                    },
+        "sort":  [
+                     1790081684563
+                 ]
+    },
+    {
+        "_index":  ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+        "_id":  "ZEkuyaABnaXZkKJI71Ri",
+        "_score":  null,
+        "_source":  {
+                        "@timestamp":  "2026-09-22T12:54:44.563Z",
+                        "log":  {
+                                    "file":  {
+                                                 "device_id":  "2112",
+                                                 "inode":  "13359",
+                                                 "path":  "/var/lib/docker/containers/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0/47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0-json.log"
+                                             },
+                                    "offset":  174653
+                                },
+                        "stream":  "stdout",
+                        "severity":  "INFO",
+                        "pipeline":  "observable-orders-docker",
+                        "agent":  {
+                                      "type":  "filebeat",
+                                      "version":  "8.15.3",
+                                      "ephemeral_id":  "ec0bfc3c-8951-490d-8f93-b9e25a54bf16",
+                                      "id":  "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                                      "name":  "0f4f8c6d0671"
+                                  },
+                        "ecs":  {
+                                    "version":  "8.0.0"
+                                },
+                        "message":  "{\"duration_ms\":519.71,\"message\":\"request completed\",\"method\":\"POST\",\"path\":\"/api/orders\",\"request_id\":\"parte-parte-20260922-fault-005\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"status_code\":201,\"timestamp\":\"2026-09-22T12:54:44.563229+00:00\"}\n",
+                        "input":  {
+                                      "type":  "filestream"
+                                  },
+                        "container":  {
+                                          "image":  {
+                                                        "name":  "assig1-app"
+                                                    },
+                                          "id":  "47295f3f8a0af87df1365ac1dd9ccd00f64649e51c8d04c3f20b49dc328d7ba0",
+                                          "name":  "observable-orders-app",
+                                          "labels":  {
+                                                         "com_docker_compose_project_working_dir":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                                                         "desktop_docker_io/binds/1/Target":  "/app/experiment-control",
+                                                         "desktop_docker_io/binds/1/SourceKind":  "hostFile",
+                                                         "desktop_docker_io/ports_scheme":  "v2",
+                                                         "com_docker_compose_image":  "sha256:76c46769af11cf21bcf94ca19b8edd419e0e9db29f08d585c5afefc325a1599a",
+                                                         "com_docker_compose_version":  "5.5.0",
+                                                         "com_docker_compose_project_config_files":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml,C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.experiment.yml",
+                                                         "com_docker_compose_replace":  "observable-orders-app",
+                                                         "com_docker_compose_project":  "assig1",
+                                                         "com_docker_compose_config-hash":  "3cc310a5f6a14c9f9a9629b60a0aa23837a82c8febe09d6cb521ca6d724bcf01",
+                                                         "desktop_docker_io/ports/8000/tcp":  ":8000",
+                                                         "com_docker_compose_depends_on":  "",
+                                                         "com_docker_compose_service":  "app",
+                                                         "desktop_docker_io/binds/1/Source":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\experiments\\control",
+                                                         "com_docker_compose_container-number":  "1",
+                                                         "com_docker_compose_oneoff":  "False"
+                                                     }
+                                      },
+                        "host":  {
+                                     "name":  "0f4f8c6d0671"
+                                 },
+                        "service":  {
+                                        "name":  "instagram-order-desk"
+                                    },
+                        "request_id":  "parte-parte-20260922-fault-005"
+                    },
+        "sort":  [
+                     1790081684563
+                 ]
+    }
+]

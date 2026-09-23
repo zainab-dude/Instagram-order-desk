@@ -1,0 +1,56 @@
+filebeat.inputs:
+  - type: filestream
+    id: docker-container-logs
+    enabled: true
+    paths:
+      - /var/lib/docker/containers/*/*.log
+    parsers:
+      - container:
+          stream: all
+          format: docker
+    processors:
+      - add_docker_metadata:
+          host: "unix:///var/run/docker.sock"
+      - drop_event:
+          when:
+            not:
+              equals:
+                container.name: "observable-orders-app"
+      - decode_json_fields:
+          fields: ["message"]
+          target: "json"
+          overwrite_keys: false
+          add_error_key: true
+      - copy_fields:
+          fields:
+            - from: "json.service.name"
+              to: "service.name"
+            - from: "json.severity"
+              to: "severity"
+            - from: "json.request_id"
+              to: "request_id"
+            - from: "json.order_id"
+              to: "order_id"
+            - from: "json.message"
+              to: "message"
+          fail_on_error: false
+          ignore_missing: true
+      - drop_fields:
+          fields: ["json"]
+          ignore_missing: true
+      - add_fields:
+          target: ""
+          fields:
+            pipeline: observable-orders-docker
+
+output.elasticsearch:
+  hosts: ["http://elasticsearch:9200"]
+  index: "observable-orders-v3-%{+yyyy.MM.dd}"
+
+setup.template.name: "observable-orders-v3"
+setup.template.pattern: "observable-orders-v3-*"
+setup.template.priority: 300
+setup.ilm.enabled: false
+
+logging.level: info
+logging.to_stderr: true

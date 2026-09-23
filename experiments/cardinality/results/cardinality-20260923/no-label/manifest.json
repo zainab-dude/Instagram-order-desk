@@ -1,0 +1,9 @@
+{
+  "mode": "no-label",
+  "requests": 100,
+  "completed_utc": "2026-09-23T07:53:20.791266+00:00",
+  "observed_at": 1790150004.895,
+  "observed_utc": "2026-09-23T07:53:24.895000+00:00",
+  "observed_count": 1,
+  "query": "count(demo_requests_total)"
+}

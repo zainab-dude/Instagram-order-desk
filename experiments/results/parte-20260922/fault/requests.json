@@ -1,0 +1,812 @@
+[
+  {
+    "sequence": 1,
+    "request_id": "parte-parte-20260922-fault-001",
+    "status": 201,
+    "latency_seconds": 0.023123799999666517,
+    "schedule_lag_seconds": 0.001304800000070827,
+    "completed_utc": "2026-09-22T12:54:40.062294+00:00",
+    "order_id": 116
+  },
+  {
+    "sequence": 2,
+    "request_id": "parte-parte-20260922-fault-002",
+    "status": 201,
+    "latency_seconds": 0.023419299999659415,
+    "schedule_lag_seconds": 0.0007619999996677507,
+    "completed_utc": "2026-09-22T12:54:41.062046+00:00",
+    "order_id": 117
+  },
+  {
+    "sequence": 3,
+    "request_id": "parte-parte-20260922-fault-003",
+    "status": 201,
+    "latency_seconds": 0.032775199999377946,
+    "schedule_lag_seconds": 0.0002936000000772765,
+    "completed_utc": "2026-09-22T12:54:42.070934+00:00",
+    "order_id": 118
+  },
+  {
+    "sequence": 4,
+    "request_id": "parte-parte-20260922-fault-004",
+    "status": 201,
+    "latency_seconds": 0.043094599999676575,
+    "schedule_lag_seconds": 0.0004768999988300493,
+    "completed_utc": "2026-09-22T12:54:43.081434+00:00",
+    "order_id": 119
+  },
+  {
+    "sequence": 5,
+    "request_id": "parte-parte-20260922-fault-005",
+    "status": 201,
+    "latency_seconds": 0.5248086999999941,
+    "schedule_lag_seconds": 0.00029569999969680794,
+    "completed_utc": "2026-09-22T12:54:44.562966+00:00",
+    "order_id": 120
+  },
+  {
+    "sequence": 6,
+    "request_id": "parte-parte-20260922-fault-006",
+    "status": 201,
+    "latency_seconds": 0.03710229999887815,
+    "schedule_lag_seconds": 0.000567600000067614,
+    "completed_utc": "2026-09-22T12:54:45.075532+00:00",
+    "order_id": 121
+  },
+  {
+    "sequence": 7,
+    "request_id": "parte-parte-20260922-fault-007",
+    "status": 201,
+    "latency_seconds": 0.01930720000018482,
+    "schedule_lag_seconds": 0.00015919999896141235,
+    "completed_utc": "2026-09-22T12:54:46.057330+00:00",
+    "order_id": 122
+  },
+  {
+    "sequence": 8,
+    "request_id": "parte-parte-20260922-fault-008",
+    "status": 201,
+    "latency_seconds": 0.039968999999473453,
+    "schedule_lag_seconds": 0.0004515000000537839,
+    "completed_utc": "2026-09-22T12:54:47.078283+00:00",
+    "order_id": 123
+  },
+  {
+    "sequence": 9,
+    "request_id": "parte-parte-20260922-fault-009",
+    "status": 201,
+    "latency_seconds": 0.03892429999905289,
+    "schedule_lag_seconds": 0.0004766000001836801,
+    "completed_utc": "2026-09-22T12:54:48.077263+00:00",
+    "order_id": 124
+  },
+  {
+    "sequence": 10,
+    "request_id": "parte-parte-20260922-fault-010",
+    "status": 201,
+    "latency_seconds": 0.542953000000125,
+    "schedule_lag_seconds": 0.0005075999997643521,
+    "completed_utc": "2026-09-22T12:54:49.581323+00:00",
+    "order_id": 125
+  },
+  {
+    "sequence": 11,
+    "request_id": "parte-parte-20260922-fault-011",
+    "status": 201,
+    "latency_seconds": 0.01904880000074627,
+    "schedule_lag_seconds": 0.00033649999932094943,
+    "completed_utc": "2026-09-22T12:54:50.057248+00:00",
+    "order_id": 126
+  },
+  {
+    "sequence": 12,
+    "request_id": "parte-parte-20260922-fault-012",
+    "status": 201,
+    "latency_seconds": 0.02025860000139801,
+    "schedule_lag_seconds": 0.00013549999857787043,
+    "completed_utc": "2026-09-22T12:54:51.058256+00:00",
+    "order_id": 127
+  },
+  {
+    "sequence": 13,
+    "request_id": "parte-parte-20260922-fault-013",
+    "status": 201,
+    "latency_seconds": 0.02138819999890984,
+    "schedule_lag_seconds": 0.0006341999996948289,
+    "completed_utc": "2026-09-22T12:54:52.059884+00:00",
+    "order_id": 128
+  },
+  {
+    "sequence": 14,
+    "request_id": "parte-parte-20260922-fault-014",
+    "status": 201,
+    "latency_seconds": 0.052002700000230107,
+    "schedule_lag_seconds": 0.000554599999304628,
+    "completed_utc": "2026-09-22T12:54:53.090421+00:00",
+    "order_id": 129
+  },
+  {
+    "sequence": 15,
+    "request_id": "parte-parte-20260922-fault-015",
+    "status": 201,
+    "latency_seconds": 0.54473870000038,
+    "schedule_lag_seconds": 0.00035989999923913274,
+    "completed_utc": "2026-09-22T12:54:54.582962+00:00",
+    "order_id": 130
+  },
+  {
+    "sequence": 16,
+    "request_id": "parte-parte-20260922-fault-016",
+    "status": 201,
+    "latency_seconds": 0.022239099998841994,
+    "schedule_lag_seconds": 0.0005024000001867535,
+    "completed_utc": "2026-09-22T12:54:55.060604+00:00",
+    "order_id": 131
+  },
+  {
+    "sequence": 17,
+    "request_id": "parte-parte-20260922-fault-017",
+    "status": 201,
+    "latency_seconds": 0.03985660000034841,
+    "schedule_lag_seconds": 0.00012939999942318536,
+    "completed_utc": "2026-09-22T12:54:56.077850+00:00",
+    "order_id": 132
+  },
+  {
+    "sequence": 18,
+    "request_id": "parte-parte-20260922-fault-018",
+    "status": 201,
+    "latency_seconds": 0.040389800000411924,
+    "schedule_lag_seconds": 0.00029379999978118576,
+    "completed_utc": "2026-09-22T12:54:57.078546+00:00",
+    "order_id": 133
+  },
+  {
+    "sequence": 19,
+    "request_id": "parte-parte-20260922-fault-019",
+    "status": 201,
+    "latency_seconds": 0.01837809999960882,
+    "schedule_lag_seconds": 0.00012819999938074034,
+    "completed_utc": "2026-09-22T12:54:58.056370+00:00",
+    "order_id": 134
+  },
+  {
+    "sequence": 20,
+    "request_id": "parte-parte-20260922-fault-020",
+    "status": 201,
+    "latency_seconds": 0.5257696999997279,
+    "schedule_lag_seconds": 0.00062189999880502,
+    "completed_utc": "2026-09-22T12:54:59.564253+00:00",
+    "order_id": 135
+  },
+  {
+    "sequence": 21,
+    "request_id": "parte-parte-20260922-fault-021",
+    "status": 201,
+    "latency_seconds": 0.03196439999919676,
+    "schedule_lag_seconds": 0.0005839999994350364,
+    "completed_utc": "2026-09-22T12:55:00.070411+00:00",
+    "order_id": 136
+  },
+  {
+    "sequence": 22,
+    "request_id": "parte-parte-20260922-fault-022",
+    "status": 201,
+    "latency_seconds": 0.04259199999978591,
+    "schedule_lag_seconds": 0.00045279999903868884,
+    "completed_utc": "2026-09-22T12:55:01.080908+00:00",
+    "order_id": 137
+  },
+  {
+    "sequence": 23,
+    "request_id": "parte-parte-20260922-fault-023",
+    "status": 201,
+    "latency_seconds": 0.03320239999993646,
+    "schedule_lag_seconds": 0.0002776000001176726,
+    "completed_utc": "2026-09-22T12:55:02.071342+00:00",
+    "order_id": 138
+  },
+  {
+    "sequence": 24,
+    "request_id": "parte-parte-20260922-fault-024",
+    "status": 201,
+    "latency_seconds": 0.04102950000014971,
+    "schedule_lag_seconds": 0.000391099998523714,
+    "completed_utc": "2026-09-22T12:55:03.079283+00:00",
+    "order_id": 139
+  },
+  {
+    "sequence": 25,
+    "request_id": "parte-parte-20260922-fault-025",
+    "status": 201,
+    "latency_seconds": 0.529883900000641,
+    "schedule_lag_seconds": 0.00032899999860092066,
+    "completed_utc": "2026-09-22T12:55:04.568077+00:00",
+    "order_id": 140
+  },
+  {
+    "sequence": 26,
+    "request_id": "parte-parte-20260922-fault-026",
+    "status": 201,
+    "latency_seconds": 0.017839300000559888,
+    "schedule_lag_seconds": 0.00015759999951114878,
+    "completed_utc": "2026-09-22T12:55:05.055861+00:00",
+    "order_id": 141
+  },
+  {
+    "sequence": 27,
+    "request_id": "parte-parte-20260922-fault-027",
+    "status": 201,
+    "latency_seconds": 0.03241139999954612,
+    "schedule_lag_seconds": 0.0006133999995654449,
+    "completed_utc": "2026-09-22T12:55:06.070888+00:00",
+    "order_id": 142
+  },
+  {
+    "sequence": 28,
+    "request_id": "parte-parte-20260922-fault-028",
+    "status": 201,
+    "latency_seconds": 0.036048699999810196,
+    "schedule_lag_seconds": 0.0004822999999305466,
+    "completed_utc": "2026-09-22T12:55:07.074394+00:00",
+    "order_id": 143
+  },
+  {
+    "sequence": 29,
+    "request_id": "parte-parte-20260922-fault-029",
+    "status": 201,
+    "latency_seconds": 0.04341229999954521,
+    "schedule_lag_seconds": 0.00034129999949072953,
+    "completed_utc": "2026-09-22T12:55:08.081623+00:00",
+    "order_id": 144
+  },
+  {
+    "sequence": 30,
+    "request_id": "parte-parte-20260922-fault-030",
+    "status": 201,
+    "latency_seconds": 0.5556437999985064,
+    "schedule_lag_seconds": 0.0003507000001263805,
+    "completed_utc": "2026-09-22T12:55:09.593861+00:00",
+    "order_id": 145
+  },
+  {
+    "sequence": 31,
+    "request_id": "parte-parte-20260922-fault-031",
+    "status": 201,
+    "latency_seconds": 0.08931119999942894,
+    "schedule_lag_seconds": 0.00038719999975000974,
+    "completed_utc": "2026-09-22T12:55:10.127562+00:00",
+    "order_id": 146
+  },
+  {
+    "sequence": 32,
+    "request_id": "parte-parte-20260922-fault-032",
+    "status": 201,
+    "latency_seconds": 0.04816659999960393,
+    "schedule_lag_seconds": 0.0002997999999934109,
+    "completed_utc": "2026-09-22T12:55:11.086329+00:00",
+    "order_id": 147
+  },
+  {
+    "sequence": 33,
+    "request_id": "parte-parte-20260922-fault-033",
+    "status": 201,
+    "latency_seconds": 0.031313900000895956,
+    "schedule_lag_seconds": 0.0002986999988934258,
+    "completed_utc": "2026-09-22T12:55:12.069475+00:00",
+    "order_id": 148
+  },
+  {
+    "sequence": 34,
+    "request_id": "parte-parte-20260922-fault-034",
+    "status": 201,
+    "latency_seconds": 0.04606920000151149,
+    "schedule_lag_seconds": 0.00037009999869042076,
+    "completed_utc": "2026-09-22T12:55:13.084301+00:00",
+    "order_id": 149
+  },
+  {
+    "sequence": 35,
+    "request_id": "parte-parte-20260922-fault-035",
+    "status": 201,
+    "latency_seconds": 0.5448040999999648,
+    "schedule_lag_seconds": 0.000481999999465188,
+    "completed_utc": "2026-09-22T12:55:14.583150+00:00",
+    "order_id": 150
+  },
+  {
+    "sequence": 36,
+    "request_id": "parte-parte-20260922-fault-036",
+    "status": 201,
+    "latency_seconds": 0.03163760000097682,
+    "schedule_lag_seconds": 0.000642699998934404,
+    "completed_utc": "2026-09-22T12:55:15.070143+00:00",
+    "order_id": 151
+  },
+  {
+    "sequence": 37,
+    "request_id": "parte-parte-20260922-fault-037",
+    "status": 201,
+    "latency_seconds": 0.023887900000772788,
+    "schedule_lag_seconds": 0.0003507999990688404,
+    "completed_utc": "2026-09-22T12:55:16.062100+00:00",
+    "order_id": 152
+  },
+  {
+    "sequence": 38,
+    "request_id": "parte-parte-20260922-fault-038",
+    "status": 201,
+    "latency_seconds": 0.036835100001553656,
+    "schedule_lag_seconds": 0.0006404999985534232,
+    "completed_utc": "2026-09-22T12:55:17.075339+00:00",
+    "order_id": 153
+  },
+  {
+    "sequence": 39,
+    "request_id": "parte-parte-20260922-fault-039",
+    "status": 201,
+    "latency_seconds": 0.025110599999607075,
+    "schedule_lag_seconds": 0.0006704999996145489,
+    "completed_utc": "2026-09-22T12:55:18.063644+00:00",
+    "order_id": 154
+  },
+  {
+    "sequence": 40,
+    "request_id": "parte-parte-20260922-fault-040",
+    "status": 201,
+    "latency_seconds": 0.5315815000012662,
+    "schedule_lag_seconds": 0.00041929999861167744,
+    "completed_utc": "2026-09-22T12:55:19.569863+00:00",
+    "order_id": 155
+  },
+  {
+    "sequence": 41,
+    "request_id": "parte-parte-20260922-fault-041",
+    "status": 201,
+    "latency_seconds": 0.0422350999997434,
+    "schedule_lag_seconds": 0.0006011999994370854,
+    "completed_utc": "2026-09-22T12:55:20.080699+00:00",
+    "order_id": 156
+  },
+  {
+    "sequence": 42,
+    "request_id": "parte-parte-20260922-fault-042",
+    "status": 201,
+    "latency_seconds": 0.05041720000008354,
+    "schedule_lag_seconds": 0.0004264999988663476,
+    "completed_utc": "2026-09-22T12:55:21.088706+00:00",
+    "order_id": 157
+  },
+  {
+    "sequence": 43,
+    "request_id": "parte-parte-20260922-fault-043",
+    "status": 201,
+    "latency_seconds": 0.04706680000163033,
+    "schedule_lag_seconds": 0.00036719999843626283,
+    "completed_utc": "2026-09-22T12:55:22.085296+00:00",
+    "order_id": 158
+  },
+  {
+    "sequence": 44,
+    "request_id": "parte-parte-20260922-fault-044",
+    "status": 201,
+    "latency_seconds": 0.0317140000006475,
+    "schedule_lag_seconds": 0.0006509999984700698,
+    "completed_utc": "2026-09-22T12:55:23.070227+00:00",
+    "order_id": 159
+  },
+  {
+    "sequence": 45,
+    "request_id": "parte-parte-20260922-fault-045",
+    "status": 201,
+    "latency_seconds": 0.536235099998521,
+    "schedule_lag_seconds": 0.0005516000001080101,
+    "completed_utc": "2026-09-22T12:55:24.574650+00:00",
+    "order_id": 160
+  },
+  {
+    "sequence": 46,
+    "request_id": "parte-parte-20260922-fault-046",
+    "status": 201,
+    "latency_seconds": 0.04366919999847596,
+    "schedule_lag_seconds": 0.0005178999999770895,
+    "completed_utc": "2026-09-22T12:55:25.082062+00:00",
+    "order_id": 161
+  },
+  {
+    "sequence": 47,
+    "request_id": "parte-parte-20260922-fault-047",
+    "status": 201,
+    "latency_seconds": 0.033520400000270456,
+    "schedule_lag_seconds": 0.0007881999990786426,
+    "completed_utc": "2026-09-22T12:55:26.072171+00:00",
+    "order_id": 162
+  },
+  {
+    "sequence": 48,
+    "request_id": "parte-parte-20260922-fault-048",
+    "status": 201,
+    "latency_seconds": 0.04618500000105996,
+    "schedule_lag_seconds": 0.0002040999988821568,
+    "completed_utc": "2026-09-22T12:55:27.084251+00:00",
+    "order_id": 163
+  },
+  {
+    "sequence": 49,
+    "request_id": "parte-parte-20260922-fault-049",
+    "status": 201,
+    "latency_seconds": 0.04747280000083265,
+    "schedule_lag_seconds": 0.0006091999985073926,
+    "completed_utc": "2026-09-22T12:55:28.085945+00:00",
+    "order_id": 164
+  },
+  {
+    "sequence": 50,
+    "request_id": "parte-parte-20260922-fault-050",
+    "status": 201,
+    "latency_seconds": 0.532379199999923,
+    "schedule_lag_seconds": 0.000729499999579275,
+    "completed_utc": "2026-09-22T12:55:29.570972+00:00",
+    "order_id": 165
+  },
+  {
+    "sequence": 51,
+    "request_id": "parte-parte-20260922-fault-051",
+    "status": 201,
+    "latency_seconds": 0.03708639999968,
+    "schedule_lag_seconds": 0.0002845999988494441,
+    "completed_utc": "2026-09-22T12:55:30.075233+00:00",
+    "order_id": 166
+  },
+  {
+    "sequence": 52,
+    "request_id": "parte-parte-20260922-fault-052",
+    "status": 201,
+    "latency_seconds": 0.04727459999958228,
+    "schedule_lag_seconds": 0.0005923999997321516,
+    "completed_utc": "2026-09-22T12:55:31.085730+00:00",
+    "order_id": 167
+  },
+  {
+    "sequence": 53,
+    "request_id": "parte-parte-20260922-fault-053",
+    "status": 201,
+    "latency_seconds": 0.021425800001452444,
+    "schedule_lag_seconds": 0.0004168999985267874,
+    "completed_utc": "2026-09-22T12:55:32.059705+00:00",
+    "order_id": 168
+  },
+  {
+    "sequence": 54,
+    "request_id": "parte-parte-20260922-fault-054",
+    "status": 201,
+    "latency_seconds": 0.01799080000091635,
+    "schedule_lag_seconds": 0.0005454999991343357,
+    "completed_utc": "2026-09-22T12:55:33.056399+00:00",
+    "order_id": 169
+  },
+  {
+    "sequence": 55,
+    "request_id": "parte-parte-20260922-fault-055",
+    "status": 201,
+    "latency_seconds": 0.5258976000004623,
+    "schedule_lag_seconds": 0.0003467999995336868,
+    "completed_utc": "2026-09-22T12:55:34.564106+00:00",
+    "order_id": 170
+  },
+  {
+    "sequence": 56,
+    "request_id": "parte-parte-20260922-fault-056",
+    "status": 201,
+    "latency_seconds": 0.03976159999911033,
+    "schedule_lag_seconds": 0.0005309999996825354,
+    "completed_utc": "2026-09-22T12:55:35.078155+00:00",
+    "order_id": 171
+  },
+  {
+    "sequence": 57,
+    "request_id": "parte-parte-20260922-fault-057",
+    "status": 201,
+    "latency_seconds": 0.03358960000150546,
+    "schedule_lag_seconds": 0.0006533999985549599,
+    "completed_utc": "2026-09-22T12:55:36.072105+00:00",
+    "order_id": 172
+  },
+  {
+    "sequence": 58,
+    "request_id": "parte-parte-20260922-fault-058",
+    "status": 201,
+    "latency_seconds": 0.020039600000018254,
+    "schedule_lag_seconds": 0.0001388000000588363,
+    "completed_utc": "2026-09-22T12:55:37.058040+00:00",
+    "order_id": 173
+  },
+  {
+    "sequence": 59,
+    "request_id": "parte-parte-20260922-fault-059",
+    "status": 201,
+    "latency_seconds": 0.03448439999920083,
+    "schedule_lag_seconds": 0.0003944000000046799,
+    "completed_utc": "2026-09-22T12:55:38.072740+00:00",
+    "order_id": 174
+  },
+  {
+    "sequence": 60,
+    "request_id": "parte-parte-20260922-fault-060",
+    "status": 201,
+    "latency_seconds": 0.5408628999994107,
+    "schedule_lag_seconds": 0.0004841999998461688,
+    "completed_utc": "2026-09-22T12:55:39.579211+00:00",
+    "order_id": 175
+  },
+  {
+    "sequence": 61,
+    "request_id": "parte-parte-20260922-fault-061",
+    "status": 201,
+    "latency_seconds": 0.04189619999851857,
+    "schedule_lag_seconds": 0.00047110000014072284,
+    "completed_utc": "2026-09-22T12:55:40.080230+00:00",
+    "order_id": 176
+  },
+  {
+    "sequence": 62,
+    "request_id": "parte-parte-20260922-fault-062",
+    "status": 201,
+    "latency_seconds": 0.03168379999988247,
+    "schedule_lag_seconds": 0.0006017999985488132,
+    "completed_utc": "2026-09-22T12:55:41.070147+00:00",
+    "order_id": 177
+  },
+  {
+    "sequence": 63,
+    "request_id": "parte-parte-20260922-fault-063",
+    "status": 201,
+    "latency_seconds": 0.04637679999905231,
+    "schedule_lag_seconds": 0.00022050000006856862,
+    "completed_utc": "2026-09-22T12:55:42.084460+00:00",
+    "order_id": 178
+  },
+  {
+    "sequence": 64,
+    "request_id": "parte-parte-20260922-fault-064",
+    "status": 201,
+    "latency_seconds": 0.022211600000446197,
+    "schedule_lag_seconds": 0.0002822999995260034,
+    "completed_utc": "2026-09-22T12:55:43.060357+00:00",
+    "order_id": 179
+  },
+  {
+    "sequence": 65,
+    "request_id": "parte-parte-20260922-fault-065",
+    "status": 201,
+    "latency_seconds": 0.5393861000011384,
+    "schedule_lag_seconds": 0.0006822999985161005,
+    "completed_utc": "2026-09-22T12:55:44.577931+00:00",
+    "order_id": 180
+  },
+  {
+    "sequence": 66,
+    "request_id": "parte-parte-20260922-fault-066",
+    "status": 201,
+    "latency_seconds": 0.04003839999859338,
+    "schedule_lag_seconds": 0.00046750000001338776,
+    "completed_utc": "2026-09-22T12:55:45.078382+00:00",
+    "order_id": 181
+  },
+  {
+    "sequence": 67,
+    "request_id": "parte-parte-20260922-fault-067",
+    "status": 201,
+    "latency_seconds": 0.05105360000015935,
+    "schedule_lag_seconds": 0.00046239999937824905,
+    "completed_utc": "2026-09-22T12:55:46.089378+00:00",
+    "order_id": 182
+  },
+  {
+    "sequence": 68,
+    "request_id": "parte-parte-20260922-fault-068",
+    "status": 201,
+    "latency_seconds": 0.040568599999460275,
+    "schedule_lag_seconds": 0.0002653999999893131,
+    "completed_utc": "2026-09-22T12:55:47.078697+00:00",
+    "order_id": 183
+  },
+  {
+    "sequence": 69,
+    "request_id": "parte-parte-20260922-fault-069",
+    "status": 201,
+    "latency_seconds": 0.02232719999847177,
+    "schedule_lag_seconds": 0.00037290000000211876,
+    "completed_utc": "2026-09-22T12:55:48.060561+00:00",
+    "order_id": 184
+  },
+  {
+    "sequence": 70,
+    "request_id": "parte-parte-20260922-fault-070",
+    "status": 201,
+    "latency_seconds": 0.5282074000006105,
+    "schedule_lag_seconds": 0.00025349999850732274,
+    "completed_utc": "2026-09-22T12:55:49.566322+00:00",
+    "order_id": 185
+  },
+  {
+    "sequence": 71,
+    "request_id": "parte-parte-20260922-fault-071",
+    "status": 201,
+    "latency_seconds": 0.04180549999909999,
+    "schedule_lag_seconds": 0.00036860000000160653,
+    "completed_utc": "2026-09-22T12:55:50.080037+00:00",
+    "order_id": 186
+  },
+  {
+    "sequence": 72,
+    "request_id": "parte-parte-20260922-fault-072",
+    "status": 201,
+    "latency_seconds": 0.04431099999965227,
+    "schedule_lag_seconds": 0.0004090999991603894,
+    "completed_utc": "2026-09-22T12:55:51.082588+00:00",
+    "order_id": 187
+  },
+  {
+    "sequence": 73,
+    "request_id": "parte-parte-20260922-fault-073",
+    "status": 201,
+    "latency_seconds": 0.019737200000236044,
+    "schedule_lag_seconds": 0.00021879999985685572,
+    "completed_utc": "2026-09-22T12:55:52.057818+00:00",
+    "order_id": 188
+  },
+  {
+    "sequence": 74,
+    "request_id": "parte-parte-20260922-fault-074",
+    "status": 201,
+    "latency_seconds": 0.024241900000561145,
+    "schedule_lag_seconds": 0.00022389999867300503,
+    "completed_utc": "2026-09-22T12:55:53.062328+00:00",
+    "order_id": 189
+  },
+  {
+    "sequence": 75,
+    "request_id": "parte-parte-20260922-fault-075",
+    "status": 201,
+    "latency_seconds": 0.5227167000011832,
+    "schedule_lag_seconds": 0.0002730999985942617,
+    "completed_utc": "2026-09-22T12:55:54.560852+00:00",
+    "order_id": 190
+  },
+  {
+    "sequence": 76,
+    "request_id": "parte-parte-20260922-fault-076",
+    "status": 201,
+    "latency_seconds": 0.028089400000681053,
+    "schedule_lag_seconds": 0.0005678999987139832,
+    "completed_utc": "2026-09-22T12:55:55.066521+00:00",
+    "order_id": 191
+  },
+  {
+    "sequence": 77,
+    "request_id": "parte-parte-20260922-fault-077",
+    "status": 201,
+    "latency_seconds": 0.02113639999879524,
+    "schedule_lag_seconds": 0.0006518999998661457,
+    "completed_utc": "2026-09-22T12:55:56.059652+00:00",
+    "order_id": 192
+  },
+  {
+    "sequence": 78,
+    "request_id": "parte-parte-20260922-fault-078",
+    "status": 201,
+    "latency_seconds": 0.042010600000139675,
+    "schedule_lag_seconds": 0.0001689000000624219,
+    "completed_utc": "2026-09-22T12:55:57.080043+00:00",
+    "order_id": 193
+  },
+  {
+    "sequence": 79,
+    "request_id": "parte-parte-20260922-fault-079",
+    "status": 201,
+    "latency_seconds": 0.03964749999977357,
+    "schedule_lag_seconds": 0.0003344999986438779,
+    "completed_utc": "2026-09-22T12:55:58.077844+00:00",
+    "order_id": 194
+  },
+  {
+    "sequence": 80,
+    "request_id": "parte-parte-20260922-fault-080",
+    "status": 201,
+    "latency_seconds": 0.5420934999983729,
+    "schedule_lag_seconds": 0.0006130000001576263,
+    "completed_utc": "2026-09-22T12:55:59.580568+00:00",
+    "order_id": 195
+  },
+  {
+    "sequence": 81,
+    "request_id": "parte-parte-20260922-fault-081",
+    "status": 201,
+    "latency_seconds": 0.020128500000282656,
+    "schedule_lag_seconds": 0.00022539999918080866,
+    "completed_utc": "2026-09-22T12:56:00.058217+00:00",
+    "order_id": 196
+  },
+  {
+    "sequence": 82,
+    "request_id": "parte-parte-20260922-fault-082",
+    "status": 201,
+    "latency_seconds": 0.0441900000005262,
+    "schedule_lag_seconds": 0.0004923999986203853,
+    "completed_utc": "2026-09-22T12:56:01.082559+00:00",
+    "order_id": 197
+  },
+  {
+    "sequence": 83,
+    "request_id": "parte-parte-20260922-fault-083",
+    "status": 201,
+    "latency_seconds": 0.02023430000008375,
+    "schedule_lag_seconds": 0.0005482999986270443,
+    "completed_utc": "2026-09-22T12:56:02.058646+00:00",
+    "order_id": 198
+  },
+  {
+    "sequence": 84,
+    "request_id": "parte-parte-20260922-fault-084",
+    "status": 201,
+    "latency_seconds": 0.04242809999959718,
+    "schedule_lag_seconds": 0.0002285999999003252,
+    "completed_utc": "2026-09-22T12:56:03.080519+00:00",
+    "order_id": 199
+  },
+  {
+    "sequence": 85,
+    "request_id": "parte-parte-20260922-fault-085",
+    "status": 201,
+    "latency_seconds": 0.5322409999989759,
+    "schedule_lag_seconds": 0.00030619999961345457,
+    "completed_utc": "2026-09-22T12:56:04.570411+00:00",
+    "order_id": 200
+  },
+  {
+    "sequence": 86,
+    "request_id": "parte-parte-20260922-fault-086",
+    "status": 201,
+    "latency_seconds": 0.020177100001092185,
+    "schedule_lag_seconds": 0.00024159999884432182,
+    "completed_utc": "2026-09-22T12:56:05.058281+00:00",
+    "order_id": 201
+  },
+  {
+    "sequence": 87,
+    "request_id": "parte-parte-20260922-fault-087",
+    "status": 201,
+    "latency_seconds": 0.043927200000325684,
+    "schedule_lag_seconds": 0.0004825999985769158,
+    "completed_utc": "2026-09-22T12:56:06.082271+00:00",
+    "order_id": 202
+  },
+  {
+    "sequence": 88,
+    "request_id": "parte-parte-20260922-fault-088",
+    "status": 201,
+    "latency_seconds": 0.04192890000012994,
+    "schedule_lag_seconds": 0.0004549999994196696,
+    "completed_utc": "2026-09-22T12:56:07.080245+00:00",
+    "order_id": 203
+  },
+  {
+    "sequence": 89,
+    "request_id": "parte-parte-20260922-fault-089",
+    "status": 201,
+    "latency_seconds": 0.036973300000681775,
+    "schedule_lag_seconds": 0.00031659999876865186,
+    "completed_utc": "2026-09-22T12:56:08.075152+00:00",
+    "order_id": 204
+  },
+  {
+    "sequence": 90,
+    "request_id": "parte-parte-20260922-fault-090",
+    "status": 201,
+    "latency_seconds": 0.5548330000001442,
+    "schedule_lag_seconds": 0.0003512999992381083,
+    "completed_utc": "2026-09-22T12:56:09.593048+00:00",
+    "order_id": 205
+  }
+]

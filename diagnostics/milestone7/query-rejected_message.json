@@ -1,0 +1,19 @@
+{
+    "query":  {
+                  "bool":  {
+                               "filter":  [
+                                              {
+                                                  "term":  {
+                                                               "request_id":  "pipeline-proof-20260922171843-rejected"
+                                                           }
+                                              },
+                                              {
+                                                  "match_phrase":  {
+                                                                       "message":  "order rejected"
+                                                                   }
+                                              }
+                                          ]
+                           }
+              },
+    "size":  10
+}

@@ -1,0 +1,8 @@
+# Explicit opt-in only; never used by ordinary `docker compose up`.
+# Run a single app worker, with no unrelated order traffic during measurement.
+services:
+  app:
+    environment:
+      PART_E_TEST_MODE: controlled-local-only
+    volumes:
+      - ./experiments/control:/app/experiment-control:ro

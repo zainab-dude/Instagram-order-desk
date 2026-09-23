@@ -1,0 +1,5 @@
+{
+    "title":  "observable-orders-v3-*",
+    "id":  "observable-orders-v3",
+    "timeFieldName":  "@timestamp"
+}

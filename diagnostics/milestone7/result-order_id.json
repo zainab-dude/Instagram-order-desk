@@ -1,0 +1,82 @@
+{
+    "took":  2,
+    "timed_out":  false,
+    "_shards":  {
+                    "total":  2,
+                    "successful":  2,
+                    "skipped":  0,
+                    "failed":  0
+                },
+    "hits":  {
+                 "total":  {
+                               "value":  1,
+                               "relation":  "eq"
+                           },
+                 "max_score":  1.0,
+                 "hits":  [
+                              {
+                                  "_index":  ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+                                  "_id":  "VEkOyaABnaXZkKJIKFD5",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "@timestamp":  "2026-09-22T12:18:43.875Z",
+                                                  "pipeline":  "observable-orders-docker",
+                                                  "agent":  {
+                                                                "id":  "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                                                                "name":  "0f4f8c6d0671",
+                                                                "type":  "filebeat",
+                                                                "version":  "8.15.3",
+                                                                "ephemeral_id":  "ec0bfc3c-8951-490d-8f93-b9e25a54bf16"
+                                                            },
+                                                  "log":  {
+                                                              "offset":  876067,
+                                                              "file":  {
+                                                                           "inode":  "13354",
+                                                                           "path":  "/var/lib/docker/containers/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a-json.log",
+                                                                           "device_id":  "2112"
+                                                                       }
+                                                          },
+                                                  "message":  "{\"message\":\"order created\",\"order_id\":20,\"request_id\":\"pipeline-proof-20260922171843\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-09-22T12:18:43.875352+00:00\"}\n",
+                                                  "input":  {
+                                                                "type":  "filestream"
+                                                            },
+                                                  "service":  {
+                                                                  "name":  "instagram-order-desk"
+                                                              },
+                                                  "severity":  "INFO",
+                                                  "order_id":  20,
+                                                  "ecs":  {
+                                                              "version":  "8.0.0"
+                                                          },
+                                                  "host":  {
+                                                               "name":  "0f4f8c6d0671"
+                                                           },
+                                                  "stream":  "stdout",
+                                                  "container":  {
+                                                                    "image":  {
+                                                                                  "name":  "assig1-app"
+                                                                              },
+                                                                    "name":  "observable-orders-app",
+                                                                    "labels":  {
+                                                                                   "com_docker_compose_project_working_dir":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                                                                                   "desktop_docker_io/ports_scheme":  "v2",
+                                                                                   "desktop_docker_io/ports/8000/tcp":  ":8000",
+                                                                                   "com_docker_compose_service":  "app",
+                                                                                   "com_docker_compose_config-hash":  "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                                                                                   "com_docker_compose_project_config_files":  "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                                                                                   "com_docker_compose_oneoff":  "False",
+                                                                                   "com_docker_compose_version":  "5.5.0",
+                                                                                   "com_docker_compose_container-number":  "1",
+                                                                                   "com_docker_compose_project":  "assig1",
+                                                                                   "com_docker_compose_depends_on":  "",
+                                                                                   "com_docker_compose_replace":  "observable-orders-app",
+                                                                                   "com_docker_compose_image":  "sha256:7629d94c665fb0a70113b9445567b31c0553c7157b78b5d873588a84320a0518"
+                                                                               },
+                                                                    "id":  "01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a"
+                                                                },
+                                                  "request_id":  "pipeline-proof-20260922171843"
+                                              }
+                              }
+                          ]
+             }
+}

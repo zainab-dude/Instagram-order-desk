@@ -1,0 +1,330 @@
+{
+  "normal": {
+    "client": {
+      "count": 90,
+      "successes": 90,
+      "errors": 0,
+      "mean_ms": 35.520307777874734,
+      "p95_ms": 47.420900000361144,
+      "max_ms": 49.477100001240615,
+      "requests_per_second": 0.9999973482626131,
+      "max_schedule_lag_ms": 2.2546000000147615
+    },
+    "server_exact_count": 90.0,
+    "server_exact_mean_ms": 17.809821533329444,
+    "prometheus": {
+      "mean_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081552.102,
+            "0.017868673283046685"
+          ]
+        }
+      ],
+      "p95_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081552.102,
+            "0.02425"
+          ]
+        }
+      ],
+      "requests_per_second": [
+        {
+          "metric": {},
+          "value": [
+            1790081552.102,
+            "0.8236942110977772"
+          ]
+        }
+      ],
+      "error_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081552.102,
+            "0"
+          ]
+        }
+      ],
+      "process_cpu_cores": [
+        {
+          "metric": {
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081552.102,
+            "0.005333638112654056"
+          ]
+        }
+      ],
+      "node_cpu_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081552.102,
+            "1.9906657776931347"
+          ]
+        }
+      ],
+      "scrape_up": [
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "node-exporter:9100",
+            "job": "node-exporter"
+          },
+          "value": [
+            1790081552.102,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081552.102,
+            "1"
+          ]
+        }
+      ]
+    },
+    "indexed_documents": 180,
+    "injections": 0,
+    "injection_request_ids": [],
+    "completed_logs": 90,
+    "cleanup_successes": 91,
+    "cleanup_total": 91
+  },
+  "fault": {
+    "client": {
+      "count": 90,
+      "successes": 90,
+      "errors": 0,
+      "mean_ms": 135.31335555554608,
+      "p95_ms": 542.953000000125,
+      "max_ms": 555.6437999985064,
+      "requests_per_second": 0.9999970886527156,
+      "max_schedule_lag_ms": 1.304800000070827
+    },
+    "server_exact_count": 90.0,
+    "server_exact_mean_ms": 119.65301208890904,
+    "prometheus": {
+      "mean_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081785.038,
+            "0.11965301208890905"
+          ]
+        }
+      ],
+      "p95_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081785.038,
+            "0.6875"
+          ]
+        }
+      ],
+      "requests_per_second": [
+        {
+          "metric": {},
+          "value": [
+            1790081785.038,
+            "0.8572081682413899"
+          ]
+        }
+      ],
+      "error_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081785.038,
+            "0"
+          ]
+        }
+      ],
+      "process_cpu_cores": [
+        {
+          "metric": {
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081785.038,
+            "0.005809966473636086"
+          ]
+        }
+      ],
+      "node_cpu_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081785.038,
+            "2.238461245404433"
+          ]
+        }
+      ],
+      "scrape_up": [
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "node-exporter:9100",
+            "job": "node-exporter"
+          },
+          "value": [
+            1790081785.038,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081785.038,
+            "1"
+          ]
+        }
+      ]
+    },
+    "indexed_documents": 198,
+    "injections": 18,
+    "injection_request_ids": [
+      "parte-parte-20260922-fault-005",
+      "parte-parte-20260922-fault-010",
+      "parte-parte-20260922-fault-015",
+      "parte-parte-20260922-fault-020",
+      "parte-parte-20260922-fault-025",
+      "parte-parte-20260922-fault-030",
+      "parte-parte-20260922-fault-035",
+      "parte-parte-20260922-fault-040",
+      "parte-parte-20260922-fault-045",
+      "parte-parte-20260922-fault-050",
+      "parte-parte-20260922-fault-055",
+      "parte-parte-20260922-fault-060",
+      "parte-parte-20260922-fault-065",
+      "parte-parte-20260922-fault-070",
+      "parte-parte-20260922-fault-075",
+      "parte-parte-20260922-fault-080",
+      "parte-parte-20260922-fault-085",
+      "parte-parte-20260922-fault-090"
+    ],
+    "completed_logs": 90,
+    "cleanup_successes": 91,
+    "cleanup_total": 91
+  },
+  "recovery": {
+    "client": {
+      "count": 90,
+      "successes": 90,
+      "errors": 0,
+      "mean_ms": 34.889251111114085,
+      "p95_ms": 48.82420000103593,
+      "max_ms": 67.75039999956789,
+      "requests_per_second": 0.999997629065307,
+      "max_schedule_lag_ms": 24.889800000892137
+    },
+    "server_exact_count": 90.0,
+    "server_exact_mean_ms": 18.373224188897236,
+    "prometheus": {
+      "mean_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081998.113,
+            "0.01837322418889724"
+          ]
+        }
+      ],
+      "p95_seconds": [
+        {
+          "metric": {},
+          "value": [
+            1790081998.113,
+            "0.024573863636363637"
+          ]
+        }
+      ],
+      "requests_per_second": [
+        {
+          "metric": {},
+          "value": [
+            1790081998.113,
+            "0.8572081682413899"
+          ]
+        }
+      ],
+      "error_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081998.113,
+            "0"
+          ]
+        }
+      ],
+      "process_cpu_cores": [
+        {
+          "metric": {
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081998.113,
+            "0.005428985065528801"
+          ]
+        }
+      ],
+      "node_cpu_percent": [
+        {
+          "metric": {},
+          "value": [
+            1790081998.113,
+            "2.0294403383114945"
+          ]
+        }
+      ],
+      "scrape_up": [
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "node-exporter:9100",
+            "job": "node-exporter"
+          },
+          "value": [
+            1790081998.113,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "__name__": "up",
+            "instance": "app:8000",
+            "job": "fastapi-app"
+          },
+          "value": [
+            1790081998.113,
+            "1"
+          ]
+        }
+      ]
+    },
+    "indexed_documents": 180,
+    "injections": 0,
+    "injection_request_ids": [],
+    "completed_logs": 90,
+    "cleanup_successes": 91,
+    "cleanup_total": 91
+  }
+}

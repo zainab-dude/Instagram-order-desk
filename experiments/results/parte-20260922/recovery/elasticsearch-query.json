@@ -1,0 +1,28 @@
+{
+  "size": 500,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "prefix": {
+            "request_id": "parte-parte-20260922-recovery-"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2026-09-22T12:58:13.113153+00:00",
+              "lte": "2026-09-22T12:59:43.113366+00:00"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

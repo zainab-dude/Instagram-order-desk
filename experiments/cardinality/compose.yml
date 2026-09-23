@@ -1,0 +1,30 @@
+# Explicit separate project, network, registry, ports and TSDB. No production mounts.
+services:
+  exporter:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    image: observable-cardinality-demo:local
+    command: ["python", "/demo/exporter.py", "--mode", "${CARDINALITY_MODE:-request-id}"]
+    volumes:
+      - ./exporter.py:/demo/exporter.py:ro
+    ports:
+      - "127.0.0.1:8010:8010"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8010/health')"]
+      interval: 5s
+      timeout: 2s
+      retries: 3
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention.time=7d
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - cardinality-data:/prometheus
+    ports:
+      - "127.0.0.1:9091:9090"
+volumes:
+  cardinality-data:

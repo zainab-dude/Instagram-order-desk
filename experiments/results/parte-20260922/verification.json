@@ -1,0 +1,252 @@
+{
+  "verified_at": "2026-09-23T08:18:00.394806+00:00",
+  "checks": {
+    "predictions_unchanged": true,
+    "control_disabled": true,
+    "identical_workload_hash": true,
+    "three_phases": true,
+    "normal_successes": true,
+    "normal_server_count": true,
+    "normal_injections": true,
+    "normal_indexed_events": true,
+    "normal_cleanup": true,
+    "normal_count": true,
+    "normal_minimum_up": true,
+    "fault_successes": true,
+    "fault_server_count": true,
+    "fault_injections": true,
+    "fault_indexed_events": true,
+    "fault_cleanup": true,
+    "fault_count": true,
+    "fault_minimum_up": true,
+    "recovery_successes": true,
+    "recovery_server_count": true,
+    "recovery_injections": true,
+    "recovery_indexed_events": true,
+    "recovery_cleanup": true,
+    "recovery_count": true,
+    "recovery_minimum_up": true,
+    "exact_fifth_request_cadence": true,
+    "stock_restored": true
+  },
+  "scrapes": {
+    "normal_count": {
+      "query": "count_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081537.102,
+                "6"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081537.102,
+                "6"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "normal_minimum_up": {
+      "query": "min_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081537.102,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081537.102,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "fault_count": {
+      "query": "count_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081770.038,
+                "6"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081770.038,
+                "6"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "fault_minimum_up": {
+      "query": "min_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081770.038,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081770.038,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recovery_count": {
+      "query": "count_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081983.113,
+                "6"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081983.113,
+                "6"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "recovery_minimum_up": {
+      "query": "min_over_time(up{job=~\"fastapi-app|node-exporter\"}[90s])",
+      "response": {
+        "status": "success",
+        "data": {
+          "resultType": "vector",
+          "result": [
+            {
+              "metric": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "value": [
+                1790081983.113,
+                "1"
+              ]
+            },
+            {
+              "metric": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "value": [
+                1790081983.113,
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "fixtures": [
+    {
+      "id": 9,
+      "name": "PART-E-parte-20260922-fault",
+      "variant": "TEST-ONLY",
+      "price": 1.0,
+      "stock_quantity": 91,
+      "reserved_quantity": 0,
+      "available_quantity": 91,
+      "sold_quantity": 0
+    },
+    {
+      "id": 8,
+      "name": "PART-E-parte-20260922-normal",
+      "variant": "TEST-ONLY",
+      "price": 1.0,
+      "stock_quantity": 91,
+      "reserved_quantity": 0,
+      "available_quantity": 91,
+      "sold_quantity": 0
+    },
+    {
+      "id": 10,
+      "name": "PART-E-parte-20260922-recovery",
+      "variant": "TEST-ONLY",
+      "price": 1.0,
+      "stock_quantity": 91,
+      "reserved_quantity": 0,
+      "available_quantity": 91,
+      "sold_quantity": 0
+    }
+  ]
+}

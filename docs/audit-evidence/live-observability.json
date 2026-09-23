@@ -1,0 +1,2355 @@
+{
+  "captured_utc": "2026-09-23T08:08:16.327626+00:00",
+  "services": {
+    "app": {
+      "status": 200,
+      "data": {
+        "status": "ok"
+      }
+    },
+    "home": {
+      "status": 200,
+      "data": "<!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <title>Order Desk</title>\r\n  <link rel=\"stylesheet\" href=\"/styles.css\">\r\n</head>\r\n<body>\r\n  <main>\r\n    <header><p class=\"eyebrow\">Instagram order desk</p><h1>Orders & inventory</h1><p>Record DM orders, reserve stock, and move each order through fulfilment.</p></header>\r\n    <p id=\"message\" role=\"status\"></p>\r\n    <section class=\"grid\">\r\n      <form id=\"product-form\" class=\"panel\">\r\n        <h2>Add product</h2>\r\n        <label>Name<input name=\"name\" required maxlength=\"120\"></label>\r\n        <label>Variant<input name=\"variant\" maxlength=\"120\" placeholder=\"e.g. Medium / Blue\"></label>\r\n        <label>Price<input name=\"price\" type=\"number\" min=\"0\" step=\"0.01\" required></label>\r\n        <label>Stock quantity<input name=\"stock_quantity\" type=\"number\" min=\"0\" step=\"1\" required></label>\r\n        <button>Add product</button>\r\n      </form>\r\n      <form id=\"order-form\" class=\"panel\">\r\n        <h2>Record order</h2>\r\n        <label>Customer reference<input name=\"customer_reference\" required maxlength=\"120\" placeholder=\"DM-2026-001\"></label>\r\n        <label>Product<select name=\"product_id\" id=\"product-select\" required></select></label>\r\n        <label>Quantity<input name=\"quantity\" type=\"number\" min=\"1\" step=\"1\" required></label>\r\n        <button>Reserve stock</button>\r\n      </form>\r\n    </section>\r\n    <section class=\"panel\"><div class=\"section-heading\"><h2>Inventory</h2><button id=\"refresh\" type=\"button\" class=\"secondary\">Refresh</button></div><div id=\"products\"></div></section>\r\n    <section class=\"panel\"><h2>Orders</h2><div id=\"orders\"></div></section>\r\n  </main>\r\n  <script src=\"/app.js\"></script>\r\n</body>\r\n</html>"
+    },
+    "prometheus": {
+      "status": 200,
+      "data": "Prometheus Server is Ready.\n"
+    },
+    "targets": {
+      "status": 200,
+      "data": {
+        "status": "success",
+        "data": {
+          "activeTargets": [
+            {
+              "discoveredLabels": {
+                "__address__": "app:8000",
+                "__metrics_path__": "/metrics",
+                "__scheme__": "http",
+                "__scrape_interval__": "15s",
+                "__scrape_timeout__": "10s",
+                "job": "fastapi-app"
+              },
+              "labels": {
+                "instance": "app:8000",
+                "job": "fastapi-app"
+              },
+              "scrapePool": "fastapi-app",
+              "scrapeUrl": "http://app:8000/metrics",
+              "globalUrl": "http://app:8000/metrics",
+              "lastError": "",
+              "lastScrape": "2026-09-23T08:08:08.050056329Z",
+              "lastScrapeDuration": 0.006267339,
+              "health": "up",
+              "scrapeInterval": "15s",
+              "scrapeTimeout": "10s"
+            },
+            {
+              "discoveredLabels": {
+                "__address__": "node-exporter:9100",
+                "__metrics_path__": "/metrics",
+                "__scheme__": "http",
+                "__scrape_interval__": "15s",
+                "__scrape_timeout__": "10s",
+                "job": "node-exporter"
+              },
+              "labels": {
+                "instance": "node-exporter:9100",
+                "job": "node-exporter"
+              },
+              "scrapePool": "node-exporter",
+              "scrapeUrl": "http://node-exporter:9100/metrics",
+              "globalUrl": "http://node-exporter:9100/metrics",
+              "lastError": "",
+              "lastScrape": "2026-09-23T08:08:15.921579747Z",
+              "lastScrapeDuration": 0.045773234,
+              "health": "up",
+              "scrapeInterval": "15s",
+              "scrapeTimeout": "10s"
+            }
+          ],
+          "droppedTargets": [],
+          "droppedTargetCounts": {
+            "fastapi-app": 0,
+            "node-exporter": 0
+          }
+        }
+      }
+    },
+    "grafana": {
+      "status": 200,
+      "data": {
+        "database": "ok",
+        "version": "12.1.1",
+        "commit": "df5de8219b41d1e639e003bf5f3a85913761d167"
+      }
+    },
+    "grafana_dashboard": {
+      "status": 401,
+      "error": "{\"extra\":null,\"message\":\"Unauthorized\",\"messageId\":\"auth.unauthorized\",\"statusCode\":401,\"traceID\":\"\"}\n"
+    },
+    "elasticsearch": {
+      "status": 200,
+      "data": {
+        "cluster_name": "docker-cluster",
+        "status": "yellow",
+        "timed_out": false,
+        "number_of_nodes": 1,
+        "number_of_data_nodes": 1,
+        "active_primary_shards": 39,
+        "active_shards": 39,
+        "relocating_shards": 0,
+        "initializing_shards": 0,
+        "unassigned_shards": 9,
+        "delayed_unassigned_shards": 0,
+        "number_of_pending_tasks": 0,
+        "number_of_in_flight_fetch": 0,
+        "task_max_waiting_in_queue_millis": 0,
+        "active_shards_percent_as_number": 81.25
+      }
+    },
+    "kibana": {
+      "status": 200,
+      "data": {
+        "name": "88927e15bdda",
+        "uuid": "98360c3c-2fdb-4357-99e0-4efc6d79e50c",
+        "version": {
+          "number": "8.15.3",
+          "build_hash": "3933429968aafb1ba31319fc38649d0f974044bf",
+          "build_number": 76711,
+          "build_snapshot": false,
+          "build_flavor": "traditional",
+          "build_date": "2024-10-09T11:11:51.946Z"
+        },
+        "status": {
+          "overall": {
+            "level": "available",
+            "summary": "All services and plugins are available"
+          },
+          "core": {
+            "elasticsearch": {
+              "level": "available",
+              "summary": "Elasticsearch is available",
+              "meta": {
+                "warningNodes": [],
+                "incompatibleNodes": []
+              }
+            },
+            "savedObjects": {
+              "level": "available",
+              "summary": "SavedObjects service has completed migrations and is available",
+              "meta": {
+                "migratedIndices": {
+                  "migrated": 0,
+                  "skipped": 0,
+                  "patched": 6
+                }
+              }
+            }
+          },
+          "plugins": {
+            "alerting": {
+              "level": "available",
+              "summary": "Alerting is (probably) ready",
+              "reported": true
+            },
+            "triggersActionsUi": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "transform": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "stackConnectors": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "searchPlayground": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "integrationAssistant": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "stackAlerts": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "ruleRegistry": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cases": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "timelines": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "sessionView": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "kubernetesSecurity": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "threatIntelligence": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityShared": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "metricsDataAccess": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "logsShared": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "aiops": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "discover": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "reporting": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "canvas": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "ml": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "searchInferenceEndpoints": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "elasticAssistant": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "logsExplorer": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "osquery": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "indexManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "textBasedLanguages": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "rollup": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "remoteClusters": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "crossClusterReplication": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "indexLifecycleManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "enterpriseSearch": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityAiAssistantManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "datasetQuality": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataQuality": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cloudSecurityPosture": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cloudDefend": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "securitySolution": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "securitySolutionEss": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "exploratoryView": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observability": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "uptime": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "synthetics": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "slo": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityLogsExplorer": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityOnboarding": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityAIAssistantApp": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "discoverEnhanced": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "links": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "infra": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "upgradeAssistant": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "monitoring": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "logstash": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "apm": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "ux": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "fleet": {
+              "level": "available",
+              "summary": "Fleet is setting up",
+              "reported": true
+            },
+            "urlForwarding": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "unifiedHistogram": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "uiActions": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "translations": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "share": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "searchConnectors": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "screenshotMode": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "savedObjectsFinder": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "runtimeFields": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "noDataPage": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "monitoringCollection": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "licenseApiGuard": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "kibanaUtils": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "kibanaReact": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "ftrApis": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "fieldsMetadata": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "fieldFormats": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "expressions": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "esUiShared": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "discoverShared": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "customIntegrations": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "contentManagement": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "bfetch": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "assetsDataAccess": {
+              "level": "available",
+              "summary": "All services are available"
+            },
+            "devTools": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "inspector": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "usageCollection": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "telemetryCollectionManager": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "telemetryCollectionXpack": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "kibanaUsageCollection": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cloud": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "newsfeed": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "mapsEms": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "globalSearch": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "globalSearchProviders": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "features": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "guidedOnboarding": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "banners": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "customBranding": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "screenshotting": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataViews": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "home": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "searchprofiler": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "painlessLab": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "management": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "spaces": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "security": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "telemetry": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "licenseManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "snapshotRestore": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "lists": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "files": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "filesManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "encryptedSavedObjects": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "entityManager": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cloudLinks": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "eventLog": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "actions": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "observabilityAIAssistant": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "investigate": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "notifications": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "cloudDataMigration": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "aiAssistantManagementSelection": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "advancedSettings": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "telemetryManagementSection": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "grokdebugger": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "console": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "searchNotebooks": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "searchHomepage": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "data": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "unifiedDocViewer": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "savedObjects": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "savedObjectsTaggingOss": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "savedObjectsTagging": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "globalSearchBar": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "savedObjectsManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "unifiedSearch": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "navigation": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "graph": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "presentationPanel": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "embeddable": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "uiActionsEnhanced": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "urlDrilldown": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "embeddableEnhanced": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "imageEmbeddable": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "savedSearch": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "presentationUtil": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionShape": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionRevealImage": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionRepeatImage": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionMetric": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionImage": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionError": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "controls": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "logsDataAccess": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "fileUpload": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "ingestPipelines": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "esqlDataGrid": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "ecsDataQualityDashboard": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataViewFieldEditor": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataViewEditor": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "kibanaOverview": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataViewManagement": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "charts": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "watcher": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visualizations": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeXy": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeVislib": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeVega": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeTimeseries": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeTimelion": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeTagcloud": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeTable": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeMetric": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeMarkdown": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeHeatmap": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visDefaultEditor": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "inputControlVis": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionTagcloud": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionPartitionVis": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypePie": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionMetricVis": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionLegacyMetricVis": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionHeatmap": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionGauge": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "visTypeGauge": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "eventAnnotation": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "expressionXY": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "lens": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "maps": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dataVisualizer": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "eventAnnotationListing": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dashboard": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "dashboardEnhanced": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "apmDataAccess": {
+              "level": "available",
+              "summary": "All services and plugins are available"
+            },
+            "licensing": {
+              "level": "available",
+              "summary": "License fetched",
+              "reported": true
+            },
+            "taskManager": {
+              "level": "available",
+              "summary": "Task Manager is healthy",
+              "reported": true
+            }
+          }
+        },
+        "metrics": {
+          "last_updated": "2026-09-23T08:08:14.139Z",
+          "collection_interval_in_millis": 5000,
+          "os": {
+            "platform": "linux",
+            "platformRelease": "linux-6.18.33.2-microsoft-standard-WSL2",
+            "load": {
+              "1m": 0.25,
+              "5m": 0.53,
+              "15m": 0.38
+            },
+            "memory": {
+              "total_in_bytes": 8182685696,
+              "free_in_bytes": 5155233792,
+              "used_in_bytes": 3027451904
+            },
+            "uptime_in_millis": 999580,
+            "distro": "Ubuntu",
+            "distroRelease": "Ubuntu-20.04",
+            "cpu": {
+              "cfs_quota_micros": -1,
+              "cfs_period_micros": 100000,
+              "control_group": "/",
+              "stat": {
+                "number_of_elapsed_periods": 0,
+                "number_of_times_throttled": 0,
+                "time_throttled_nanos": 0
+              }
+            },
+            "cpuacct": {
+              "control_group": "/",
+              "usage_nanos": 58134169
+            },
+            "cgroup_memory": {
+              "current_in_bytes": 1089351680,
+              "swap_current_in_bytes": 0
+            }
+          },
+          "process": {
+            "memory": {
+              "heap": {
+                "total_in_bytes": 439095296,
+                "used_in_bytes": 370124944,
+                "size_limit": 2197815296
+              },
+              "resident_set_size_in_bytes": 563027968,
+              "array_buffers_in_bytes": 784317,
+              "external_in_bytes": 4357556
+            },
+            "pid": 7,
+            "event_loop_delay": 12.140543,
+            "event_loop_delay_histogram": {
+              "min": 9.0112,
+              "max": 12.140543,
+              "mean": 10.159172822810591,
+              "exceeds": 0,
+              "stddev": 0.42137407925175213,
+              "fromTimestamp": "2026-09-23T08:08:09.140Z",
+              "lastUpdatedAt": "2026-09-23T08:08:14.136Z",
+              "percentiles": {
+                "50": 10.108927,
+                "75": 10.387455,
+                "95": 10.919935,
+                "99": 11.149311
+              }
+            },
+            "event_loop_utilization": {
+              "active": 229.87206800008425,
+              "idle": 4766.560747999989,
+              "utilization": 0.04600723685585546
+            },
+            "uptime_in_millis": 373981.124539
+          },
+          "processes": [
+            {
+              "memory": {
+                "heap": {
+                  "total_in_bytes": 439095296,
+                  "used_in_bytes": 370124944,
+                  "size_limit": 2197815296
+                },
+                "resident_set_size_in_bytes": 563027968,
+                "array_buffers_in_bytes": 784317,
+                "external_in_bytes": 4357556
+              },
+              "pid": 7,
+              "event_loop_delay": 12.140543,
+              "event_loop_delay_histogram": {
+                "min": 9.0112,
+                "max": 12.140543,
+                "mean": 10.159172822810591,
+                "exceeds": 0,
+                "stddev": 0.42137407925175213,
+                "fromTimestamp": "2026-09-23T08:08:09.140Z",
+                "lastUpdatedAt": "2026-09-23T08:08:14.136Z",
+                "percentiles": {
+                  "50": 10.108927,
+                  "75": 10.387455,
+                  "95": 10.919935,
+                  "99": 11.149311
+                }
+              },
+              "event_loop_utilization": {
+                "active": 229.87206800008425,
+                "idle": 4766.560747999989,
+                "utilization": 0.04600723685585546
+              },
+              "uptime_in_millis": 373981.124539
+            }
+          ],
+          "response_times": {
+            "avg_in_millis": 0,
+            "max_in_millis": 0
+          },
+          "concurrent_connections": 0,
+          "requests": {
+            "disconnects": 0,
+            "total": 0,
+            "statusCodes": {},
+            "status_codes": {}
+          },
+          "elasticsearch_client": {
+            "totalActiveSockets": 0,
+            "totalIdleSockets": 4,
+            "totalQueuedRequests": 0
+          }
+        }
+      }
+    },
+    "data_views": {
+      "status": 200,
+      "data": {
+        "data_view": [
+          {
+            "id": "observable-orders-v3",
+            "namespaces": [
+              "default"
+            ],
+            "title": "observable-orders-v3-*",
+            "name": "Observable Orders Logs"
+          }
+        ]
+      }
+    },
+    "es_lifecycle": {
+      "status": 200,
+      "data": {
+        "data_streams": [
+          {
+            "name": "observable-orders-v3-2026.09.20"
+          },
+          {
+            "name": "observable-orders-v3-2026.09.22"
+          },
+          {
+            "name": "observable-orders-v3-2026.09.23"
+          }
+        ]
+      }
+    }
+  },
+  "panel_queries": [
+    {
+      "panel": "Orders created",
+      "query": "orders_created_total",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "__name__": "orders_created_total",
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.474,
+                  "60"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Pending orders",
+      "query": "pending_orders",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "__name__": "pending_orders",
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.485,
+                  "16"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Completed orders",
+      "query": "orders_completed_total",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "__name__": "orders_completed_total",
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.489,
+                  "30"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Cancelled orders",
+      "query": "orders_cancelled_total",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "__name__": "orders_cancelled_total",
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.494,
+                  "30"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Rejected orders",
+      "query": "orders_rejected_total",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "__name__": "orders_rejected_total",
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.498,
+                  "6"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Order creation rate",
+      "query": "rate(orders_created_total[5m])",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "instance": "app:8000",
+                  "job": "fastapi-app"
+                },
+                "value": [
+                  1790150896.501,
+                  "0.2059309425222823"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Request rate by route",
+      "query": "sum by (route) (rate(http_requests_total[5m]))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "route": "/health"
+                },
+                "value": [
+                  1790150896.508,
+                  "0.03509018176714156"
+                ]
+              },
+              {
+                "metric": {
+                  "route": "/metrics"
+                },
+                "value": [
+                  1790150896.508,
+                  "0.06316232718085481"
+                ]
+              },
+              {
+                "metric": {
+                  "route": "/api/products"
+                },
+                "value": [
+                  1790150896.508,
+                  "0"
+                ]
+              },
+              {
+                "metric": {
+                  "route": "/api/orders"
+                },
+                "value": [
+                  1790150896.508,
+                  "0.20520254753496267"
+                ]
+              },
+              {
+                "metric": {
+                  "route": "/api/orders/{order_id}/status"
+                },
+                "value": [
+                  1790150896.508,
+                  "0.3876468435247604"
+                ]
+              },
+              {
+                "metric": {
+                  "route": "/api/products/{product_id}/stock"
+                },
+                "value": [
+                  1790150896.508,
+                  "0"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "HTTP error rate",
+      "query": "100 * (sum(rate(http_requests_total{status_code=~\"4..|5..\"}[5m])) or vector(0)) / clamp_min(sum(rate(http_requests_total[5m])), 1e-9)",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {},
+                "value": [
+                  1790150896.512,
+                  "2.185871485903312"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Response latency and p95",
+      "query": "sum(rate(http_request_duration_seconds_sum[5m])) / sum(rate(http_request_duration_seconds_count[5m]))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {},
+                "value": [
+                  1790150896.519,
+                  "0.013542248133481267"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Response latency and p95",
+      "query": "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[5m])))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {},
+                "value": [
+                  1790150896.526,
+                  "0.024756206896715878"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Infrastructure CPU usage",
+      "query": "100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{job=\"node-exporter\",mode=\"idle\"}[5m])))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "instance": "node-exporter:9100"
+                },
+                "value": [
+                  1790150896.53,
+                  "3.3425795313388518"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Infrastructure memory usage",
+      "query": "100 * (1 - node_memory_MemAvailable_bytes{job=\"node-exporter\"} / node_memory_MemTotal_bytes{job=\"node-exporter\"})",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "instance": "node-exporter:9100",
+                  "job": "node-exporter"
+                },
+                "value": [
+                  1790150896.534,
+                  "37.13392126848226"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Infrastructure disk usage",
+      "query": "100 * (1 - node_filesystem_avail_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"} / node_filesystem_size_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"})",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "device": "/dev/sdd",
+                  "fstype": "ext4",
+                  "instance": "node-exporter:9100",
+                  "job": "node-exporter",
+                  "mountpoint": "/mnt/docker-desktop-disk"
+                },
+                "value": [
+                  1790150896.537,
+                  "5.78558517744725"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Infrastructure network traffic",
+      "query": "sum by (device) (rate(node_network_receive_bytes_total{job=\"node-exporter\",device!~\"lo\"}[5m]))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "device": "eth0"
+                },
+                "value": [
+                  1790150896.542,
+                  "47.28719708613175"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Infrastructure network traffic",
+      "query": "sum by (device) (rate(node_network_transmit_bytes_total{job=\"node-exporter\",device!~\"lo\"}[5m]))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "device": "eth0"
+                },
+                "value": [
+                  1790150896.547,
+                  "979.9215389042113"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "panel": "Order lifecycle average (Summary)",
+      "query": "sum by (terminal_status) (rate(order_processing_seconds_sum[5m])) / sum by (terminal_status) (rate(order_processing_seconds_count[5m]))",
+      "result": {
+        "status": 200,
+        "data": {
+          "status": "success",
+          "data": {
+            "resultType": "vector",
+            "result": [
+              {
+                "metric": {
+                  "terminal_status": "COMPLETED"
+                },
+                "value": [
+                  1790150896.552,
+                  "1.5457848076923077"
+                ]
+              },
+              {
+                "metric": {
+                  "terminal_status": "CANCELLED"
+                },
+                "value": [
+                  1790150896.552,
+                  "1.5226523461538464"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "logs": {
+    "latest_normal": {
+      "status": 200,
+      "data": {
+        "took": 24,
+        "timed_out": false,
+        "_shards": {
+          "total": 3,
+          "successful": 3,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 376,
+            "relation": "eq"
+          },
+          "max_score": 1.0,
+          "hits": [
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "7_JNzaABZXVrnFbdvuaB",
+              "_score": 1.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.473Z",
+                "log": {
+                  "offset": 160797,
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  }
+                },
+                "message": "{\"message\":\"order cancelled\",\"new_status\":\"CANCELLED\",\"old_status\":\"PENDING\",\"order_id\":356,\"request_id\":\"normal-20260923T080543Z-060\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-09-23T08:06:48.472667+00:00\"}\n",
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "request_id": "normal-20260923T080543Z-060",
+                "pipeline": "observable-orders-docker",
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                },
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "stream": "stdout",
+                "input": {
+                  "type": "filestream"
+                },
+                "container": {
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "labels": {
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_depends_on": "",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_oneoff": "False"
+                  }
+                },
+                "severity": "INFO",
+                "order_id": 356
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "8PJNzaABZXVrnFbdvuaB",
+              "_score": 1.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.473Z",
+                "severity": "INFO",
+                "log": {
+                  "offset": 161142,
+                  "file": {
+                    "inode": "13370",
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096"
+                  }
+                },
+                "stream": "stdout",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "request_id": "normal-20260923T080543Z-060",
+                "pipeline": "observable-orders-docker",
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "message": "{\"duration_ms\":26.22,\"message\":\"request completed\",\"method\":\"PATCH\",\"path\":\"/api/orders/356/status\",\"request_id\":\"normal-20260923T080543Z-060\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"status_code\":200,\"timestamp\":\"2026-09-23T08:06:48.473373+00:00\"}\n",
+                "input": {
+                  "type": "filestream"
+                },
+                "container": {
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "labels": {
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_version": "5.5.0",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_depends_on": "",
+                    "desktop_docker_io/ports_scheme": "v2"
+                  },
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "8vJNzaABZXVrnFbdvuaB",
+              "_score": 1.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.478Z",
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                },
+                "stream": "stdout",
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-060-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:48.478076+00:00\"}\n",
+                "container": {
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_oneoff": "False",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_container-number": "1"
+                  }
+                },
+                "severity": "WARNING",
+                "request_id": "normal-20260923T080543Z-060-rejected",
+                "pipeline": "observable-orders-docker",
+                "log": {
+                  "offset": 161663,
+                  "file": {
+                    "device_id": "2096",
+                    "inode": "13370",
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log"
+                  }
+                },
+                "input": {
+                  "type": "filestream"
+                },
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "8_JNzaABZXVrnFbdvuaB",
+              "_score": 1.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.478Z",
+                "pipeline": "observable-orders-docker",
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "agent": {
+                  "version": "8.15.3",
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat"
+                },
+                "message": "{\"duration_ms\":2.03,\"message\":\"invalid request\",\"method\":\"POST\",\"path\":\"/api/orders\",\"request_id\":\"normal-20260923T080543Z-060-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"status_code\":400,\"timestamp\":\"2026-09-23T08:06:48.478651+00:00\"}\n",
+                "stream": "stdout",
+                "input": {
+                  "type": "filestream"
+                },
+                "request_id": "normal-20260923T080543Z-060-rejected",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "log": {
+                  "offset": 161946,
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  }
+                },
+                "container": {
+                  "name": "observable-orders-app",
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "labels": {
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_project": "assig1"
+                  },
+                  "image": {
+                    "name": "assig1-app"
+                  }
+                },
+                "severity": "WARNING"
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "9fJNzaABZXVrnFbdvuaB",
+              "_score": 1.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.515Z",
+                "log": {
+                  "offset": 162460,
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  }
+                },
+                "pipeline": "observable-orders-docker",
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "severity": "INFO",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "message": "{\"message\":\"stock updated\",\"product_id\":11,\"request_id\":\"normal-20260923T080543Z-restock\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-09-23T08:06:48.515694+00:00\"}\n",
+                "stream": "stdout",
+                "input": {
+                  "type": "filestream"
+                },
+                "container": {
+                  "labels": {
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_service": "app"
+                  },
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "name": "observable-orders-app"
+                },
+                "request_id": "normal-20260923T080543Z-restock",
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "latest_rejected": {
+      "status": 200,
+      "data": {
+        "took": 64,
+        "timed_out": false,
+        "_shards": {
+          "total": 3,
+          "successful": 3,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 6,
+            "relation": "eq"
+          },
+          "max_score": 0.0,
+          "hits": [
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "8vJNzaABZXVrnFbdvuaB",
+              "_score": 0.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:48.478Z",
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                },
+                "stream": "stdout",
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-060-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:48.478076+00:00\"}\n",
+                "container": {
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_oneoff": "False",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_container-number": "1"
+                  }
+                },
+                "severity": "WARNING",
+                "request_id": "normal-20260923T080543Z-060-rejected",
+                "pipeline": "observable-orders-docker",
+                "log": {
+                  "offset": 161663,
+                  "file": {
+                    "device_id": "2096",
+                    "inode": "13370",
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log"
+                  }
+                },
+                "input": {
+                  "type": "filestream"
+                },
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "kfJNzaABZXVrnFbdl-Zn",
+              "_score": 0.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:37.751Z",
+                "stream": "stdout",
+                "input": {
+                  "type": "filestream"
+                },
+                "request_id": "normal-20260923T080543Z-050-rejected",
+                "pipeline": "observable-orders-docker",
+                "log": {
+                  "offset": 134629,
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  }
+                },
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-050-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:37.751012+00:00\"}\n",
+                "container": {
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "desktop_docker_io/ports/8000/tcp": ":8000"
+                  }
+                },
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "severity": "WARNING",
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "agent": {
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3",
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "NPJNzaABZXVrnFbdSeYw",
+              "_score": 0.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:26.995Z",
+                "log": {
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  },
+                  "offset": 108583
+                },
+                "container": {
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_container-number": "1",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_oneoff": "False"
+                  },
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "image": {
+                    "name": "assig1-app"
+                  }
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "severity": "WARNING",
+                "request_id": "normal-20260923T080543Z-040-rejected",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "stream": "stdout",
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-040-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:26.994778+00:00\"}\n",
+                "input": {
+                  "type": "filestream"
+                },
+                "pipeline": "observable-orders-docker",
+                "agent": {
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3",
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "1fJNzaABZXVrnFbdIuUV",
+              "_score": 0.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:16.196Z",
+                "container": {
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "labels": {
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_service": "app",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_depends_on": "",
+                    "desktop_docker_io/ports_scheme": "v2"
+                  }
+                },
+                "request_id": "normal-20260923T080543Z-030-rejected",
+                "severity": "WARNING",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "log": {
+                  "offset": 82050,
+                  "file": {
+                    "device_id": "2096",
+                    "inode": "13370",
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log"
+                  }
+                },
+                "stream": "stdout",
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-030-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:16.196213+00:00\"}\n",
+                "input": {
+                  "type": "filestream"
+                },
+                "pipeline": "observable-orders-docker",
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "agent": {
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3"
+                }
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.23-2026.09.23-000001",
+              "_id": "dPJMzaABZXVrnFbd-uX5",
+              "_score": 0.0,
+              "_source": {
+                "@timestamp": "2026-09-23T08:06:05.476Z",
+                "pipeline": "observable-orders-docker",
+                "agent": {
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3",
+                  "ephemeral_id": "f2d1be33-e61a-4cff-9787-6f3d097ce54f"
+                },
+                "request_id": "normal-20260923T080543Z-020-rejected",
+                "log": {
+                  "offset": 55027,
+                  "file": {
+                    "path": "/var/lib/docker/containers/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d/57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d-json.log",
+                    "device_id": "2096",
+                    "inode": "13370"
+                  }
+                },
+                "stream": "stdout",
+                "message": "{\"message\":\"order rejected\",\"request_id\":\"normal-20260923T080543Z-020-rejected\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"WARNING\",\"timestamp\":\"2026-09-23T08:06:05.476380+00:00\"}\n",
+                "input": {
+                  "type": "filestream"
+                },
+                "container": {
+                  "id": "57893976df277e74706798f1ca10a36c3493ea20f951fe95e4d5a8c0979f506d",
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_image": "sha256:cc86d47a5c1fcc9e50d47e3504129b5113edce1ad77c6e494015b2c7bde1c784",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_project": "assig1",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1"
+                  }
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "severity": "WARNING",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "original_proof": {
+      "status": 200,
+      "data": {
+        "took": 3,
+        "timed_out": false,
+        "_shards": {
+          "total": 3,
+          "successful": 3,
+          "skipped": 0,
+          "failed": 0
+        },
+        "hits": {
+          "total": {
+            "value": 2,
+            "relation": "eq"
+          },
+          "max_score": 6.6551824,
+          "hits": [
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+              "_id": "VEkOyaABnaXZkKJIKFD5",
+              "_score": 6.6551824,
+              "_source": {
+                "@timestamp": "2026-09-22T12:18:43.875Z",
+                "pipeline": "observable-orders-docker",
+                "agent": {
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671",
+                  "type": "filebeat",
+                  "version": "8.15.3",
+                  "ephemeral_id": "ec0bfc3c-8951-490d-8f93-b9e25a54bf16"
+                },
+                "log": {
+                  "offset": 876067,
+                  "file": {
+                    "inode": "13354",
+                    "path": "/var/lib/docker/containers/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a-json.log",
+                    "device_id": "2112"
+                  }
+                },
+                "message": "{\"message\":\"order created\",\"order_id\":20,\"request_id\":\"pipeline-proof-20260922171843\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-09-22T12:18:43.875352+00:00\"}\n",
+                "input": {
+                  "type": "filestream"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "severity": "INFO",
+                "order_id": 20,
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "stream": "stdout",
+                "container": {
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_depends_on": "",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_image": "sha256:7629d94c665fb0a70113b9445567b31c0553c7157b78b5d873588a84320a0518"
+                  },
+                  "id": "01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a"
+                },
+                "request_id": "pipeline-proof-20260922171843"
+              }
+            },
+            {
+              "_index": ".ds-observable-orders-v3-2026.09.22-2026.09.22-000001",
+              "_id": "VUkOyaABnaXZkKJIKFD5",
+              "_score": 6.6551824,
+              "_source": {
+                "@timestamp": "2026-09-22T12:18:43.875Z",
+                "stream": "stdout",
+                "input": {
+                  "type": "filestream"
+                },
+                "service": {
+                  "name": "instagram-order-desk"
+                },
+                "pipeline": "observable-orders-docker",
+                "ecs": {
+                  "version": "8.0.0"
+                },
+                "request_id": "pipeline-proof-20260922171843",
+                "agent": {
+                  "type": "filebeat",
+                  "version": "8.15.3",
+                  "ephemeral_id": "ec0bfc3c-8951-490d-8f93-b9e25a54bf16",
+                  "id": "7f7e621b-14a0-4fe4-8ce7-3dc8824fb730",
+                  "name": "0f4f8c6d0671"
+                },
+                "log": {
+                  "offset": 876354,
+                  "file": {
+                    "inode": "13354",
+                    "path": "/var/lib/docker/containers/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a/01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a-json.log",
+                    "device_id": "2112"
+                  }
+                },
+                "message": "{\"duration_ms\":18.34,\"message\":\"request completed\",\"method\":\"POST\",\"path\":\"/api/orders\",\"request_id\":\"pipeline-proof-20260922171843\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"status_code\":201,\"timestamp\":\"2026-09-22T12:18:43.875815+00:00\"}\n",
+                "container": {
+                  "id": "01aa9e4d50f96666e8a02ca86eab4a6fbe54f5e54c8fff69262482f80dabf99a",
+                  "image": {
+                    "name": "assig1-app"
+                  },
+                  "name": "observable-orders-app",
+                  "labels": {
+                    "com_docker_compose_project_config_files": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1\\docker-compose.yml",
+                    "com_docker_compose_image": "sha256:7629d94c665fb0a70113b9445567b31c0553c7157b78b5d873588a84320a0518",
+                    "desktop_docker_io/ports_scheme": "v2",
+                    "desktop_docker_io/ports/8000/tcp": ":8000",
+                    "com_docker_compose_oneoff": "False",
+                    "com_docker_compose_project": "assig1",
+                    "com_docker_compose_project_working_dir": "C:\\Users\\Dell\\OneDrive - Habib University\\sem7\\ESD\\assig1",
+                    "com_docker_compose_config-hash": "0cf6bc036b478399598e9d58c883478040bb780db7566a1ae1fd788ce1e07d51",
+                    "com_docker_compose_service": "app",
+                    "com_docker_compose_container-number": "1",
+                    "com_docker_compose_replace": "observable-orders-app",
+                    "com_docker_compose_version": "5.5.0",
+                    "com_docker_compose_depends_on": ""
+                  }
+                },
+                "host": {
+                  "name": "0f4f8c6d0671"
+                },
+                "severity": "INFO"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "normal_prefix": "normal-20260923T080543Z"
+}

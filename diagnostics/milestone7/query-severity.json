@@ -1,0 +1,19 @@
+{
+    "query":  {
+                  "bool":  {
+                               "filter":  [
+                                              {
+                                                  "term":  {
+                                                               "request_id":  "pipeline-proof-20260922171843"
+                                                           }
+                                              },
+                                              {
+                                                  "term":  {
+                                                               "severity":  "INFO"
+                                                           }
+                                              }
+                                          ]
+                           }
+              },
+    "size":  10
+}

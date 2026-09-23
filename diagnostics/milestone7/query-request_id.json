@@ -1,0 +1,8 @@
+{
+    "query":  {
+                  "term":  {
+                               "request_id":  "pipeline-proof-20260922171843"
+                           }
+              },
+    "size":  10
+}

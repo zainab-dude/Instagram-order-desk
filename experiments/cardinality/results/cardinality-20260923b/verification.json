@@ -1,0 +1,12 @@
+{
+  "request-id_exact_workload": true,
+  "request-id_series_shape": true,
+  "request-id_observed_count": true,
+  "request-id_total_requests": true,
+  "no-label_exact_workload": true,
+  "no-label_series_shape": true,
+  "no-label_observed_count": true,
+  "no-label_total_requests": true,
+  "old_instant_count_preserved": true,
+  "old_and_new_series_retained": true
+}

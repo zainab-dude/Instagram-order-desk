@@ -1,0 +1,6 @@
+# HELP demo_requests_total Accepted local demo requests.
+# TYPE demo_requests_total counter
+demo_requests_total 100.0
+# HELP demo_requests_created Accepted local demo requests.
+# TYPE demo_requests_created gauge
+demo_requests_created 1.7901880180679324e+09

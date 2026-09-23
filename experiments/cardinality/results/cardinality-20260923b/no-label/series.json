@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "__name__": "demo_requests_total",
+          "instance": "exporter:8010",
+          "job": "cardinality-demo"
+        },
+        "value": [
+          1790188024.294,
+          "100"
+        ]
+      }
+    ]
+  }
+}
