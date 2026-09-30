@@ -1,0 +1,812 @@
+[
+  {
+    "sequence": 1,
+    "request_id": "parte-manual-capture-2-fault-001",
+    "status": 201,
+    "latency_seconds": 0.01887589999978445,
+    "schedule_lag_seconds": 0.0007869999999456923,
+    "completed_utc": "2026-09-30T04:21:09.929059+00:00",
+    "order_id": 510
+  },
+  {
+    "sequence": 2,
+    "request_id": "parte-manual-capture-2-fault-002",
+    "status": 201,
+    "latency_seconds": 0.026570399999855,
+    "schedule_lag_seconds": 0.00044509999997899286,
+    "completed_utc": "2026-09-30T04:21:10.936411+00:00",
+    "order_id": 511
+  },
+  {
+    "sequence": 3,
+    "request_id": "parte-manual-capture-2-fault-003",
+    "status": 201,
+    "latency_seconds": 0.029352600000038365,
+    "schedule_lag_seconds": 0.00044499999967229087,
+    "completed_utc": "2026-09-30T04:21:11.939192+00:00",
+    "order_id": 512
+  },
+  {
+    "sequence": 4,
+    "request_id": "parte-manual-capture-2-fault-004",
+    "status": 201,
+    "latency_seconds": 0.017095600000175182,
+    "schedule_lag_seconds": 0.0005152999997335428,
+    "completed_utc": "2026-09-30T04:21:12.927010+00:00",
+    "order_id": 513
+  },
+  {
+    "sequence": 5,
+    "request_id": "parte-manual-capture-2-fault-005",
+    "status": 201,
+    "latency_seconds": 0.016934300000229996,
+    "schedule_lag_seconds": 0.0003436999995756196,
+    "completed_utc": "2026-09-30T04:21:13.926673+00:00",
+    "order_id": 514
+  },
+  {
+    "sequence": 6,
+    "request_id": "parte-manual-capture-2-fault-006",
+    "status": 201,
+    "latency_seconds": 0.04036790000009205,
+    "schedule_lag_seconds": 0.00021359999982450972,
+    "completed_utc": "2026-09-30T04:21:14.949976+00:00",
+    "order_id": 515
+  },
+  {
+    "sequence": 7,
+    "request_id": "parte-manual-capture-2-fault-007",
+    "status": 201,
+    "latency_seconds": 0.02005230000031588,
+    "schedule_lag_seconds": 9.729999965202296e-05,
+    "completed_utc": "2026-09-30T04:21:15.929549+00:00",
+    "order_id": 516
+  },
+  {
+    "sequence": 8,
+    "request_id": "parte-manual-capture-2-fault-008",
+    "status": 201,
+    "latency_seconds": 0.031822099999772036,
+    "schedule_lag_seconds": 0.0004773999999088119,
+    "completed_utc": "2026-09-30T04:21:16.941694+00:00",
+    "order_id": 517
+  },
+  {
+    "sequence": 9,
+    "request_id": "parte-manual-capture-2-fault-009",
+    "status": 201,
+    "latency_seconds": 0.0284113000002435,
+    "schedule_lag_seconds": 0.0003036999996766099,
+    "completed_utc": "2026-09-30T04:21:17.938111+00:00",
+    "order_id": 518
+  },
+  {
+    "sequence": 10,
+    "request_id": "parte-manual-capture-2-fault-010",
+    "status": 201,
+    "latency_seconds": 0.016557799999645795,
+    "schedule_lag_seconds": 0.0002905999999711639,
+    "completed_utc": "2026-09-30T04:21:18.926244+00:00",
+    "order_id": 519
+  },
+  {
+    "sequence": 11,
+    "request_id": "parte-manual-capture-2-fault-011",
+    "status": 201,
+    "latency_seconds": 0.04428409999991345,
+    "schedule_lag_seconds": 0.0005043999999543303,
+    "completed_utc": "2026-09-30T04:21:19.954184+00:00",
+    "order_id": 520
+  },
+  {
+    "sequence": 12,
+    "request_id": "parte-manual-capture-2-fault-012",
+    "status": 201,
+    "latency_seconds": 0.019442300000264368,
+    "schedule_lag_seconds": 0.0002563999996709754,
+    "completed_utc": "2026-09-30T04:21:20.929094+00:00",
+    "order_id": 521
+  },
+  {
+    "sequence": 13,
+    "request_id": "parte-manual-capture-2-fault-013",
+    "status": 201,
+    "latency_seconds": 0.016509499999756372,
+    "schedule_lag_seconds": 0.00047519999998257845,
+    "completed_utc": "2026-09-30T04:21:21.926380+00:00",
+    "order_id": 522
+  },
+  {
+    "sequence": 14,
+    "request_id": "parte-manual-capture-2-fault-014",
+    "status": 201,
+    "latency_seconds": 0.03884990000005928,
+    "schedule_lag_seconds": 0.0006265999995775928,
+    "completed_utc": "2026-09-30T04:21:22.948878+00:00",
+    "order_id": 523
+  },
+  {
+    "sequence": 15,
+    "request_id": "parte-manual-capture-2-fault-015",
+    "status": 201,
+    "latency_seconds": 0.0173888999997871,
+    "schedule_lag_seconds": 0.0005987999998069427,
+    "completed_utc": "2026-09-30T04:21:23.927383+00:00",
+    "order_id": 524
+  },
+  {
+    "sequence": 16,
+    "request_id": "parte-manual-capture-2-fault-016",
+    "status": 201,
+    "latency_seconds": 0.018849300000056246,
+    "schedule_lag_seconds": 0.0001781999999366235,
+    "completed_utc": "2026-09-30T04:21:24.928423+00:00",
+    "order_id": 525
+  },
+  {
+    "sequence": 17,
+    "request_id": "parte-manual-capture-2-fault-017",
+    "status": 201,
+    "latency_seconds": 0.032663099999808765,
+    "schedule_lag_seconds": 0.0002764999999271822,
+    "completed_utc": "2026-09-30T04:21:25.942334+00:00",
+    "order_id": 526
+  },
+  {
+    "sequence": 18,
+    "request_id": "parte-manual-capture-2-fault-018",
+    "status": 201,
+    "latency_seconds": 0.016405500000018947,
+    "schedule_lag_seconds": 0.00019749999955820385,
+    "completed_utc": "2026-09-30T04:21:26.925997+00:00",
+    "order_id": 527
+  },
+  {
+    "sequence": 19,
+    "request_id": "parte-manual-capture-2-fault-019",
+    "status": 201,
+    "latency_seconds": 0.016446600000108447,
+    "schedule_lag_seconds": 0.00021499999957086402,
+    "completed_utc": "2026-09-30T04:21:27.926057+00:00",
+    "order_id": 528
+  },
+  {
+    "sequence": 20,
+    "request_id": "parte-manual-capture-2-fault-020",
+    "status": 201,
+    "latency_seconds": 0.018226500000309898,
+    "schedule_lag_seconds": 0.0001166999995803053,
+    "completed_utc": "2026-09-30T04:21:28.927738+00:00",
+    "order_id": 529
+  },
+  {
+    "sequence": 21,
+    "request_id": "parte-manual-capture-2-fault-021",
+    "status": 201,
+    "latency_seconds": 0.020151899999746092,
+    "schedule_lag_seconds": 0.0002518999999665539,
+    "completed_utc": "2026-09-30T04:21:29.929800+00:00",
+    "order_id": 530
+  },
+  {
+    "sequence": 22,
+    "request_id": "parte-manual-capture-2-fault-022",
+    "status": 201,
+    "latency_seconds": 0.04423899999983405,
+    "schedule_lag_seconds": 0.001073999999789521,
+    "completed_utc": "2026-09-30T04:21:30.954717+00:00",
+    "order_id": 531
+  },
+  {
+    "sequence": 23,
+    "request_id": "parte-manual-capture-2-fault-023",
+    "status": 201,
+    "latency_seconds": 0.020009599999866623,
+    "schedule_lag_seconds": 0.0009842999997999868,
+    "completed_utc": "2026-09-30T04:21:31.930390+00:00",
+    "order_id": 532
+  },
+  {
+    "sequence": 24,
+    "request_id": "parte-manual-capture-2-fault-024",
+    "status": 201,
+    "latency_seconds": 0.025355600000239065,
+    "schedule_lag_seconds": 0.00037219999967419426,
+    "completed_utc": "2026-09-30T04:21:32.935123+00:00",
+    "order_id": 533
+  },
+  {
+    "sequence": 25,
+    "request_id": "parte-manual-capture-2-fault-025",
+    "status": 201,
+    "latency_seconds": 0.02879849999999351,
+    "schedule_lag_seconds": 0.002190499999869644,
+    "completed_utc": "2026-09-30T04:21:33.940385+00:00",
+    "order_id": 534
+  },
+  {
+    "sequence": 26,
+    "request_id": "parte-manual-capture-2-fault-026",
+    "status": 201,
+    "latency_seconds": 0.015744700000141165,
+    "schedule_lag_seconds": 0.00042779999967024196,
+    "completed_utc": "2026-09-30T04:21:34.925569+00:00",
+    "order_id": 535
+  },
+  {
+    "sequence": 27,
+    "request_id": "parte-manual-capture-2-fault-027",
+    "status": 201,
+    "latency_seconds": 0.0354247000000214,
+    "schedule_lag_seconds": 0.0007936999995763472,
+    "completed_utc": "2026-09-30T04:21:35.945613+00:00",
+    "order_id": 536
+  },
+  {
+    "sequence": 28,
+    "request_id": "parte-manual-capture-2-fault-028",
+    "status": 201,
+    "latency_seconds": 0.017384300000230724,
+    "schedule_lag_seconds": 0.0005370999997467152,
+    "completed_utc": "2026-09-30T04:21:36.927317+00:00",
+    "order_id": 537
+  },
+  {
+    "sequence": 29,
+    "request_id": "parte-manual-capture-2-fault-029",
+    "status": 201,
+    "latency_seconds": 0.02701230000002397,
+    "schedule_lag_seconds": 0.0007919999998193816,
+    "completed_utc": "2026-09-30T04:21:37.937201+00:00",
+    "order_id": 538
+  },
+  {
+    "sequence": 30,
+    "request_id": "parte-manual-capture-2-fault-030",
+    "status": 201,
+    "latency_seconds": 0.0746089999997821,
+    "schedule_lag_seconds": 0.0005811999999423278,
+    "completed_utc": "2026-09-30T04:21:38.984585+00:00",
+    "order_id": 539
+  },
+  {
+    "sequence": 31,
+    "request_id": "parte-manual-capture-2-fault-031",
+    "status": 201,
+    "latency_seconds": 0.031092100000023493,
+    "schedule_lag_seconds": 0.00042949999988195486,
+    "completed_utc": "2026-09-30T04:21:39.940916+00:00",
+    "order_id": 540
+  },
+  {
+    "sequence": 32,
+    "request_id": "parte-manual-capture-2-fault-032",
+    "status": 201,
+    "latency_seconds": 0.0817363999999543,
+    "schedule_lag_seconds": 0.0002133999996658531,
+    "completed_utc": "2026-09-30T04:21:40.991345+00:00",
+    "order_id": 541
+  },
+  {
+    "sequence": 33,
+    "request_id": "parte-manual-capture-2-fault-033",
+    "status": 201,
+    "latency_seconds": 0.015575800000078743,
+    "schedule_lag_seconds": 0.00010849999989659409,
+    "completed_utc": "2026-09-30T04:21:41.925079+00:00",
+    "order_id": 542
+  },
+  {
+    "sequence": 34,
+    "request_id": "parte-manual-capture-2-fault-034",
+    "status": 201,
+    "latency_seconds": 0.04460700000026918,
+    "schedule_lag_seconds": 0.034082999999554886,
+    "completed_utc": "2026-09-30T04:21:42.988086+00:00",
+    "order_id": 543
+  },
+  {
+    "sequence": 35,
+    "request_id": "parte-manual-capture-2-fault-035",
+    "status": 201,
+    "latency_seconds": 0.040919600000052014,
+    "schedule_lag_seconds": 0.0002685999997993349,
+    "completed_utc": "2026-09-30T04:21:43.950584+00:00",
+    "order_id": 544
+  },
+  {
+    "sequence": 36,
+    "request_id": "parte-manual-capture-2-fault-036",
+    "status": 201,
+    "latency_seconds": 0.018185800000082963,
+    "schedule_lag_seconds": 0.00043569999979808927,
+    "completed_utc": "2026-09-30T04:21:44.928016+00:00",
+    "order_id": 545
+  },
+  {
+    "sequence": 37,
+    "request_id": "parte-manual-capture-2-fault-037",
+    "status": 201,
+    "latency_seconds": 0.020097900000109803,
+    "schedule_lag_seconds": 0.0002660999998624902,
+    "completed_utc": "2026-09-30T04:21:45.929760+00:00",
+    "order_id": 546
+  },
+  {
+    "sequence": 38,
+    "request_id": "parte-manual-capture-2-fault-038",
+    "status": 201,
+    "latency_seconds": 0.017200899999807007,
+    "schedule_lag_seconds": 0.0005256999997982348,
+    "completed_utc": "2026-09-30T04:21:46.927121+00:00",
+    "order_id": 547
+  },
+  {
+    "sequence": 39,
+    "request_id": "parte-manual-capture-2-fault-039",
+    "status": 201,
+    "latency_seconds": 0.01722860000018045,
+    "schedule_lag_seconds": 0.0001239999996869301,
+    "completed_utc": "2026-09-30T04:21:47.926747+00:00",
+    "order_id": 548
+  },
+  {
+    "sequence": 40,
+    "request_id": "parte-manual-capture-2-fault-040",
+    "status": 201,
+    "latency_seconds": 0.016448100000161503,
+    "schedule_lag_seconds": 0.00021789999982502195,
+    "completed_utc": "2026-09-30T04:21:48.926062+00:00",
+    "order_id": 549
+  },
+  {
+    "sequence": 41,
+    "request_id": "parte-manual-capture-2-fault-041",
+    "status": 201,
+    "latency_seconds": 0.028411700000106066,
+    "schedule_lag_seconds": 0.00047779999977137777,
+    "completed_utc": "2026-09-30T04:21:49.938285+00:00",
+    "order_id": 550
+  },
+  {
+    "sequence": 42,
+    "request_id": "parte-manual-capture-2-fault-042",
+    "status": 201,
+    "latency_seconds": 0.03355069999997795,
+    "schedule_lag_seconds": 0.0006103999999140797,
+    "completed_utc": "2026-09-30T04:21:50.943556+00:00",
+    "order_id": 551
+  },
+  {
+    "sequence": 43,
+    "request_id": "parte-manual-capture-2-fault-043",
+    "status": 201,
+    "latency_seconds": 0.01839449999988574,
+    "schedule_lag_seconds": 0.000378299999738374,
+    "completed_utc": "2026-09-30T04:21:51.928169+00:00",
+    "order_id": 552
+  },
+  {
+    "sequence": 44,
+    "request_id": "parte-manual-capture-2-fault-044",
+    "status": 201,
+    "latency_seconds": 0.04260440000007293,
+    "schedule_lag_seconds": 0.00040479999961462454,
+    "completed_utc": "2026-09-30T04:21:52.952404+00:00",
+    "order_id": 553
+  },
+  {
+    "sequence": 45,
+    "request_id": "parte-manual-capture-2-fault-045",
+    "status": 201,
+    "latency_seconds": 0.04400539999960529,
+    "schedule_lag_seconds": 0.0005479999999806751,
+    "completed_utc": "2026-09-30T04:21:53.953948+00:00",
+    "order_id": 554
+  },
+  {
+    "sequence": 46,
+    "request_id": "parte-manual-capture-2-fault-046",
+    "status": 201,
+    "latency_seconds": 0.035028499999953056,
+    "schedule_lag_seconds": 0.0006529999996018887,
+    "completed_utc": "2026-09-30T04:21:54.945076+00:00",
+    "order_id": 555
+  },
+  {
+    "sequence": 47,
+    "request_id": "parte-manual-capture-2-fault-047",
+    "status": 201,
+    "latency_seconds": 0.03389160000006086,
+    "schedule_lag_seconds": 0.0004384999997455452,
+    "completed_utc": "2026-09-30T04:21:55.943725+00:00",
+    "order_id": 556
+  },
+  {
+    "sequence": 48,
+    "request_id": "parte-manual-capture-2-fault-048",
+    "status": 201,
+    "latency_seconds": 0.019380100000034872,
+    "schedule_lag_seconds": 0.00015909999956420506,
+    "completed_utc": "2026-09-30T04:21:56.928936+00:00",
+    "order_id": 557
+  },
+  {
+    "sequence": 49,
+    "request_id": "parte-manual-capture-2-fault-049",
+    "status": 201,
+    "latency_seconds": 0.020360299999993003,
+    "schedule_lag_seconds": 0.00013589999980467837,
+    "completed_utc": "2026-09-30T04:21:57.929890+00:00",
+    "order_id": 558
+  },
+  {
+    "sequence": 50,
+    "request_id": "parte-manual-capture-2-fault-050",
+    "status": 201,
+    "latency_seconds": 0.021503999999822554,
+    "schedule_lag_seconds": 0.000466599999981554,
+    "completed_utc": "2026-09-30T04:21:58.931366+00:00",
+    "order_id": 559
+  },
+  {
+    "sequence": 51,
+    "request_id": "parte-manual-capture-2-fault-051",
+    "status": 201,
+    "latency_seconds": 0.03717310000001817,
+    "schedule_lag_seconds": 0.0004009999997833802,
+    "completed_utc": "2026-09-30T04:21:59.946969+00:00",
+    "order_id": 560
+  },
+  {
+    "sequence": 52,
+    "request_id": "parte-manual-capture-2-fault-052",
+    "status": 201,
+    "latency_seconds": 0.03393729999970674,
+    "schedule_lag_seconds": 0.0005725999999413034,
+    "completed_utc": "2026-09-30T04:22:00.943905+00:00",
+    "order_id": 561
+  },
+  {
+    "sequence": 53,
+    "request_id": "parte-manual-capture-2-fault-053",
+    "status": 201,
+    "latency_seconds": 0.03793339999992895,
+    "schedule_lag_seconds": 0.000283699999727105,
+    "completed_utc": "2026-09-30T04:22:01.947611+00:00",
+    "order_id": 562
+  },
+  {
+    "sequence": 54,
+    "request_id": "parte-manual-capture-2-fault-054",
+    "status": 201,
+    "latency_seconds": 0.04037799999969138,
+    "schedule_lag_seconds": 0.000594699999965087,
+    "completed_utc": "2026-09-30T04:22:02.950367+00:00",
+    "order_id": 563
+  },
+  {
+    "sequence": 55,
+    "request_id": "parte-manual-capture-2-fault-055",
+    "status": 201,
+    "latency_seconds": 0.04022759999998016,
+    "schedule_lag_seconds": 0.0005167999997865991,
+    "completed_utc": "2026-09-30T04:22:03.950140+00:00",
+    "order_id": 564
+  },
+  {
+    "sequence": 56,
+    "request_id": "parte-manual-capture-2-fault-056",
+    "status": 201,
+    "latency_seconds": 0.01869490000035512,
+    "schedule_lag_seconds": 0.0003734999995685939,
+    "completed_utc": "2026-09-30T04:22:04.928465+00:00",
+    "order_id": 565
+  },
+  {
+    "sequence": 57,
+    "request_id": "parte-manual-capture-2-fault-057",
+    "status": 201,
+    "latency_seconds": 0.018249400000058813,
+    "schedule_lag_seconds": 0.00020729999960167333,
+    "completed_utc": "2026-09-30T04:22:05.927854+00:00",
+    "order_id": 566
+  },
+  {
+    "sequence": 58,
+    "request_id": "parte-manual-capture-2-fault-058",
+    "status": 201,
+    "latency_seconds": 0.016523900000265712,
+    "schedule_lag_seconds": 0.0005060999997112958,
+    "completed_utc": "2026-09-30T04:22:06.926426+00:00",
+    "order_id": 567
+  },
+  {
+    "sequence": 59,
+    "request_id": "parte-manual-capture-2-fault-059",
+    "status": 201,
+    "latency_seconds": 0.037671900000077585,
+    "schedule_lag_seconds": 0.000215099999877566,
+    "completed_utc": "2026-09-30T04:22:07.947282+00:00",
+    "order_id": 568
+  },
+  {
+    "sequence": 60,
+    "request_id": "parte-manual-capture-2-fault-060",
+    "status": 201,
+    "latency_seconds": 0.038362700000107,
+    "schedule_lag_seconds": 0.00045019999970463687,
+    "completed_utc": "2026-09-30T04:22:08.948208+00:00",
+    "order_id": 569
+  },
+  {
+    "sequence": 61,
+    "request_id": "parte-manual-capture-2-fault-061",
+    "status": 201,
+    "latency_seconds": 0.02829359999986991,
+    "schedule_lag_seconds": 0.000492499999836582,
+    "completed_utc": "2026-09-30T04:22:09.938182+00:00",
+    "order_id": 570
+  },
+  {
+    "sequence": 62,
+    "request_id": "parte-manual-capture-2-fault-062",
+    "status": 201,
+    "latency_seconds": 0.03918470000007801,
+    "schedule_lag_seconds": 0.0005324999997355917,
+    "completed_utc": "2026-09-30T04:22:10.949112+00:00",
+    "order_id": 571
+  },
+  {
+    "sequence": 63,
+    "request_id": "parte-manual-capture-2-fault-063",
+    "status": 201,
+    "latency_seconds": 0.020162799999980052,
+    "schedule_lag_seconds": 0.0004902999999103486,
+    "completed_utc": "2026-09-30T04:22:11.930048+00:00",
+    "order_id": 572
+  },
+  {
+    "sequence": 64,
+    "request_id": "parte-manual-capture-2-fault-064",
+    "status": 201,
+    "latency_seconds": 0.018182399999659538,
+    "schedule_lag_seconds": 0.0006140999998933694,
+    "completed_utc": "2026-09-30T04:22:12.928191+00:00",
+    "order_id": 573
+  },
+  {
+    "sequence": 65,
+    "request_id": "parte-manual-capture-2-fault-065",
+    "status": 201,
+    "latency_seconds": 0.04267370000025039,
+    "schedule_lag_seconds": 0.000314799999614479,
+    "completed_utc": "2026-09-30T04:22:13.952383+00:00",
+    "order_id": 574
+  },
+  {
+    "sequence": 66,
+    "request_id": "parte-manual-capture-2-fault-066",
+    "status": 201,
+    "latency_seconds": 0.03952930000014021,
+    "schedule_lag_seconds": 0.0005346999996618251,
+    "completed_utc": "2026-09-30T04:22:14.949459+00:00",
+    "order_id": 575
+  },
+  {
+    "sequence": 67,
+    "request_id": "parte-manual-capture-2-fault-067",
+    "status": 201,
+    "latency_seconds": 0.022047500000098808,
+    "schedule_lag_seconds": 0.0002793999997265928,
+    "completed_utc": "2026-09-30T04:22:15.931721+00:00",
+    "order_id": 576
+  },
+  {
+    "sequence": 68,
+    "request_id": "parte-manual-capture-2-fault-068",
+    "status": 201,
+    "latency_seconds": 0.032971399999951245,
+    "schedule_lag_seconds": 5.8599999647412915e-05,
+    "completed_utc": "2026-09-30T04:22:16.942429+00:00",
+    "order_id": 577
+  },
+  {
+    "sequence": 69,
+    "request_id": "parte-manual-capture-2-fault-069",
+    "status": 201,
+    "latency_seconds": 0.04290220000029876,
+    "schedule_lag_seconds": 0.0004747999996652652,
+    "completed_utc": "2026-09-30T04:22:17.952772+00:00",
+    "order_id": 578
+  },
+  {
+    "sequence": 70,
+    "request_id": "parte-manual-capture-2-fault-070",
+    "status": 201,
+    "latency_seconds": 0.039791499999864754,
+    "schedule_lag_seconds": 0.00015899999971225043,
+    "completed_utc": "2026-09-30T04:22:18.949346+00:00",
+    "order_id": 579
+  },
+  {
+    "sequence": 71,
+    "request_id": "parte-manual-capture-2-fault-071",
+    "status": 201,
+    "latency_seconds": 0.039002699999855395,
+    "schedule_lag_seconds": 0.00035549999984141323,
+    "completed_utc": "2026-09-30T04:22:19.948753+00:00",
+    "order_id": 580
+  },
+  {
+    "sequence": 72,
+    "request_id": "parte-manual-capture-2-fault-072",
+    "status": 201,
+    "latency_seconds": 0.03710610000007364,
+    "schedule_lag_seconds": 0.0003750999999283522,
+    "completed_utc": "2026-09-30T04:22:20.946892+00:00",
+    "order_id": 581
+  },
+  {
+    "sequence": 73,
+    "request_id": "parte-manual-capture-2-fault-073",
+    "status": 201,
+    "latency_seconds": 0.027729399999770976,
+    "schedule_lag_seconds": 0.00044579999985217,
+    "completed_utc": "2026-09-30T04:22:21.937570+00:00",
+    "order_id": 582
+  },
+  {
+    "sequence": 74,
+    "request_id": "parte-manual-capture-2-fault-074",
+    "status": 201,
+    "latency_seconds": 0.03310490000012578,
+    "schedule_lag_seconds": 0.000270899999577523,
+    "completed_utc": "2026-09-30T04:22:22.942771+00:00",
+    "order_id": 583
+  },
+  {
+    "sequence": 75,
+    "request_id": "parte-manual-capture-2-fault-075",
+    "status": 201,
+    "latency_seconds": 0.01891929999965214,
+    "schedule_lag_seconds": 0.0006588999999621592,
+    "completed_utc": "2026-09-30T04:22:23.928972+00:00",
+    "order_id": 584
+  },
+  {
+    "sequence": 76,
+    "request_id": "parte-manual-capture-2-fault-076",
+    "status": 201,
+    "latency_seconds": 0.029930500000318716,
+    "schedule_lag_seconds": 0.0004127999995944265,
+    "completed_utc": "2026-09-30T04:22:24.939739+00:00",
+    "order_id": 585
+  },
+  {
+    "sequence": 77,
+    "request_id": "parte-manual-capture-2-fault-077",
+    "status": 201,
+    "latency_seconds": 0.031029899999793997,
+    "schedule_lag_seconds": 7.719999985056347e-05,
+    "completed_utc": "2026-09-30T04:22:25.940502+00:00",
+    "order_id": 586
+  },
+  {
+    "sequence": 78,
+    "request_id": "parte-manual-capture-2-fault-078",
+    "status": 201,
+    "latency_seconds": 0.015051100000164297,
+    "schedule_lag_seconds": 9.029999955600942e-05,
+    "completed_utc": "2026-09-30T04:22:26.924536+00:00",
+    "order_id": 587
+  },
+  {
+    "sequence": 79,
+    "request_id": "parte-manual-capture-2-fault-079",
+    "status": 201,
+    "latency_seconds": 0.01705919999994876,
+    "schedule_lag_seconds": 0.00033239999993384117,
+    "completed_utc": "2026-09-30T04:22:27.926786+00:00",
+    "order_id": 588
+  },
+  {
+    "sequence": 80,
+    "request_id": "parte-manual-capture-2-fault-080",
+    "status": 201,
+    "latency_seconds": 0.015333499999997002,
+    "schedule_lag_seconds": 0.0002463999999235966,
+    "completed_utc": "2026-09-30T04:22:28.924974+00:00",
+    "order_id": 589
+  },
+  {
+    "sequence": 81,
+    "request_id": "parte-manual-capture-2-fault-081",
+    "status": 201,
+    "latency_seconds": 0.03923819999999978,
+    "schedule_lag_seconds": 0.0003537999996297003,
+    "completed_utc": "2026-09-30T04:22:29.948997+00:00",
+    "order_id": 590
+  },
+  {
+    "sequence": 82,
+    "request_id": "parte-manual-capture-2-fault-082",
+    "status": 201,
+    "latency_seconds": 0.017578199999661592,
+    "schedule_lag_seconds": 0.0006582999999409367,
+    "completed_utc": "2026-09-30T04:22:30.927632+00:00",
+    "order_id": 591
+  },
+  {
+    "sequence": 83,
+    "request_id": "parte-manual-capture-2-fault-083",
+    "status": 201,
+    "latency_seconds": 0.036353600000438746,
+    "schedule_lag_seconds": 0.0005187999995541759,
+    "completed_utc": "2026-09-30T04:22:31.946266+00:00",
+    "order_id": 592
+  },
+  {
+    "sequence": 84,
+    "request_id": "parte-manual-capture-2-fault-084",
+    "status": 201,
+    "latency_seconds": 0.03553209999972751,
+    "schedule_lag_seconds": 0.00023099999998521525,
+    "completed_utc": "2026-09-30T04:22:32.945157+00:00",
+    "order_id": 593
+  },
+  {
+    "sequence": 85,
+    "request_id": "parte-manual-capture-2-fault-085",
+    "status": 201,
+    "latency_seconds": 0.03594460000022082,
+    "schedule_lag_seconds": 0.0003202999996574363,
+    "completed_utc": "2026-09-30T04:22:33.945660+00:00",
+    "order_id": 594
+  },
+  {
+    "sequence": 86,
+    "request_id": "parte-manual-capture-2-fault-086",
+    "status": 201,
+    "latency_seconds": 0.031342299999778334,
+    "schedule_lag_seconds": 0.0006235999999262276,
+    "completed_utc": "2026-09-30T04:22:34.941360+00:00",
+    "order_id": 595
+  },
+  {
+    "sequence": 87,
+    "request_id": "parte-manual-capture-2-fault-087",
+    "status": 201,
+    "latency_seconds": 0.03916660000004413,
+    "schedule_lag_seconds": 0.00021209999977145344,
+    "completed_utc": "2026-09-30T04:22:35.948773+00:00",
+    "order_id": 596
+  },
+  {
+    "sequence": 88,
+    "request_id": "parte-manual-capture-2-fault-088",
+    "status": 201,
+    "latency_seconds": 0.014481100000011793,
+    "schedule_lag_seconds": 0.0005722999999306921,
+    "completed_utc": "2026-09-30T04:22:36.924448+00:00",
+    "order_id": 597
+  },
+  {
+    "sequence": 89,
+    "request_id": "parte-manual-capture-2-fault-089",
+    "status": 201,
+    "latency_seconds": 0.014949200000046403,
+    "schedule_lag_seconds": 0.000476899999739544,
+    "completed_utc": "2026-09-30T04:22:37.924820+00:00",
+    "order_id": 598
+  },
+  {
+    "sequence": 90,
+    "request_id": "parte-manual-capture-2-fault-090",
+    "status": 201,
+    "latency_seconds": 0.01769270000022516,
+    "schedule_lag_seconds": 0.0004492999996728031,
+    "completed_utc": "2026-09-30T04:22:38.927538+00:00",
+    "order_id": 599
+  }
+]

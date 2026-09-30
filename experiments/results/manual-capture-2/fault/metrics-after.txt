@@ -1,0 +1,178 @@
+# HELP python_gc_objects_collected_total Objects collected during gc
+# TYPE python_gc_objects_collected_total counter
+python_gc_objects_collected_total{generation="0"} 18953.0
+python_gc_objects_collected_total{generation="1"} 3374.0
+python_gc_objects_collected_total{generation="2"} 577.0
+# HELP python_gc_objects_uncollectable_total Uncollectable objects found during GC
+# TYPE python_gc_objects_uncollectable_total counter
+python_gc_objects_uncollectable_total{generation="0"} 0.0
+python_gc_objects_uncollectable_total{generation="1"} 0.0
+python_gc_objects_uncollectable_total{generation="2"} 0.0
+# HELP python_gc_collections_total Number of times this generation was collected
+# TYPE python_gc_collections_total counter
+python_gc_collections_total{generation="0"} 154.0
+python_gc_collections_total{generation="1"} 14.0
+python_gc_collections_total{generation="2"} 1.0
+# HELP python_info Python platform information
+# TYPE python_info gauge
+python_info{implementation="CPython",major="3",minor="12",patchlevel="14",version="3.12.14"} 1.0
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 2.43122176e+08
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 5.6365056e+07
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.79074165423e+09
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 2.5500000000000003
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 16.0
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP http_requests_total Total HTTP requests handled by the application.
+# TYPE http_requests_total counter
+http_requests_total{method="GET",route="/health",status_code="200"} 17.0
+http_requests_total{method="POST",route="/api/products",status_code="201"} 2.0
+http_requests_total{method="POST",route="/api/orders",status_code="201"} 182.0
+http_requests_total{method="GET",route="/metrics",status_code="200"} 37.0
+http_requests_total{method="PATCH",route="/api/orders/{order_id}/status",status_code="200"} 91.0
+# HELP http_requests_created Total HTTP requests handled by the application.
+# TYPE http_requests_created gauge
+http_requests_created{method="GET",route="/health",status_code="200"} 1.7907416599402394e+09
+http_requests_created{method="POST",route="/api/products",status_code="201"} 1.7907416612299435e+09
+http_requests_created{method="POST",route="/api/orders",status_code="201"} 1.7907416612465208e+09
+http_requests_created{method="GET",route="/metrics",status_code="200"} 1.7907416630323372e+09
+http_requests_created{method="PATCH",route="/api/orders/{order_id}/status",status_code="200"} 1.790741821475778e+09
+# HELP http_request_duration_seconds HTTP request duration in seconds.
+# TYPE http_request_duration_seconds histogram
+http_request_duration_seconds_bucket{le="0.005",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.01",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.025",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.05",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.075",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.1",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.25",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.5",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="0.75",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="1.0",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="2.5",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="5.0",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="7.5",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="10.0",method="GET",route="/health"} 17.0
+http_request_duration_seconds_bucket{le="+Inf",method="GET",route="/health"} 17.0
+http_request_duration_seconds_count{method="GET",route="/health"} 17.0
+http_request_duration_seconds_sum{method="GET",route="/health"} 0.011880055999768047
+http_request_duration_seconds_bucket{le="0.005",method="POST",route="/api/products"} 0.0
+http_request_duration_seconds_bucket{le="0.01",method="POST",route="/api/products"} 0.0
+http_request_duration_seconds_bucket{le="0.025",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.05",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.075",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.1",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.25",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.5",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="0.75",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="1.0",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="2.5",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="5.0",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="7.5",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="10.0",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_bucket{le="+Inf",method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_count{method="POST",route="/api/products"} 2.0
+http_request_duration_seconds_sum{method="POST",route="/api/products"} 0.028421764999848165
+http_request_duration_seconds_bucket{le="0.005",method="POST",route="/api/orders"} 0.0
+http_request_duration_seconds_bucket{le="0.01",method="POST",route="/api/orders"} 0.0
+http_request_duration_seconds_bucket{le="0.025",method="POST",route="/api/orders"} 171.0
+http_request_duration_seconds_bucket{le="0.05",method="POST",route="/api/orders"} 179.0
+http_request_duration_seconds_bucket{le="0.075",method="POST",route="/api/orders"} 181.0
+http_request_duration_seconds_bucket{le="0.1",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="0.25",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="0.5",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="0.75",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="1.0",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="2.5",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="5.0",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="7.5",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="10.0",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_bucket{le="+Inf",method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_count{method="POST",route="/api/orders"} 182.0
+http_request_duration_seconds_sum{method="POST",route="/api/orders"} 3.0107011010005635
+http_request_duration_seconds_bucket{le="0.005",method="GET",route="/metrics"} 36.0
+http_request_duration_seconds_bucket{le="0.01",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.025",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.05",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.075",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.1",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.25",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.5",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="0.75",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="1.0",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="2.5",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="5.0",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="7.5",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="10.0",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_bucket{le="+Inf",method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_count{method="GET",route="/metrics"} 37.0
+http_request_duration_seconds_sum{method="GET",route="/metrics"} 0.08358648299872584
+http_request_duration_seconds_bucket{le="0.005",method="PATCH",route="/api/orders/{order_id}/status"} 0.0
+http_request_duration_seconds_bucket{le="0.01",method="PATCH",route="/api/orders/{order_id}/status"} 0.0
+http_request_duration_seconds_bucket{le="0.025",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.05",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.075",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.1",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.25",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.5",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="0.75",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="1.0",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="2.5",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="5.0",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="7.5",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="10.0",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_bucket{le="+Inf",method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_count{method="PATCH",route="/api/orders/{order_id}/status"} 91.0
+http_request_duration_seconds_sum{method="PATCH",route="/api/orders/{order_id}/status"} 1.1816152589997273
+# HELP http_request_duration_seconds_created HTTP request duration in seconds.
+# TYPE http_request_duration_seconds_created gauge
+http_request_duration_seconds_created{method="GET",route="/health"} 1.790741659940276e+09
+http_request_duration_seconds_created{method="POST",route="/api/products"} 1.7907416612299638e+09
+http_request_duration_seconds_created{method="POST",route="/api/orders"} 1.7907416612465394e+09
+http_request_duration_seconds_created{method="GET",route="/metrics"} 1.7907416630323508e+09
+http_request_duration_seconds_created{method="PATCH",route="/api/orders/{order_id}/status"} 1.790741821475794e+09
+# HELP orders_created_total Total orders created.
+# TYPE orders_created_total counter
+orders_created_total 182.0
+# HELP orders_created_created Total orders created.
+# TYPE orders_created_created gauge
+orders_created_created 1.7907416552708645e+09
+# HELP orders_completed_total Total orders completed.
+# TYPE orders_completed_total counter
+orders_completed_total 0.0
+# HELP orders_completed_created Total orders completed.
+# TYPE orders_completed_created gauge
+orders_completed_created 1.7907416552708726e+09
+# HELP orders_cancelled_total Total orders cancelled.
+# TYPE orders_cancelled_total counter
+orders_cancelled_total 91.0
+# HELP orders_cancelled_created Total orders cancelled.
+# TYPE orders_cancelled_created gauge
+orders_cancelled_created 1.7907416552708783e+09
+# HELP orders_rejected_total Total order creation attempts rejected by business rules.
+# TYPE orders_rejected_total counter
+orders_rejected_total 0.0
+# HELP orders_rejected_created Total order creation attempts rejected by business rules.
+# TYPE orders_rejected_created gauge
+orders_rejected_created 1.7907416552708852e+09
+# HELP pending_orders Current number of orders with PENDING status.
+# TYPE pending_orders gauge
+pending_orders 108.0
+# HELP order_processing_seconds Time from order creation until it reaches a terminal status.
+# TYPE order_processing_seconds summary
+order_processing_seconds_count{terminal_status="CANCELLED"} 91.0
+order_processing_seconds_sum{terminal_status="CANCELLED"} 7524.400665999999
+# HELP order_processing_seconds_created Time from order creation until it reaches a terminal status.
+# TYPE order_processing_seconds_created gauge
+order_processing_seconds_created{terminal_status="CANCELLED"} 1.790741821475065e+09

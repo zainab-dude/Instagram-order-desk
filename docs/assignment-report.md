@@ -65,7 +65,7 @@ Node Exporter reads Linux system statistics. The measured machine is the **Docke
 
 The project-specific comparison is **pending backlog versus lifecycle duration**: a fast API can still leave sellers with unfinished orders. The audit returned 16 pending orders, including existing data, while short synthetic completed/cancelled lifecycles had the averages above. This does not measure human fulfilment speed.
 
-Grafana visual evidence has now been added: [order counters and pending gauge](screenshots/Screenshot%202026-09-23%20180439.png), [completed orders and creation rate](screenshots/Screenshot%202026-09-23%20180447.png), [request rate and HTTP errors](screenshots/Screenshot%202026-09-23%20180500.png), [response latency and p95](screenshots/Screenshot%202026-09-23%20180843.png), [lifecycle Summary](screenshots/Screenshot%202026-09-23%20180921.png), [CPU](screenshots/Screenshot%202026-09-23%20180900.png), [memory](screenshots/Screenshot%202026-09-23%20180935.png), [disk](screenshots/Screenshot%202026-09-23%20180910.png), and [network](screenshots/Screenshot%202026-09-23%20180944.png). These show rendered dashboard panels with real data. The screenshots do not show expanded PromQL or the exact selected time range, so those details remain a presentation limitation. My backlog/lifecycle comparison and interpretation are documented above.
+Grafana visual evidence has now been added: [order counters and pending gauge](screenshots/grafana-orders-created-pending.png), [completed orders and creation rate](screenshots/grafana-completed-orders-creation-rate.png), [request rate and HTTP errors](screenshots/grafana-request-rate-http-errors.png), [response latency and p95](screenshots/grafana-response-latency-p95.png), [lifecycle Summary](screenshots/grafana-order-lifecycle-summary.png), [CPU](screenshots/grafana-node-exporter-cpu.png), [memory](screenshots/grafana-node-exporter-memory-usage.png), [disk](screenshots/grafana-node-exporter-disk-usage.png), and [network](screenshots/grafana-node-exporter-network-traffic.png). These show rendered dashboard panels with real data. The screenshots do not show expanded PromQL or the exact selected time range, so those details remain a presentation limitation. My backlog/lifecycle comparison and interpretation are documented above.
 
 # PART C — LOGS
 
@@ -108,7 +108,7 @@ request_id : "pipeline-proof-20260922171843-rejected" and message : "order rejec
 
 Elasticsearch searches returned respectively **2, 1, 2 and 1** matching documents in the saved proof. For unexpected errors, use `severity : "ERROR"` over a relevant range; this query does not imply an ERROR document was observed. [Saved queries](kibana-queries.kql) provide further examples.
 
-[Prometheus target evidence is available in [promethues.png](screenshots/promethues.png), showing both `fastapi-app` and `node-exporter` as UP. Kibana Discover evidence is available in [Kibana.png](screenshots/Kibana.png), showing the `Observable Orders Logs` data view and 178 indexed documents. The screenshot uses a recent 15-minute range, not the saved proof range. A filtered proof-request search, rejected-order search, and expanded order-20 document are still needed for complete Part C visual evidence.]
+[Prometheus target evidence is available in [prometheus-targets.png](screenshots/prometheus-targets.png), showing both `fastapi-app` and `node-exporter` as UP. Kibana Discover evidence is available in [kibana-discover-overview.png](screenshots/kibana-discover-overview.png), showing the `Observable Orders Logs` data view and 178 indexed documents. The screenshot uses a recent 15-minute range, not the saved proof range. A filtered proof-request search, rejected-order search, and expanded order-20 document are still needed for complete Part C visual evidence.]
 
 ### Persistence and deletion
 
@@ -160,11 +160,11 @@ This is a single-machine teaching deployment with no demonstrated backup, failov
 
 `add_order` in `app/main.py` calls `ORDERS_CREATED.inc()` after successful creation. The Counter defined in `app/metrics.py` is exposed at `/metrics`; the [saved exposition](part-d-evidence/metrics.txt) contained **`orders_created_total 5.0`**. Prometheus scraped `app:8000`, attached target labels, and stored samples in its TSDB. The query **`orders_created_total`** returned **5** in the [saved response](part-d-evidence/prometheus-orders-created.json). Grafana's **Orders created** panel uses that query. This is a process count from the earlier Part D capture, not order ID 5 or the later audit total of 60.
 
-The Grafana [Orders created and pending orders screenshot](screenshots/Screenshot%202026-09-23%20180439.png) provides rendered visual evidence for the dashboard panel. Its displayed value reflects the later normal-traffic run rather than the earlier saved Prometheus value of 5, so the two observations should not be treated as a timestamp-matched pair. The [Prometheus targets screenshot](screenshots/promethues.png) also confirms that the FastAPI scrape target was UP when the dashboard evidence was collected.
+The Grafana [Orders created and pending orders screenshot](screenshots/grafana-orders-created-pending.png) provides rendered visual evidence for the dashboard panel. Its displayed value reflects the later normal-traffic run rather than the earlier saved Prometheus value of 5, so the two observations should not be treated as a timestamp-matched pair. The [Prometheus targets screenshot](screenshots/prometheus-targets.png) also confirms that the FastAPI scrape target was UP when the dashboard evidence was collected.
 
 ### One complete log journey
 
-For order 20, `add_order` writes “order created” through the JSON logger → stdout → Docker's escaped `log` envelope → Filebeat's container parsing and temporary JSON decoding → Elasticsearch's typed fields → Kibana's exact request-ID search. Part C shows the actual values, format changes and query. The [Kibana Discover screenshot](screenshots/Kibana.png) confirms the configured data view and indexed documents; the current screenshot does not include the exact proof-request, rejected-order, or expanded-document views.
+For order 20, `add_order` writes “order created” through the JSON logger → stdout → Docker's escaped `log` envelope → Filebeat's container parsing and temporary JSON decoding → Elasticsearch's typed fields → Kibana's exact request-ID search. Part C shows the actual values, format changes and query. The [Kibana Discover screenshot](screenshots/kibana-discover-overview.png) confirms the configured data view and indexed documents; the current screenshot does not include the exact proof-request, rejected-order, or expanded-document views.
 
 Personal explanation requirement: before submission, review the design choices and be prepared to explain any tool behavior that remains unclear in your own words.
 
@@ -240,7 +240,7 @@ One [actual fault request](../experiments/results/parte-20260922/fault/example-r
 
 For a seller, approximately one in five submissions would feel half a second slower and less consistent. This test demonstrated no failed orders or lost sales. Recovery restored near-baseline mean/p95 and zero injection markers. Cleanup cancelled all 273 test orders including warmups and restored fixture stock; the audit verified the startup gate removed and fault disabled.
 
-Visual limitation: the saved experiment results are complete, but comparison screenshots for the normal/fault/recovery dashboard windows and corresponding Kibana searches are not included in the current evidence set.
+Saved Grafana comparison screenshots are available for the three phases: [normal Grafana dashboard](screenshots/NormalGrafana.png), [fault Grafana dashboard](screenshots/GrafanaFault.png), and [recovery Grafana dashboard](screenshots/GrafanaRecovery.png). The corresponding windowed comparison and Kibana discovery views remain the final manual evidence pair for the full Part E narrative.
 
 ### Experiment 2: request-ID cardinality
 

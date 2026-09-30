@@ -1,0 +1,25 @@
+{
+  "phase": "normal",
+  "run": "manual-capture",
+  "start": 1790741696.2768843,
+  "start_utc": "2026-09-30T04:14:56.276884+00:00",
+  "count": 90,
+  "interval_seconds": 1.0,
+  "product_id": 13,
+  "payload": {
+    "customer_reference": "PART-E-TEST",
+    "items": [
+      {
+        "product_id": 13,
+        "quantity": 1
+      }
+    ]
+  },
+  "fault_enabled": false,
+  "workload_sha256": "8b0f1e7a3040c33189bf20effdaa6d329caef8b2cf91941f0a8b9d15e2101701",
+  "end": 1790741786.2774353,
+  "end_utc": "2026-09-30T04:16:26.277435+00:00",
+  "query_time": 1790741801.2774353,
+  "query_time_utc": "2026-09-30T04:16:41.277435+00:00",
+  "query_window_start_utc": "2026-09-30T04:14:41.277435+00:00"
+}

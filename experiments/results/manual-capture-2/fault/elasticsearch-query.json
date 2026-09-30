@@ -1,0 +1,28 @@
+{
+  "size": 500,
+  "track_total_hits": true,
+  "sort": [
+    {
+      "@timestamp": "asc"
+    }
+  ],
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "prefix": {
+            "request_id": "parte-manual-capture-2-fault-"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2026-09-30T04:21:09.909388+00:00",
+              "lte": "2026-09-30T04:22:39.909910+00:00"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
