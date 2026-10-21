@@ -150,11 +150,11 @@ flowchart LR
 
 ### 7.2 Log correlation across the gRPC boundary
 
-The client sends a request ID in `x-request-id` metadata. The handler reads it, sets `REQUEST_ID`, and the same JSON log format as Assignment 1 is used. Searching `request_id : "<id>"` in Kibana returns the gRPC server's events.
+The client sends a request ID in `x-request-id` metadata. The handler reads it, sets `REQUEST_ID`, and the same JSON log format as Assignment 1 is used, so the gRPC server's events carry the same `request_id` field as the HTTP logs.
 
-The request ID `grpc-filebeat-retry` was sent in gRPC metadata for the correlation check; search
-`request_id : "grpc-filebeat-retry"` in Kibana Discover and use
-`screenshots/kibana_grpc_request_id.png` as the saved result.
+I sent the request ID `grpc-filebeat-retry` in gRPC metadata. Searching `request_id : "grpc-filebeat-retry"` in Kibana (data view **Observable Orders Logs**) returned 3 log records for that ID.
+
+![Kibana search for request_id grpc-filebeat-retry](screenshots/kibana_grpc_request_id.png)
 
 ## 8. HTTP and gRPC examples
 
@@ -171,7 +171,6 @@ The request ID `grpc-filebeat-retry` was sent in gRPC metadata for the correlati
 
 **Why the statuses differ:** HTTP encodes the outcome in a numeric status code plus a JSON error body I define. gRPC has its own fixed set of status codes carried in the response trailers, so I map each business error to the closest one: missing resource to `NOT_FOUND`, bad input to `INVALID_ARGUMENT`, and a valid request that conflicts with current state (not enough stock) to `FAILED_PRECONDITION`, the counterpart of HTTP `409`.
 
-
 ## 9. Metrics audit
 
 | Area | Assignment 1 metric | Useful? | Gap | Fix in Assignment 2 |
@@ -185,7 +184,7 @@ The request ID `grpc-filebeat-retry` was sent in gRPC metadata for the correlati
 
 ## 10. New metrics
 
-All durations are measured at the **server**, inside the interceptor, so they exclude client and network time. Labels are bounded (service, method, status code). No user, request, trace or order IDs are used as labels.
+All durations are measured at the **server**, in `grpc_server/server.py` around the handling of each call, so they exclude client and network time. Labels are bounded (service, method, status code). No user, request, trace or order IDs are used as labels.
 
 | Metric | Purpose | Type | Unit | Labels | Code location |
 |---|---|---|---|---|---|
@@ -214,9 +213,11 @@ sum by (grpc_method) (grpc_server_in_flight_requests)
 - 2 over available stock: `FAILED_PRECONDITION`
 - 1 unknown product: `NOT_FOUND`
 
+For the concurrency evidence, `scripts/grpc_concurrent.py` runs 8 parallel clients for about 90 seconds against the gRPC service.
+
 ## 12. Prometheus and Grafana evidence
 
-Prometheus scrapes the gRPC service as job `grpc-service` (target `grpc-service:8002`, see `prometheus/prometheus.yml`). The dashboard is provisioned from `grafana/`, and the gRPC panels sit beside the HTTP `POST /api/orders` panels. Time range: last 15 minutes, 5-minute rate.
+Prometheus scrapes the gRPC service as job `grpc-service` (target `grpc-service:8002`, see `prometheus/prometheus.yml`). The dashboard is provisioned from `grafana/`, and the gRPC panels sit beside the HTTP `POST /api/orders` panels. Rate queries use a **5-minute window**; the dashboard range is the **last 15 minutes**.
 
 HTTP comparison queries:
 
@@ -225,14 +226,19 @@ sum by (route, method) (rate(http_requests_total{route="/api/orders",method="POS
 histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket{route="/api/orders",method="POST"}[5m])))
 ```
 
+![Prometheus targets: grpc-service is UP](screenshots/prometheus_targets_assig2.png)
 
-   ![Prometheus targets](screenshots/prometheus_targets_assig2.png)
-   ![gRPC and HTTP calls and errors](screenshots/grafana_grpc_calls_errors.png)
-   ![gRPC and HTTP latency](screenshots/grafana_grpc_latency.png)
-   ![gRPC in-flight calls](screenshots/grafana_grpc_in_flight.png)
+![gRPC and HTTP calls, and gRPC error rate](screenshots/grafana_grpc_calls_errors.png)
 
-The in-flight screenshot was captured with the optional 300 ms demo delay enabled
-so concurrent requests remain visible on the gauge.
+![gRPC and HTTP latency](screenshots/grafana_grpc_latency.png)
+
+![gRPC in-flight calls](screenshots/grafana_grpc_in_flight.png)
+
+**Reading the panels**
+
+- **Calls and errors:** the mixed run from `scripts/grpc_traffic.py` (5 of 10 calls failed) shows an error rate of about 50%. During the concurrent run the rate reached about 280 calls per second, and every request in that run failed with `NOT_FOUND`, so the error-rate panel reads 100%. The HTTP panel shows the smaller HTTP load of about 0.1 calls per second.
+- **Latency:** in the normal run gRPC p50 was a few milliseconds up to about 17 ms and p95 about 21 to 24 ms. Under concurrent load p50 was about 8 to 13 ms and p95 about 56 to 71 ms. HTTP p95 for `POST /api/orders` was about 5 ms.
+- **In-flight calls:** the gauge stays at 0 when idle and peaked at about 7 concurrent calls during the 8-client run.
 
 ## 13. Credits and assistance
 
