@@ -1,163 +1,958 @@
 {
-  "annotations": {
-    "list": []
-  },
-  "editable": false,
-  "fiscalYearStartMonth": 0,
-  "graphTooltip": 1,
-  "id": null,
-  "links": [],
-  "panels": [
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "unit": "short" }, "overrides": [] },
-      "gridPos": { "h": 5, "w": 8, "x": 0, "y": 0 },
-      "id": 1,
-      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
-      "targets": [{ "expr": "orders_created_total", "refId": "A" }],
-      "title": "Orders created",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 5 }, { "color": "red", "value": 20 }] }, "unit": "short" }, "overrides": [] },
-      "gridPos": { "h": 5, "w": 8, "x": 8, "y": 0 },
-      "id": 2,
-      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
-      "targets": [{ "expr": "pending_orders", "refId": "A" }],
-      "title": "Pending orders",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "unit": "short" }, "overrides": [] },
-      "gridPos": { "h": 5, "w": 8, "x": 16, "y": 0 },
-      "id": 3,
-      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
-      "targets": [{ "expr": "orders_completed_total", "refId": "A" }],
-      "title": "Completed orders",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "unit": "short" }, "overrides": [] },
-      "gridPos": { "h": 5, "w": 8, "x": 0, "y": 5 },
-      "id": 4,
-      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
-      "targets": [{ "expr": "orders_cancelled_total", "refId": "A" }],
-      "title": "Cancelled orders",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 1 }, { "color": "red", "value": 5 }] }, "unit": "short" }, "overrides": [] },
-      "gridPos": { "h": 5, "w": 8, "x": 8, "y": 5 },
-      "id": 5,
-      "options": { "colorMode": "value", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
-      "targets": [{ "expr": "orders_rejected_total", "refId": "A" }],
-      "title": "Rejected orders",
-      "type": "stat"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "unit": "ops" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 5 },
-      "id": 6,
-      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "rate(orders_created_total[$__rate_interval])", "legendFormat": "orders/sec", "refId": "A" }],
-      "title": "Order creation rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "unit": "reqps" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 13 },
-      "id": 7,
-      "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "sum by (route) (rate(http_requests_total[$__rate_interval]))", "legendFormat": "{{route}}", "refId": "A" }],
-      "title": "Request rate by route",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "thresholds" }, "decimals": 2, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 1 }, { "color": "red", "value": 5 }] }, "unit": "percent" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 13 },
-      "id": 8,
-      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "100 * (sum(rate(http_requests_total{status_code=~\"4..|5..\"}[$__rate_interval])) or vector(0)) / clamp_min(sum(rate(http_requests_total[$__rate_interval])), 1e-9)", "legendFormat": "error %", "refId": "A" }],
-      "title": "HTTP error rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "decimals": 3, "unit": "s" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 13 },
-      "id": 9,
-      "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "sum(rate(http_request_duration_seconds_sum[$__rate_interval])) / sum(rate(http_request_duration_seconds_count[$__rate_interval]))", "legendFormat": "average", "refId": "A" }, { "expr": "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[$__rate_interval])))", "legendFormat": "p95 estimate", "refId": "B" }],
-      "title": "Response latency and p95",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "decimals": 2, "unit": "percent" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 21 },
-      "id": 10,
-      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{job=\"node-exporter\",mode=\"idle\"}[$__rate_interval])))", "legendFormat": "{{instance}} CPU used", "refId": "A" }],
-      "title": "Infrastructure CPU usage",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "decimals": 2, "unit": "percent" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 21 },
-      "id": 11,
-      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "100 * (1 - node_memory_MemAvailable_bytes{job=\"node-exporter\"} / node_memory_MemTotal_bytes{job=\"node-exporter\"})", "legendFormat": "{{instance}} memory used", "refId": "A" }],
-      "title": "Infrastructure memory usage",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "decimals": 2, "unit": "percent" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 29 },
-      "id": 12,
-      "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "100 * (1 - node_filesystem_avail_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"} / node_filesystem_size_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"})", "legendFormat": "{{mountpoint}} disk used", "refId": "A" }],
-      "title": "Infrastructure disk usage",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "color": { "mode": "palette-classic" }, "decimals": 2, "unit": "Bps" }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 29 },
-      "id": 13,
-      "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "sum by (device) (rate(node_network_receive_bytes_total{job=\"node-exporter\",device!~\"lo\"}[$__rate_interval]))", "legendFormat": "{{device}} receive", "refId": "A" }, { "expr": "sum by (device) (rate(node_network_transmit_bytes_total{job=\"node-exporter\",device!~\"lo\"}[$__rate_interval]))", "legendFormat": "{{device}} transmit", "refId": "B" }],
-      "title": "Infrastructure network traffic",
-      "type": "timeseries"
-    },
-    {
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "fieldConfig": { "defaults": { "unit": "s", "decimals": 3 }, "overrides": [] },
-      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 37 },
-      "id": 14,
-      "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
-      "targets": [{ "expr": "sum by (terminal_status) (rate(order_processing_seconds_sum[$__rate_interval])) / sum by (terminal_status) (rate(order_processing_seconds_count[$__rate_interval]))", "legendFormat": "{{terminal_status}} mean lifecycle", "refId": "A" }],
-      "title": "Order lifecycle average (Summary)",
-      "description": "Summary sum/count rates: mean seconds from creation to COMPLETED or CANCELLED within the selected rate window. No terminal events yields no meaningful average. Python Summary has no client-side percentiles; the response-latency panel uses a Histogram for p95.",
-      "type": "timeseries"
-    }
-  ],
-  "refresh": "15s",
-  "schemaVersion": 41,
-  "tags": ["fastapi", "prometheus", "orders"],
-  "templating": { "list": [] },
-  "time": { "from": "now-1h", "to": "now" },
-  "timepicker": {},
-  "timezone": "browser",
-  "title": "Observable Instagram Orders",
-  "uid": "observable-orders",
-  "version": 2
+    "annotations":  {
+                        "list":  [
+
+                                 ]
+                    },
+    "editable":  false,
+    "fiscalYearStartMonth":  0,
+    "graphTooltip":  1,
+    "id":  null,
+    "links":  [
+
+              ],
+    "panels":  [
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  5,
+                                       "w":  8,
+                                       "x":  0,
+                                       "y":  0
+                                   },
+                       "id":  1,
+                       "options":  {
+                                       "colorMode":  "value",
+                                       "graphMode":  "area",
+                                       "justifyMode":  "auto",
+                                       "orientation":  "auto",
+                                       "reduceOptions":  {
+                                                             "calcs":  [
+                                                                           "lastNotNull"
+                                                                       ],
+                                                             "fields":  "",
+                                                             "values":  false
+                                                         },
+                                       "textMode":  "auto"
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "orders_created_total",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Orders created",
+                       "type":  "stat"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "thresholds"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "mode":  "absolute",
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "color":  "green",
+                                                                                                 "value":  null
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "orange",
+                                                                                                 "value":  5
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "red",
+                                                                                                 "value":  20
+                                                                                             }
+                                                                                         ]
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  5,
+                                       "w":  8,
+                                       "x":  8,
+                                       "y":  0
+                                   },
+                       "id":  2,
+                       "options":  {
+                                       "colorMode":  "value",
+                                       "graphMode":  "area",
+                                       "justifyMode":  "auto",
+                                       "orientation":  "auto",
+                                       "reduceOptions":  {
+                                                             "calcs":  [
+                                                                           "lastNotNull"
+                                                                       ],
+                                                             "fields":  "",
+                                                             "values":  false
+                                                         },
+                                       "textMode":  "auto"
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "pending_orders",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Pending orders",
+                       "type":  "stat"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  5,
+                                       "w":  8,
+                                       "x":  16,
+                                       "y":  0
+                                   },
+                       "id":  3,
+                       "options":  {
+                                       "colorMode":  "value",
+                                       "graphMode":  "area",
+                                       "justifyMode":  "auto",
+                                       "orientation":  "auto",
+                                       "reduceOptions":  {
+                                                             "calcs":  [
+                                                                           "lastNotNull"
+                                                                       ],
+                                                             "fields":  "",
+                                                             "values":  false
+                                                         },
+                                       "textMode":  "auto"
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "orders_completed_total",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Completed orders",
+                       "type":  "stat"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  5,
+                                       "w":  8,
+                                       "x":  0,
+                                       "y":  5
+                                   },
+                       "id":  4,
+                       "options":  {
+                                       "colorMode":  "value",
+                                       "graphMode":  "area",
+                                       "justifyMode":  "auto",
+                                       "orientation":  "auto",
+                                       "reduceOptions":  {
+                                                             "calcs":  [
+                                                                           "lastNotNull"
+                                                                       ],
+                                                             "fields":  "",
+                                                             "values":  false
+                                                         },
+                                       "textMode":  "auto"
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "orders_cancelled_total",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Cancelled orders",
+                       "type":  "stat"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "thresholds"
+                                                                      },
+                                                            "thresholds":  {
+                                                                               "mode":  "absolute",
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "color":  "green",
+                                                                                                 "value":  null
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "orange",
+                                                                                                 "value":  1
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "red",
+                                                                                                 "value":  5
+                                                                                             }
+                                                                                         ]
+                                                                           },
+                                                            "unit":  "short"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  5,
+                                       "w":  8,
+                                       "x":  8,
+                                       "y":  5
+                                   },
+                       "id":  5,
+                       "options":  {
+                                       "colorMode":  "value",
+                                       "graphMode":  "area",
+                                       "justifyMode":  "auto",
+                                       "orientation":  "auto",
+                                       "reduceOptions":  {
+                                                             "calcs":  [
+                                                                           "lastNotNull"
+                                                                       ],
+                                                             "fields":  "",
+                                                             "values":  false
+                                                         },
+                                       "textMode":  "auto"
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "orders_rejected_total",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Rejected orders",
+                       "type":  "stat"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "unit":  "ops"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  8,
+                                       "x":  16,
+                                       "y":  5
+                                   },
+                       "id":  6,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "list",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "rate(orders_created_total[$__rate_interval])",
+                                           "legendFormat":  "orders/sec",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Order creation rate",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "unit":  "reqps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  8,
+                                       "x":  0,
+                                       "y":  13
+                                   },
+                       "id":  7,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (route) (rate(http_requests_total[$__rate_interval]))",
+                                           "legendFormat":  "{{route}}",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Request rate by route",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "thresholds"
+                                                                      },
+                                                            "decimals":  2,
+                                                            "thresholds":  {
+                                                                               "mode":  "absolute",
+                                                                               "steps":  [
+                                                                                             {
+                                                                                                 "color":  "green",
+                                                                                                 "value":  null
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "orange",
+                                                                                                 "value":  1
+                                                                                             },
+                                                                                             {
+                                                                                                 "color":  "red",
+                                                                                                 "value":  5
+                                                                                             }
+                                                                                         ]
+                                                                           },
+                                                            "unit":  "percent"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  8,
+                                       "x":  8,
+                                       "y":  13
+                                   },
+                       "id":  8,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "list",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "100 * (sum(rate(http_requests_total{status_code=~\"4..|5..\"}[$__rate_interval])) or vector(0)) / clamp_min(sum(rate(http_requests_total[$__rate_interval])), 1e-9)",
+                                           "legendFormat":  "error %",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "HTTP error rate",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "decimals":  3,
+                                                            "unit":  "s"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  8,
+                                       "x":  16,
+                                       "y":  13
+                                   },
+                       "id":  9,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum(rate(http_request_duration_seconds_sum[$__rate_interval])) / sum(rate(http_request_duration_seconds_count[$__rate_interval]))",
+                                           "legendFormat":  "average",
+                                           "refId":  "A"
+                                       },
+                                       {
+                                           "expr":  "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket[$__rate_interval])))",
+                                           "legendFormat":  "p95 estimate",
+                                           "refId":  "B"
+                                       }
+                                   ],
+                       "title":  "Response latency and p95",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "decimals":  2,
+                                                            "unit":  "percent"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  21
+                                   },
+                       "id":  10,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "list",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{job=\"node-exporter\",mode=\"idle\"}[$__rate_interval])))",
+                                           "legendFormat":  "{{instance}} CPU used",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Infrastructure CPU usage",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "decimals":  2,
+                                                            "unit":  "percent"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  12,
+                                       "y":  21
+                                   },
+                       "id":  11,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "list",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "100 * (1 - node_memory_MemAvailable_bytes{job=\"node-exporter\"} / node_memory_MemTotal_bytes{job=\"node-exporter\"})",
+                                           "legendFormat":  "{{instance}} memory used",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Infrastructure memory usage",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "decimals":  2,
+                                                            "unit":  "percent"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  29
+                                   },
+                       "id":  12,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "100 * (1 - node_filesystem_avail_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"} / node_filesystem_size_bytes{job=\"node-exporter\",fstype=\"ext4\",mountpoint=\"/mnt/docker-desktop-disk\"})",
+                                           "legendFormat":  "{{mountpoint}} disk used",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Infrastructure disk usage",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "color":  {
+                                                                          "mode":  "palette-classic"
+                                                                      },
+                                                            "decimals":  2,
+                                                            "unit":  "Bps"
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  12,
+                                       "y":  29
+                                   },
+                       "id":  13,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (device) (rate(node_network_receive_bytes_total{job=\"node-exporter\",device!~\"lo\"}[$__rate_interval]))",
+                                           "legendFormat":  "{{device}} receive",
+                                           "refId":  "A"
+                                       },
+                                       {
+                                           "expr":  "sum by (device) (rate(node_network_transmit_bytes_total{job=\"node-exporter\",device!~\"lo\"}[$__rate_interval]))",
+                                           "legendFormat":  "{{device}} transmit",
+                                           "refId":  "B"
+                                       }
+                                   ],
+                       "title":  "Infrastructure network traffic",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "s",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  37
+                                   },
+                       "id":  14,
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (terminal_status) (rate(order_processing_seconds_sum[$__rate_interval])) / sum by (terminal_status) (rate(order_processing_seconds_count[$__rate_interval]))",
+                                           "legendFormat":  "{{terminal_status}} mean lifecycle",
+                                           "refId":  "A"
+                                       }
+                                   ],
+                       "title":  "Order lifecycle average (Summary)",
+                       "description":  "Summary sum/count rates: mean seconds from creation to COMPLETED or CANCELLED within the selected rate window. No terminal events yields no meaningful average. Python Summary has no client-side percentiles; the response-latency panel uses a Histogram for p95.",
+                       "type":  "timeseries"
+                   },
+                   {
+                       "id":  15,
+                       "type":  "timeseries",
+                       "title":  "gRPC calls by method and status",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  45
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (grpc_method, grpc_code) (rate(grpc_server_handled_total[$__rate_interval]))",
+                                           "legendFormat":  "{{grpc_code}} / {{grpc_method}}",
+                                           "refId":  "A"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  16,
+                       "type":  "timeseries",
+                       "title":  "HTTP POST /api/orders calls",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  12,
+                                       "y":  45
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "reqps",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (route, method) (rate(http_requests_total{route=\"/api/orders\",method=\"POST\"}[$__rate_interval]))",
+                                           "legendFormat":  "{{method}} {{route}}",
+                                           "refId":  "A"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  17,
+                       "type":  "timeseries",
+                       "title":  "gRPC error rate",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  53
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "percentunit",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum(rate(grpc_server_handled_total{grpc_code!=\"OK\"}[$__rate_interval])) / clamp_min(sum(rate(grpc_server_handled_total[$__rate_interval])), 1e-9)",
+                                           "legendFormat":  "error rate",
+                                           "refId":  "A"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  18,
+                       "type":  "timeseries",
+                       "title":  "gRPC latency p50 / p95",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  61
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "s",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "histogram_quantile(0.50, sum by (le) (rate(grpc_server_handling_seconds_bucket[$__rate_interval])))",
+                                           "legendFormat":  "p50",
+                                           "refId":  "A"
+                                       },
+                                       {
+                                           "expr":  "histogram_quantile(0.95, sum by (le) (rate(grpc_server_handling_seconds_bucket[$__rate_interval])))",
+                                           "legendFormat":  "p95",
+                                           "refId":  "B"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  19,
+                       "type":  "timeseries",
+                       "title":  "HTTP POST /api/orders latency p95",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  12,
+                                       "y":  61
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "s",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "histogram_quantile(0.95, sum by (le) (rate(http_request_duration_seconds_bucket{route=\"/api/orders\",method=\"POST\"}[$__rate_interval])))",
+                                           "legendFormat":  "p95",
+                                           "refId":  "A"
+                                       }
+                                   ]
+                   },
+                   {
+                       "id":  20,
+                       "type":  "timeseries",
+                       "title":  "gRPC in-flight calls",
+                       "datasource":  {
+                                          "type":  "prometheus",
+                                          "uid":  "prometheus"
+                                      },
+                       "gridPos":  {
+                                       "h":  8,
+                                       "w":  12,
+                                       "x":  0,
+                                       "y":  69
+                                   },
+                       "fieldConfig":  {
+                                           "defaults":  {
+                                                            "unit":  "short",
+                                                            "decimals":  3
+                                                        },
+                                           "overrides":  [
+
+                                                         ]
+                                       },
+                       "options":  {
+                                       "legend":  {
+                                                      "displayMode":  "table",
+                                                      "placement":  "bottom"
+                                                  },
+                                       "tooltip":  {
+                                                       "mode":  "multi"
+                                                   }
+                                   },
+                       "targets":  [
+                                       {
+                                           "expr":  "sum by (grpc_method) (grpc_server_in_flight_requests)",
+                                           "legendFormat":  "{{grpc_method}}",
+                                           "refId":  "A"
+                                       }
+                                   ]
+                   }
+               ],
+    "refresh":  "15s",
+    "schemaVersion":  41,
+    "tags":  [
+                 "fastapi",
+                 "prometheus",
+                 "orders"
+             ],
+    "templating":  {
+                       "list":  [
+
+                                ]
+                   },
+    "time":  {
+                 "from":  "now-1h",
+                 "to":  "now"
+             },
+    "timepicker":  {
+
+                   },
+    "timezone":  "browser",
+    "title":  "Observable Instagram Orders",
+    "uid":  "observable-orders",
+    "version":  3
 }

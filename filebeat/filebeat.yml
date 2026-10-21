@@ -14,8 +14,11 @@ filebeat.inputs:
       - drop_event:
           when:
             not:
-              equals:
-                container.name: "observable-orders-app"
+              or:
+                - equals:
+                    container.name: "observable-orders-app"
+                - equals:
+                    container.name: "observable-orders-grpc"
       - decode_json_fields:
           fields: ["message"]
           target: "json"

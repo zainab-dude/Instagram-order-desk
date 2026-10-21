@@ -49,7 +49,7 @@ def main():
             events.append({"request_id": rid, "order_id": order["id"], "terminal_status": states[-1]})
             if n % 10 == 0:
                 code, result = request("/api/orders", "POST", {"customer_reference": "DEMO-NONPERSONAL", "items": [{"product_id": product["id"], "quantity": 10000}]}, rid + "-rejected")
-                assert code == 400, result
+                assert code == 409, result
                 events.append({"request_id": rid + "-rejected", "status": code, "response": result})
                 print(f"{n}/{args.count}: completed/cancelled orders and rejected-stock sample", flush=True)
     finally:

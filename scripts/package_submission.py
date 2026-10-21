@@ -5,7 +5,8 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DIRECTORIES = ("app", "tests", "scripts", "docs", "diagnostics", "experiments", "grafana", "filebeat")
+DIRECTORIES = ("app", "tests", "scripts", "docs", "diagnostics", "experiments", "grafana", "filebeat",
+               "proto", "client", "grpc_server")
 FILES = ("README.md", "requirements.txt", "Dockerfile", "docker-compose.yml",
          "docker-compose.experiment.yml", "prometheus.yml", ".gitignore", ".dockerignore", "Assignment-1.pdf")
 BLOCKED = {".venv", "venv", "env", "node_modules", "site-packages", "__pycache__", ".pytest_cache",

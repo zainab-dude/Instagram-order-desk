@@ -17,8 +17,8 @@ CONTROL = ROOT / "experiments/control/latency.txt"
 APP = "http://127.0.0.1:8000"
 PROM = "http://127.0.0.1:9090"
 ES = "http://127.0.0.1:9200"
-COUNT = 90
-INTERVAL = 1.0
+COUNT = 45
+INTERVAL = 2.0
 LABELS = 'method="POST",route="/api/orders"'
 QUERIES = {
     "mean_seconds": f'sum(increase(http_request_duration_seconds_sum{{{LABELS}}}[120s])) / sum(increase(http_request_duration_seconds_count{{{LABELS}}}[120s]))',
@@ -35,7 +35,7 @@ def utc(epoch=None):
     return datetime.fromtimestamp(epoch or time.time(), timezone.utc).isoformat()
 
 
-def request(url, method="GET", payload=None, request_id=None):
+def request(url, method="GET", payload=None, request_id=None, headers_extra=None):
     headers = {}
     data = None
     if payload is not None:
@@ -43,13 +43,14 @@ def request(url, method="GET", payload=None, request_id=None):
         headers["Content-Type"] = "application/json"
     if request_id:
         headers["X-Request-ID"] = request_id
+    if headers_extra:
+        headers.update(headers_extra)
     req = urllib.request.Request(url, data=data, headers=headers, method=method)
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
             return response.status, response.read().decode()
     except urllib.error.HTTPError as error:
         return error.code, error.read().decode()
-
 
 def save(path, value):
     path.write_text(json.dumps(value, indent=2), encoding="utf-8")
@@ -119,7 +120,13 @@ def main():
             started = time.perf_counter()
             rid = f"parte-{args.run}-{args.phase}-{sequence:03d}"
             try:
-                status, body = request(APP + "/api/orders", "POST", payload, rid)
+                status, body = request(
+                    APP + "/api/orders",
+                    "POST",
+                    payload,
+                    request_id=rid,
+                    headers_extra={"Idempotency-Key": rid}
+                )
             except (OSError, urllib.error.URLError) as error:
                 status, body = 0, str(error)
             latency = time.perf_counter() - started

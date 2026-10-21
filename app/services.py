@@ -12,7 +12,28 @@ from .models import (
 
 
 class BusinessRuleError(ValueError):
-    pass
+    """Base class. Default = bad input. http_status/code feed the HTTP error format."""
+    http_status = 400
+    code = "invalid_request"
+
+
+class NotFoundError(BusinessRuleError):
+    http_status = 404
+    code = "not_found"
+
+
+class ConflictError(BusinessRuleError):
+    http_status = 409
+    code = "conflict"
+
+
+class InsufficientStockError(ConflictError):
+    code = "insufficient_stock"
+
+
+class IdempotencyKeyReuseError(BusinessRuleError):
+    http_status = 422
+    code = "idempotency_key_reuse"
 
 
 def money_to_cents(price: Decimal | float | int | str) -> int:
@@ -28,6 +49,18 @@ def money_to_cents(price: Decimal | float | int | str) -> int:
 class Store:
     def __init__(self, connection: sqlite3.Connection):
         self.connection = connection
+        self._ensure_schema()
+
+    def _ensure_schema(self) -> None:
+        # Idempotency table is created here so database.py does not need to change.
+        self.connection.execute(
+            """CREATE TABLE IF NOT EXISTS idempotency_keys (
+                key TEXT PRIMARY KEY,
+                request_hash TEXT NOT NULL,
+                order_id INTEGER NOT NULL,
+                created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+            )"""
+        )
 
     _PRODUCT_BASE_QUERY = """
         SELECT 
@@ -70,14 +103,14 @@ class Store:
             )
             self.connection.commit()
         except sqlite3.IntegrityError as error:
-            raise BusinessRuleError("a product with this name and variant already exists") from error
+            raise ConflictError("a product with this name and variant already exists") from error
         return self.get_product(cursor.lastrowid)
 
     def get_product(self, product_id: int) -> Product:
         query = f"{self._PRODUCT_BASE_QUERY} WHERE p.id = ? GROUP BY p.id"
         row = self.connection.execute(query, (product_id,)).fetchone()
         if row is None:
-            raise BusinessRuleError("product does not exist")
+            raise NotFoundError("product does not exist")
         return self._product(row)
 
     def update_stock(self, product_id: int, stock_quantity: int) -> Product:
@@ -85,7 +118,7 @@ class Store:
             raise BusinessRuleError("stock quantity cannot be negative")
         product = self.get_product(product_id)
         if stock_quantity < product.reserved_quantity:
-            raise BusinessRuleError("stock cannot be lower than already reserved quantity")
+            raise ConflictError("stock cannot be lower than already reserved quantity")
         self.connection.execute("UPDATE products SET stock_quantity = ? WHERE id = ?", (stock_quantity, product_id))
         self.connection.commit()
         return self.get_product(product_id)
@@ -101,10 +134,23 @@ class Store:
     def get_order(self, order_id: int) -> Order:
         row = self.connection.execute("SELECT * FROM orders WHERE id = ?", (order_id,)).fetchone()
         if row is None:
-            raise BusinessRuleError("order does not exist")
+            raise NotFoundError("order does not exist")
         return self._order(row)
 
     def create_order(self, customer_reference: str, items: Iterable[tuple[int, int]]) -> Order:
+        """Original signature, kept so existing callers/tests keep working."""
+        return self.create_order_idempotent(customer_reference, items)[0]
+
+    def create_order_idempotent(
+        self,
+        customer_reference: str,
+        items: Iterable[tuple[int, int]],
+        idempotency_key: str | None = None,
+        request_hash: str | None = None,
+    ) -> tuple[Order, bool]:
+        """Returns (order, replayed). With a key, the lookup, the order insert, stock
+        reservation and key storage all happen inside ONE transaction, so a repeat
+        can never create a second order or reserve stock twice."""
         customer_reference = customer_reference.strip()
         requested_items = list(items)
         if not customer_reference:
@@ -120,14 +166,25 @@ class Store:
 
         try:
             self.connection.execute("BEGIN IMMEDIATE")
+
+            if idempotency_key is not None:
+                existing = self.connection.execute(
+                    "SELECT request_hash, order_id FROM idempotency_keys WHERE key = ?", (idempotency_key,)
+                ).fetchone()
+                if existing is not None:
+                    if existing["request_hash"] != request_hash:
+                        raise IdempotencyKeyReuseError("idempotency key was already used with a different request")
+                    self.connection.rollback()
+                    return self.get_order(existing["order_id"]), True
+
             products = {}
             for product_id, quantity in quantities.items():
                 row = self.connection.execute("SELECT * FROM products WHERE id = ?", (product_id,)).fetchone()
                 if row is None:
-                    raise BusinessRuleError("product does not exist")
+                    raise NotFoundError("product does not exist")
                 product = self._product(row)
                 if quantity > product.available_quantity:
-                    raise BusinessRuleError(f"insufficient stock for {product.name} {product.variant}".strip())
+                    raise InsufficientStockError(f"insufficient stock for {product.name} {product.variant}".strip())
                 products[product_id] = product
 
             total_cents = sum(products[product_id].price_cents * quantity for product_id, quantity in quantities.items())
@@ -148,16 +205,21 @@ class Store:
                     VALUES (?, ?, ?, ?, ?, ?)""",
                     (order_id, product_id, product.name, product.variant, quantity, product.price_cents),
                 )
+            if idempotency_key is not None:
+                self.connection.execute(
+                    "INSERT INTO idempotency_keys (key, request_hash, order_id) VALUES (?, ?, ?)",
+                    (idempotency_key, request_hash, order_id),
+                )
             self.connection.commit()
         except Exception:
             self.connection.rollback()
             raise
-        return self.get_order(order_id)
+        return self.get_order(order_id), False
 
     def change_order_status(self, order_id: int, new_status: OrderStatus) -> Order:
         order = self.get_order(order_id)
         if new_status not in ALLOWED_STATUS_TRANSITIONS[order.status]:
-            raise BusinessRuleError(f"cannot change order from {order.status.value} to {new_status.value}")
+            raise ConflictError(f"cannot change order from {order.status.value} to {new_status.value}")
 
         try:
             self.connection.execute("BEGIN IMMEDIATE")
@@ -178,7 +240,7 @@ class Store:
                         (item["quantity"], item["quantity"], item["product_id"], item["quantity"], item["quantity"]),
                     )
                     if self.connection.execute("SELECT changes()").fetchone()[0] != 1:
-                        raise BusinessRuleError("stock or reservation is inconsistent")
+                        raise ConflictError("stock or reservation is inconsistent")
 
             # 2. Moving to CANCELLED: return items to available inventory
             elif new_status == OrderStatus.CANCELLED:
@@ -194,7 +256,7 @@ class Store:
                             (item["quantity"], item["product_id"], item["quantity"]),
                         )
                         if self.connection.execute("SELECT changes()").fetchone()[0] != 1:
-                            raise BusinessRuleError("reserved stock is inconsistent")
+                            raise ConflictError("reserved stock is inconsistent")
                 else:
                     # Order was PACKED or SHIPPED: stock was physically deducted, so add it back to inventory
                     for item in item_rows:
@@ -207,7 +269,7 @@ class Store:
             self.connection.execute("UPDATE orders SET status = ? WHERE id = ? AND status = ?",
                                     (new_status.value, order_id, order.status.value))
             if self.connection.execute("SELECT changes()").fetchone()[0] != 1:
-                raise BusinessRuleError("order status changed concurrently; refresh and retry")
+                raise ConflictError("order status changed concurrently; refresh and retry")
             self.connection.commit()
         except Exception:
             self.connection.rollback()

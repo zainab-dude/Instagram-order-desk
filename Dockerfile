@@ -6,6 +6,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
+COPY grpc_server ./grpc_server
 
 ENV DATABASE_PATH=/app/data/orders.db
 RUN mkdir -p /app/data

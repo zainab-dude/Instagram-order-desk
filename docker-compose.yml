@@ -16,6 +16,29 @@ services:
       start_period: 10s
       retries: 3
 
+  grpc-service:
+    build:
+      context: .
+    container_name: observable-orders-grpc
+    command: python -m grpc_server.server
+    environment:
+      DATABASE_PATH: /app/data/orders.db
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - app-data:/app/data
+    ports:
+      - "50051:50051"
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/metrics')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    depends_on:
+      app:
+        condition: service_healthy
+
   prometheus:
     image: prom/prometheus:v3.5.0
     container_name: observable-orders-prometheus

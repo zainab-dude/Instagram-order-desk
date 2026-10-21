@@ -1,0 +1,15 @@
+syntax = "proto3";
+package orders.v1;
+
+service OrderService {
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
+message OrderItem { int32 product_id = 1; int32 quantity = 2; }
+message CreateOrderRequest {
+  string customer_reference = 1;
+  repeated OrderItem items = 2;
+  string idempotency_key = 3;
+}
+message CreateOrderResponse {
+  int32 order_id = 1; string status = 2; double total = 3; bool replayed = 4;
+}

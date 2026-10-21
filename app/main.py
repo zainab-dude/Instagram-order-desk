@@ -1,16 +1,21 @@
+import math
 import os
 import re
 import sys
+import threading
 import time
 import uuid
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from fastapi import Depends, FastAPI, HTTPException, Response
+from fastapi import Depends, FastAPI, Header, Request, Response
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -22,12 +27,11 @@ if __package__ in {None, ""}:
         HTTP_REQUESTS,
         ORDERS_CANCELLED,
         ORDERS_COMPLETED,
-        ORDERS_CREATED,
-        ORDERS_REJECTED,
         ORDER_PROCESSING,
         update_pending_orders,
     )
     from app.models import OrderStatus
+    from app.order_services import place_order
     from app.services import BusinessRuleError, Store
 else:
     from .database import DEFAULT_DATABASE_PATH, connect, initialize_database
@@ -38,15 +42,15 @@ else:
         HTTP_REQUESTS,
         ORDERS_CANCELLED,
         ORDERS_COMPLETED,
-        ORDERS_CREATED,
-        ORDERS_REJECTED,
         ORDER_PROCESSING,
         update_pending_orders,
     )
     from .models import OrderStatus
+    from .order_services import place_order
     from .services import BusinessRuleError, Store
 
 
+# ---------- Request models ----------
 class ProductCreate(BaseModel):
     name: str = Field(min_length=1, max_length=120)
     variant: str = Field(default="", max_length=120)
@@ -72,7 +76,100 @@ class StatusUpdate(BaseModel):
     status: OrderStatus
 
 
-def create_app(database_path: Path = DEFAULT_DATABASE_PATH) -> FastAPI:
+# ---------- Response models (drive the OpenAPI document) ----------
+class ProductOut(BaseModel):
+    id: int
+    name: str
+    variant: str
+    price: float
+    stock_quantity: int
+    reserved_quantity: int
+    available_quantity: int
+    sold_quantity: int
+
+
+class OrderItemOut(BaseModel):
+    product_id: int
+    product_name: str
+    variant: str
+    quantity: int
+    unit_price: float
+
+
+class OrderOut(BaseModel):
+    id: int
+    customer_reference: str
+    status: str
+    total: float
+    created_at: str
+    items: list[OrderItemOut]
+
+
+class ErrorBody(BaseModel):
+    code: str
+    message: str
+    details: list[dict] | None = None
+
+
+class ErrorResponse(BaseModel):
+    error: ErrorBody
+
+
+_ERROR_TEXT = {
+    404: "Resource not found",
+    409: "Conflict with current state (e.g. insufficient stock, invalid status transition)",
+    422: "Validation error (bad input or misused Idempotency-Key)",
+    429: "Rate limit exceeded; see Retry-After header",
+}
+
+
+def error_docs(*codes: int) -> dict:
+    return {code: {"model": ErrorResponse, "description": _ERROR_TEXT[code]} for code in codes}
+
+
+# ---------- Consistent errors ----------
+class ApiError(Exception):
+    def __init__(self, status_code: int, code: str, message: str, headers: dict | None = None):
+        self.status_code = status_code
+        self.code = code
+        self.message = message
+        self.headers = headers
+
+
+def error_response(status_code: int, code: str, message: str, headers: dict | None = None, details=None):
+    body = {"code": code, "message": message}
+    if details:
+        body["details"] = details
+    return JSONResponse(status_code=status_code, content={"error": body}, headers=headers)
+
+
+# ---------- Rate limiting (single instance, in memory) ----------
+class FixedWindowLimiter:
+    def __init__(self, limit: int, window_seconds: float, clock=time.monotonic):
+        self.limit = limit
+        self.window = window_seconds
+        self._clock = clock
+        self._hits: dict[str, tuple[float, int]] = {}
+        self._lock = threading.Lock()
+
+    def check(self, key: str) -> int:
+        """0 = allowed. Otherwise seconds until the window resets (for Retry-After)."""
+        with self._lock:
+            now = self._clock()
+            start, count = self._hits.get(key, (now, 0))
+            if now - start >= self.window:
+                start, count = now, 0
+            if count >= self.limit:
+                return max(1, math.ceil(start + self.window - now))
+            self._hits[key] = (start, count + 1)
+            return 0
+
+
+def create_app(
+    database_path: Path = DEFAULT_DATABASE_PATH,
+    rate_limit: int | None = None,
+    rate_window: float | None = None,
+) -> FastAPI:
     @asynccontextmanager
     async def lifespan(_: FastAPI):
         initialize_database(database_path)
@@ -83,8 +180,52 @@ def create_app(database_path: Path = DEFAULT_DATABASE_PATH) -> FastAPI:
             connection.close()
         yield
 
-    app = FastAPI(title="Observable Instagram Orders", lifespan=lifespan)
+    app = FastAPI(
+        title="Observable Instagram Orders",
+        version="2.0.0",
+        description="Order and inventory API. POST /api/orders supports Idempotency-Key and is rate limited.",
+        lifespan=lifespan,
+    )
     order_latency_fault = OrderLatencyFault()
+
+    # Limit applies to POST /api/orders only. Shared per client IP.
+    limiter = FixedWindowLimiter(
+        rate_limit if rate_limit is not None else int(os.getenv("RATE_LIMIT_MAX", "5")),
+        rate_window if rate_window is not None else float(os.getenv("RATE_LIMIT_WINDOW", "10")),
+    )
+
+    def limit_order_creation(request: Request):
+        client = request.client.host if request.client else "unknown"
+        retry_after = limiter.check(client)
+        if retry_after:
+            raise ApiError(
+                429,
+                "rate_limited",
+                f"Too many order requests. Retry in {retry_after} seconds.",
+                headers={"Retry-After": str(retry_after)},
+            )
+
+    # ----- exception handlers: every error becomes {"error": {"code", "message"}} -----
+    @app.exception_handler(ApiError)
+    async def api_error_handler(_: Request, error: ApiError):
+        return error_response(error.status_code, error.code, error.message, error.headers)
+
+    @app.exception_handler(BusinessRuleError)
+    async def business_error_handler(_: Request, error: BusinessRuleError):
+        return error_response(error.http_status, error.code, str(error))
+
+    @app.exception_handler(RequestValidationError)
+    async def validation_error_handler(_: Request, error: RequestValidationError):
+        details = [
+            {"field": ".".join(str(part) for part in item["loc"]), "message": item["msg"]}
+            for item in error.errors()
+        ]
+        return error_response(422, "validation_error", "request validation failed", details=details)
+
+    @app.exception_handler(StarletteHTTPException)
+    async def http_error_handler(_: Request, error: StarletteHTTPException):
+        code = {404: "not_found", 405: "method_not_allowed"}.get(error.status_code, "http_error")
+        return error_response(error.status_code, code, str(error.detail), error.headers)
 
     @app.middleware("http")
     async def record_http_metrics(request, call_next):
@@ -133,56 +274,64 @@ def create_app(database_path: Path = DEFAULT_DATABASE_PATH) -> FastAPI:
         finally:
             connection.close()
 
-    def business_error(error: BusinessRuleError) -> HTTPException:
-        message = str(error)
-        status_code = 404 if message in {"product does not exist", "order does not exist"} else 400
-        return HTTPException(status_code=status_code, detail=message)
-
     @app.get("/health")
     def health():
         return {"status": "ok"}
 
-    @app.get("/api/products")
+    @app.get("/api/products", response_model=list[ProductOut], summary="List products")
     def products(store: Store = Depends(get_store)):
         return [product_to_dict(product) for product in store.list_products()]
 
-    @app.post("/api/products", status_code=201)
+    @app.post("/api/products", status_code=201, response_model=ProductOut, summary="Create a product",
+              responses=error_docs(409, 422))
     def add_product(payload: ProductCreate, store: Store = Depends(get_store)):
-        try:
-            product = store.add_product(payload.name, payload.variant, payload.price, payload.stock_quantity)
-            log_event(20, "stock updated", product_id=product.id)
-            return product_to_dict(product)
-        except BusinessRuleError as error:
-            raise business_error(error) from error
+        product = store.add_product(payload.name, payload.variant, payload.price, payload.stock_quantity)
+        log_event(20, "stock updated", product_id=product.id)
+        return product_to_dict(product)
 
-    @app.patch("/api/products/{product_id}/stock")
+    @app.patch("/api/products/{product_id}/stock", response_model=ProductOut, summary="Set physical stock",
+               responses=error_docs(404, 409, 422))
     def update_stock(product_id: int, payload: StockUpdate, store: Store = Depends(get_store)):
-        try:
-            product = store.update_stock(product_id, payload.stock_quantity)
-            log_event(20, "stock updated", product_id=product_id)
-            return product_to_dict(product)
-        except BusinessRuleError as error:
-            raise business_error(error) from error
+        product = store.update_stock(product_id, payload.stock_quantity)
+        log_event(20, "stock updated", product_id=product_id)
+        return product_to_dict(product)
 
-    @app.get("/api/orders")
+    @app.get("/api/orders", response_model=list[OrderOut], summary="List orders")
     def orders(store: Store = Depends(get_store)):
         return [order_to_dict(order) for order in store.list_orders()]
 
-    @app.post("/api/orders", status_code=201)
-    def add_order(payload: OrderCreate, store: Store = Depends(get_store)):
-        try:
-            items = [(item.product_id, item.quantity) for item in payload.items]
-            order = store.create_order(payload.customer_reference, items)
-            ORDERS_CREATED.inc()
-            update_pending_orders(store)
-            log_event(20, "order created", order_id=order.id)
-            return order_to_dict(order)
-        except BusinessRuleError as error:
-            ORDERS_REJECTED.inc()
-            log_event(30, "order rejected")
-            raise business_error(error) from error
+    @app.post(
+        "/api/orders",
+        status_code=201,
+        response_model=OrderOut,
+        summary="Place an order",
+        description=(
+            "Reserves stock and creates a PENDING order. Send an `Idempotency-Key` header (1-128 chars) "
+            "to make retries safe: repeating the same key and body returns the original order "
+            "(header `Idempotent-Replay: true`) without a second order or reservation. "
+            "The same key with a different body returns 422. Limited per client IP; "
+            "exceeding the limit returns 429 with `Retry-After`."
+        ),
+        responses=error_docs(404, 409, 422, 429),
+        dependencies=[Depends(limit_order_creation)],
+    )
+    def add_order(
+        payload: OrderCreate,
+        response: Response,
+        store: Store = Depends(get_store),
+        idempotency_key: str | None = Header(default=None, description="Unique key per logical order attempt"),
+    ):
+        if idempotency_key is not None and not (1 <= len(idempotency_key) <= 128):
+            raise ApiError(422, "invalid_idempotency_key", "Idempotency-Key must be 1-128 characters")
+        items = [(item.product_id, item.quantity) for item in payload.items]
+        order, replayed = place_order(store, payload.customer_reference, items, idempotency_key)
+        if replayed:
+            response.headers["Idempotent-Replay"] = "true"
+        return order_to_dict(order)
 
-    @app.patch("/api/orders/{order_id}/status")
+    @app.patch("/api/orders/{order_id}/status", response_model=OrderOut, summary="Change order status",
+               description="Repeat-safe: repeating a transition is rejected with 409 and changes no stock.",
+               responses=error_docs(404, 409, 422))
     def update_order_status(order_id: int, payload: StatusUpdate, store: Store = Depends(get_store)):
         try:
             previous_status = store.get_order(order_id).status.value
@@ -196,9 +345,9 @@ def create_app(database_path: Path = DEFAULT_DATABASE_PATH) -> FastAPI:
             update_pending_orders(store)
             log_event(20, "order cancelled" if payload.status is OrderStatus.CANCELLED else "order status changed", order_id=order.id, old_status=previous_status, new_status=payload.status.value)
             return order_to_dict(order)
-        except BusinessRuleError as error:
+        except BusinessRuleError:
             log_event(30, "order status change rejected", order_id=order_id)
-            raise business_error(error) from error
+            raise
 
     @app.get("/metrics", include_in_schema=False)
     def metrics():
@@ -217,7 +366,7 @@ def product_to_dict(product):
         "stock_quantity": product.stock_quantity,
         "reserved_quantity": product.reserved_quantity,
         "available_quantity": product.available_quantity,
-        "sold_quantity": product.sold_quantity,  # <-- ADD THIS LINE
+        "sold_quantity": product.sold_quantity,
     }
 
 

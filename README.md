@@ -251,3 +251,5 @@ Add screenshots under `docs/screenshots/`, review [credits and assistance disclo
 | Pytest temporary-directory denial | Use a fresh writable `--basetemp` directory or grant the test process temp access |
 
 Audit warnings include two host dependency deprecations and a bundled Grafana `table` plugin duplicate-registration message. Health and dashboard provisioning succeeded; rendered UI behavior still needs the manual check in the audit. These warnings are not falsely reported as either test failures or proof of UI success.
+New-Item -ItemType Directory -Force app\grpc_gen | Out-Null
+.\.venv\Scripts\python.exe -m grpc_tools.protoc -I proto --python_out=app/grpc_gen --grpc_python_out=app/grpc_gen proto/orders.proto

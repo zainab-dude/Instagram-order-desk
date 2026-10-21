@@ -11,7 +11,7 @@ function escapeHtml(value) {
 async function request(url, options = {}) {
   const response = await fetch(url, { headers: { 'Content-Type': 'application/json' }, ...options });
   const body = await response.json();
-  if (!response.ok) throw new Error(body.detail || 'Request failed');
+  if (!response.ok) throw new Error(body.error?.message || 'Request failed');
   return body;
 }
 
