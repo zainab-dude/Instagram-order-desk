@@ -1,0 +1,349 @@
+{
+  "run": "b-aonly-grpc-135221",
+  "interface": "grpc",
+  "operation": "orders.v1.OrderService/CreateOrder (fixed idempotency key)",
+  "target_rate_rps": 20.0,
+  "duration_s": 60.0,
+  "actual_rate_rps": 19.999,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "error_rate_pct": 0.0,
+  "client_latency_ms": {
+    "p50": 9.47,
+    "p95": 17.04,
+    "max": 130.08,
+    "method": "nearest rank, all requests"
+  },
+  "client_latency_success_ms": {
+    "p50": 9.47,
+    "p95": 17.04,
+    "max": 130.08
+  },
+  "served_by_counts": {
+    "A": 1200
+  },
+  "served_by_share_pct": {
+    "A": 100.0,
+    "B": 0.0,
+    "C": 0.0
+  },
+  "start_utc": "2026-11-14T13:52:22.384+00:00",
+  "end_utc": "2026-11-14T13:53:22.349+00:00",
+  "last_send_utc": "2026-11-14T13:53:22.336+00:00",
+  "request_id_prefix": "lb-b-aonly-grpc-135221-",
+  "settings": {
+    "timeout_s": 5.0,
+    "retries": 0,
+    "circuit_breaker": "none",
+    "open_loop": true
+  },
+  "idempotency": {
+    "key": "lb-b-aonly-grpc-135221-key",
+    "created": 1,
+    "replayed": 1199
+  },
+  "timeline_per_second": {
+    "0": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "1": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "2": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "3": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "4": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "5": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "6": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "7": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "8": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "9": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "10": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "11": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "12": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "13": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "14": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "15": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "16": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "17": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "18": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "19": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "20": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "21": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "22": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "23": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "24": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "25": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "26": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "27": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "28": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "29": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "30": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "31": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "32": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "33": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "34": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "35": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "36": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "37": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "38": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "39": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "40": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "41": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "42": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "43": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "44": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "45": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "46": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "47": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "48": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "49": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "50": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "51": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "52": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "53": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "54": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "55": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "56": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "57": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "58": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "59": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    }
+  }
+}

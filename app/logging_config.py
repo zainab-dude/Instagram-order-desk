@@ -1,5 +1,6 @@
 import json
 import logging
+import os
 import sys
 from contextvars import ContextVar
 from datetime import datetime, timezone
@@ -19,6 +20,9 @@ class JsonFormatter(logging.Formatter):
             "message": record.getMessage(),
             "request_id": getattr(record, "request_id", REQUEST_ID.get()),
         }
+        replica = os.getenv("REPLICA_ID")
+        if replica:
+            event["replica"] = replica
         for field in ("order_id", "product_id", "status", "old_status", "new_status", "method", "path", "status_code", "duration_ms", "error_type"):
             value = getattr(record, field, None)
             if value is not None:

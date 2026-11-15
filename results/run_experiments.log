@@ -1,0 +1,639 @@
+﻿[13:50:31] delay-b.txt = 0 ms
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=a-only, health=False)
+powershell :  Container observable-orders-envoy Restarting 
+At line:1 char:302
++ ... tch {} } }; powershell -ExecutionPolicy Bypass -File scripts\run_expe ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Container obse...voy Restarting :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ Container observable-orders-envoy Started 
+[13:50:35] Envoy mode: a-only 
+[13:50:35] RUN b-aonly-http (http, 20 rps, 60 s)
+{
+  "run": "b-aonly-http-135035",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.0,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 16.9,
+    "p95": 27.49,
+    "max": 227.25,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 100.0,
+    "B": 0.0,
+    "C": 0.0
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 100.0,
+  "envoy_log_share_pct": 100.0,
+  "client_share_pct": 100.0,
+  "server_p95_ms": 20.9,
+  "avg_concurrency": 0.167
+ },
+ "B": {
+  "prometheus_share_pct": 0.0,
+  "envoy_log_share_pct": 0.0,
+  "client_share_pct": 0.0,
+  "server_p95_ms": null,
+  "avg_concurrency": 0.0
+ },
+ "C": {
+  "prometheus_share_pct": 0.0,
+  "envoy_log_share_pct": 0.0,
+  "client_share_pct": 0.0,
+  "server_p95_ms": null,
+  "avg_concurrency": 0.0
+ }
+}
+[13:52:21] RUN b-aonly-grpc (grpc, 20 rps, 60 s)
+{
+  "run": "b-aonly-grpc-135221",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.999,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 9.47,
+    "p95": 17.04,
+    "max": 130.08,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 100.0,
+    "B": 0.0,
+    "C": 0.0
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 100.0,
+  "envoy_log_share_pct": 100.0,
+  "client_share_pct": 100.0,
+  "server_p95_ms": 10.6,
+  "avg_concurrency": 0.127
+ },
+ "B": {
+  "prometheus_share_pct": 0.0,
+  "envoy_log_share_pct": 0.0,
+  "client_share_pct": 0.0,
+  "server_p95_ms": null,
+  "avg_concurrency": 0.0
+ },
+ "C": {
+  "prometheus_share_pct": 0.0,
+  "envoy_log_share_pct": 0.0,
+  "client_share_pct": 0.0,
+  "server_p95_ms": null,
+  "avg_concurrency": 0.0
+ }
+}
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[13:54:12] Envoy mode: rr 
+[13:54:12] RUN c-rr-http (http, 20 rps, 60 s)
+{
+  "run": "c-rr-http-135412",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.999,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 14.67,
+    "p95": 20.89,
+    "max": 192.75,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 33.33,
+    "B": 33.33,
+    "C": 33.33
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.33,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.9,
+  "avg_concurrency": 0.051
+ },
+ "B": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.24,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.9,
+  "avg_concurrency": 0.048
+ },
+ "C": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.42,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.9,
+  "avg_concurrency": 0.053
+ }
+}
+[13:55:58] RUN c-rr-grpc (grpc, 20 rps, 60 s)
+{
+  "run": "c-rr-grpc-135558",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.0,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 9.08,
+    "p95": 13.06,
+    "max": 86.67,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 33.33,
+    "B": 33.33,
+    "C": 33.33
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 34.48,
+  "envoy_log_share_pct": 33.27,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.6,
+  "avg_concurrency": 0.035
+ },
+ "B": {
+  "prometheus_share_pct": 32.59,
+  "envoy_log_share_pct": 33.37,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.036
+ },
+ "C": {
+  "prometheus_share_pct": 32.93,
+  "envoy_log_share_pct": 33.37,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.035
+ }
+}
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=weighted, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[13:57:49] Envoy mode: weighted 
+[13:57:49] RUN d1-weighted-http (http, 20 rps, 60 s)
+{
+  "run": "d1-weighted-http-135749",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.999,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 15.76,
+    "p95": 22.2,
+    "max": 104.41,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 50.0,
+    "B": 24.92,
+    "C": 25.08
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 50.0,
+  "envoy_log_share_pct": 50.0,
+  "client_share_pct": 50.0,
+  "server_p95_ms": 14.6,
+  "avg_concurrency": 0.072
+ },
+ "B": {
+  "prometheus_share_pct": 24.92,
+  "envoy_log_share_pct": 24.92,
+  "client_share_pct": 24.92,
+  "server_p95_ms": 13.3,
+  "avg_concurrency": 0.034
+ },
+ "C": {
+  "prometheus_share_pct": 25.08,
+  "envoy_log_share_pct": 25.08,
+  "client_share_pct": 25.08,
+  "server_p95_ms": 12.6,
+  "avg_concurrency": 0.035
+ }
+}
+[13:59:35] RUN d1-weighted-grpc (grpc, 20 rps, 60 s)
+{
+  "run": "d1-weighted-grpc-135935",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.003,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 9.18,
+    "p95": 11.59,
+    "max": 112.0,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 50.0,
+    "B": 25.0,
+    "C": 25.0
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 50.0,
+  "envoy_log_share_pct": 50.04,
+  "client_share_pct": 50.0,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.057
+ },
+ "B": {
+  "prometheus_share_pct": 25.0,
+  "envoy_log_share_pct": 25.02,
+  "client_share_pct": 25.0,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.028
+ },
+ "C": {
+  "prometheus_share_pct": 25.0,
+  "envoy_log_share_pct": 24.94,
+  "client_share_pct": 25.0,
+  "server_p95_ms": 9.6,
+  "avg_concurrency": 0.026
+ }
+}
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:01:26] Envoy mode: rr 
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:01:31] Envoy mode: rr 
+[14:01:31] delay-b.txt = 200 ms
+[14:01:31] RUN d2-rr-delayB-http (http, 20 rps, 60 s)
+{
+  "run": "d2-rr-delayB-http-140131",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.002,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 17.9,
+    "p95": 220.52,
+    "max": 278.47,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 33.42,
+    "B": 33.33,
+    "C": 33.25
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 33.42,
+  "envoy_log_share_pct": 33.51,
+  "client_share_pct": 33.42,
+  "server_p95_ms": 9.8,
+  "avg_concurrency": 0.046
+ },
+ "B": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.24,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 242.9,
+  "avg_concurrency": 1.383
+ },
+ "C": {
+  "prometheus_share_pct": 33.25,
+  "envoy_log_share_pct": 33.24,
+  "client_share_pct": 33.25,
+  "server_p95_ms": 9.8,
+  "avg_concurrency": 0.044
+ }
+}
+[14:03:17] RUN d2-rr-delayB-grpc (grpc, 20 rps, 60 s)
+{
+  "run": "d2-rr-delayB-grpc-140317",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.996,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 9.41,
+    "p95": 210.48,
+    "max": 275.44,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 33.33,
+    "B": 33.33,
+    "C": 33.33
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.39,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.6,
+  "avg_concurrency": 0.036
+ },
+ "B": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.22,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 242.9,
+  "avg_concurrency": 1.368
+ },
+ "C": {
+  "prometheus_share_pct": 33.33,
+  "envoy_log_share_pct": 33.39,
+  "client_share_pct": 33.33,
+  "server_p95_ms": 9.3,
+  "avg_concurrency": 0.032
+ }
+}
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=least, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:05:08] Envoy mode: least 
+[14:05:08] RUN d2-least-delayB-http (http, 20 rps, 60 s)
+{
+  "run": "d2-least-delayB-http-140508",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.998,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 17.14,
+    "p95": 218.77,
+    "max": 269.43,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 42.5,
+    "B": 16.0,
+    "C": 41.5
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 42.5,
+  "envoy_log_share_pct": 42.5,
+  "client_share_pct": 42.5,
+  "server_p95_ms": 14.8,
+  "avg_concurrency": 0.064
+ },
+ "B": {
+  "prometheus_share_pct": 16.0,
+  "envoy_log_share_pct": 16.0,
+  "client_share_pct": 16.0,
+  "server_p95_ms": 243.2,
+  "avg_concurrency": 0.665
+ },
+ "C": {
+  "prometheus_share_pct": 41.5,
+  "envoy_log_share_pct": 41.5,
+  "client_share_pct": 41.5,
+  "server_p95_ms": 10.0,
+  "avg_concurrency": 0.059
+ }
+}
+[14:06:51] RUN d2-least-delayB-grpc (grpc, 20 rps, 60 s)
+{
+  "run": "d2-least-delayB-grpc-140651",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 19.998,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "client_latency_ms": {
+    "p50": 9.19,
+    "p95": 209.84,
+    "max": 264.39,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 42.0,
+    "B": 15.75,
+    "C": 42.25
+  }
+}
+{
+ "A": {
+  "prometheus_share_pct": 42.0,
+  "envoy_log_share_pct": 42.0,
+  "client_share_pct": 42.0,
+  "server_p95_ms": 9.6,
+  "avg_concurrency": 0.045
+ },
+ "B": {
+  "prometheus_share_pct": 15.75,
+  "envoy_log_share_pct": 15.75,
+  "client_share_pct": 15.75,
+  "server_p95_ms": 242.5,
+  "avg_concurrency": 0.647
+ },
+ "C": {
+  "prometheus_share_pct": 42.25,
+  "envoy_log_share_pct": 42.25,
+  "client_share_pct": 42.25,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.046
+ }
+}
+[14:08:37] delay-b.txt = 0 ms
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:08:42] Envoy mode: rr 
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=True)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:08:48] Envoy mode: rr --health
+[14:08:48] FAILURE RUN d3-fail-http (http, 90 s; stop B at ~30 s, start at ~60 s)
+stopped B: 2026-11-14T14:09:19.224+00:00 -> 2026-11-14T14:09:19.841+00:00
+started B: 2026-11-14T14:09:49.224+00:00 -> 2026-11-14T14:09:50.320+00:00
+{
+  "run": "d3-fail-http-140849",
+  "interface": "http",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.0,
+  "sent": 1800,
+  "successes": 1749,
+  "failures": 51,
+  "failures_by_code": {
+    "503": 51
+  },
+  "client_latency_ms": {
+    "p50": 15.61,
+    "p95": 28.3,
+    "max": 1015.41,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 38.39,
+    "B": 23.28,
+    "C": 38.33
+  }
+}
+{
+ "http_cluster/app-b": {
+  "marked_unhealthy_utc": "2026-11-14T14:09:27.144+00:00",
+  "removal_s_from_stop_cmd_begin": 7.92,
+  "removal_s_from_stop_cmd_end": 7.3,
+  "marked_healthy_utc": "2026-11-14T14:09:54.251+00:00",
+  "recovery_s_from_start_cmd_begin": 5.03,
+  "recovery_s_from_start_cmd_end": 3.93
+ },
+ "grpc_cluster/grpc-b": {
+  "marked_unhealthy_utc": "2026-11-14T14:09:27.144+00:00",
+  "removal_s_from_stop_cmd_begin": 7.92,
+  "removal_s_from_stop_cmd_end": 7.3,
+  "marked_healthy_utc": "2026-11-14T14:09:54.251+00:00",
+  "recovery_s_from_start_cmd_begin": 5.03,
+  "recovery_s_from_start_cmd_end": 3.93
+ }
+}
+{
+ "A": {
+  "prometheus_share_pct": 40.1,
+  "envoy_log_share_pct": 38.79,
+  "client_share_pct": 38.39,
+  "server_p95_ms": 22.1,
+  "avg_concurrency": 0.068
+ },
+ "B": {
+  "prometheus_share_pct": 19.85,
+  "envoy_log_share_pct": 22.55,
+  "client_share_pct": 23.28,
+  "server_p95_ms": 22.0,
+  "avg_concurrency": 0.033
+ },
+ "C": {
+  "prometheus_share_pct": 40.05,
+  "envoy_log_share_pct": 38.67,
+  "client_share_pct": 38.33,
+  "server_p95_ms": 22.2,
+  "avg_concurrency": 0.072
+ }
+}
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=True)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:11:10] Envoy mode: rr --health
+[14:11:10] FAILURE RUN d3-fail-grpc (grpc, 90 s; stop B at ~30 s, start at ~60 s)
+stopped B: 2026-11-14T14:11:41.737+00:00 -> 2026-11-14T14:11:42.398+00:00
+started B: 2026-11-14T14:12:11.737+00:00 -> 2026-11-14T14:12:12.757+00:00
+{
+  "run": "d3-fail-grpc-141112",
+  "interface": "grpc",
+  "target_rate_rps": 20.0,
+  "actual_rate_rps": 20.002,
+  "sent": 1800,
+  "successes": 1749,
+  "failures": 51,
+  "failures_by_code": {
+    "UNAVAILABLE": 51
+  },
+  "client_latency_ms": {
+    "p50": 9.0,
+    "p95": 19.23,
+    "max": 1035.36,
+    "method": "nearest rank, all requests"
+  },
+  "served_by_share_pct": {
+    "A": 39.68,
+    "B": 20.75,
+    "C": 39.57
+  }
+}
+{
+ "http_cluster/app-b": {
+  "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+  "removal_s_from_stop_cmd_begin": 8.01,
+  "removal_s_from_stop_cmd_end": 7.35,
+  "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+  "recovery_s_from_start_cmd_begin": 6.08,
+  "recovery_s_from_start_cmd_end": 5.06
+ },
+ "grpc_cluster/grpc-b": {
+  "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+  "removal_s_from_stop_cmd_begin": 8.01,
+  "removal_s_from_stop_cmd_end": 7.35,
+  "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+  "recovery_s_from_start_cmd_begin": 6.08,
+  "recovery_s_from_start_cmd_end": 5.06
+ }
+}
+{
+ "A": {
+  "prometheus_share_pct": 40.37,
+  "envoy_log_share_pct": 38.56,
+  "client_share_pct": 39.68,
+  "server_p95_ms": 9.9,
+  "avg_concurrency": 0.047
+ },
+ "B": {
+  "prometheus_share_pct": 19.37,
+  "envoy_log_share_pct": 23.0,
+  "client_share_pct": 20.75,
+  "server_p95_ms": 9.7,
+  "avg_concurrency": 0.021
+ },
+ "C": {
+  "prometheus_share_pct": 40.26,
+  "envoy_log_share_pct": 38.44,
+  "client_share_pct": 39.57,
+  "server_p95_ms": 9.8,
+  "avg_concurrency": 0.048
+ }
+}
+ Container observable-orders-app-a Waiting 
+ Container observable-orders-app-a Waiting 
+ Container observable-orders-app-a Healthy 
+ Container observable-orders-app-a Healthy 
+wrote C:\Users\Dell\OneDrive - Habib University\sem7\ESD\assig1\envoy\envoy.yaml (mode=rr, health=False)
+ Container observable-orders-envoy Restarting 
+ Container observable-orders-envoy Started 
+[14:13:33] Envoy mode: rr 
+[14:13:33] delay-b.txt = 0 ms
+[14:13:33] done; Envoy is back in round robin, delays are 0, all replicas started

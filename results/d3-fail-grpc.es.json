@@ -1,0 +1,224 @@
+{
+ "index": "observable-orders-v3-*",
+ "envoy_query": {
+  "size": 0,
+  "track_total_hits": true,
+  "query": {
+   "bool": {
+    "filter": [
+     {
+      "prefix": {
+       "request_id": "lb-d3-fail-grpc-141112-"
+      }
+     },
+     {
+      "term": {
+       "service.name": "envoy"
+      }
+     }
+    ]
+   }
+  },
+  "aggs": {
+   "by_replica": {
+    "terms": {
+     "field": "replica",
+     "size": 10
+    }
+   },
+   "by_code": {
+    "terms": {
+     "field": "envoy_response_code",
+     "size": 10
+    }
+   },
+   "by_grpc_status": {
+    "terms": {
+     "field": "envoy_grpc_status",
+     "size": 10
+    }
+   },
+   "by_flags": {
+    "terms": {
+     "field": "envoy_response_flags",
+     "size": 10
+    }
+   }
+  }
+ },
+ "envoy_response": {
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+   "total": 8,
+   "successful": 8,
+   "skipped": 0,
+   "failed": 0
+  },
+  "hits": {
+   "total": {
+    "value": 1800,
+    "relation": "eq"
+   },
+   "max_score": null,
+   "hits": []
+  },
+  "aggregations": {
+   "by_replica": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": "A",
+      "doc_count": 694
+     },
+     {
+      "key": "C",
+      "doc_count": 692
+     },
+     {
+      "key": "B",
+      "doc_count": 414
+     }
+    ]
+   },
+   "by_code": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": 200,
+      "doc_count": 1800
+     }
+    ]
+   },
+   "by_grpc_status": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": "OK",
+      "doc_count": 1749
+     },
+     {
+      "key": "Unavailable",
+      "doc_count": 51
+     }
+    ]
+   },
+   "by_flags": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": "-",
+      "doc_count": 1749
+     },
+     {
+      "key": "UF",
+      "doc_count": 51
+     }
+    ]
+   }
+  }
+ },
+ "replica_query": {
+  "size": 0,
+  "track_total_hits": true,
+  "query": {
+   "bool": {
+    "filter": [
+     {
+      "prefix": {
+       "request_id": "lb-d3-fail-grpc-141112-"
+      }
+     },
+     {
+      "term": {
+       "service.name": "instagram-order-desk"
+      }
+     }
+    ]
+   }
+  },
+  "aggs": {
+   "by_replica": {
+    "terms": {
+     "field": "replica",
+     "size": 10
+    }
+   },
+   "by_code": {
+    "terms": {
+     "field": "envoy_response_code",
+     "size": 10
+    }
+   },
+   "by_grpc_status": {
+    "terms": {
+     "field": "envoy_grpc_status",
+     "size": 10
+    }
+   },
+   "by_flags": {
+    "terms": {
+     "field": "envoy_response_flags",
+     "size": 10
+    }
+   }
+  }
+ },
+ "replica_response": {
+  "took": 5,
+  "timed_out": false,
+  "_shards": {
+   "total": 8,
+   "successful": 8,
+   "skipped": 0,
+   "failed": 0
+  },
+  "hits": {
+   "total": {
+    "value": 5247,
+    "relation": "eq"
+   },
+   "max_score": null,
+   "hits": []
+  },
+  "aggregations": {
+   "by_replica": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": "A",
+      "doc_count": 2082
+     },
+     {
+      "key": "C",
+      "doc_count": 2076
+     },
+     {
+      "key": "B",
+      "doc_count": 1089
+     }
+    ]
+   },
+   "by_code": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": []
+   },
+   "by_grpc_status": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": []
+   },
+   "by_flags": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": []
+   }
+  }
+ }
+}

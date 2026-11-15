@@ -1,0 +1,471 @@
+{
+  "run": "d1-weighted-grpc-135935",
+  "interface": "grpc",
+  "operation": "orders.v1.OrderService/CreateOrder (fixed idempotency key)",
+  "target_rate_rps": 20.0,
+  "duration_s": 60.0,
+  "actual_rate_rps": 20.003,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "error_rate_pct": 0.0,
+  "client_latency_ms": {
+    "p50": 9.18,
+    "p95": 11.59,
+    "max": 112.0,
+    "method": "nearest rank, all requests"
+  },
+  "client_latency_success_ms": {
+    "p50": 9.18,
+    "p95": 11.59,
+    "max": 112.0
+  },
+  "served_by_counts": {
+    "A": 600,
+    "B": 300,
+    "C": 300
+  },
+  "served_by_share_pct": {
+    "A": 50.0,
+    "B": 25.0,
+    "C": 25.0
+  },
+  "start_utc": "2026-11-14T13:59:35.804+00:00",
+  "end_utc": "2026-11-14T14:00:35.757+00:00",
+  "last_send_utc": "2026-11-14T14:00:35.745+00:00",
+  "request_id_prefix": "lb-d1-weighted-grpc-135935-",
+  "settings": {
+    "timeout_s": 5.0,
+    "retries": 0,
+    "circuit_breaker": "none",
+    "open_loop": true
+  },
+  "idempotency": {
+    "key": "lb-d1-weighted-grpc-135935-key",
+    "created": 1,
+    "replayed": 1199
+  },
+  "timeline_per_second": {
+    "0": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "1": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "2": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "3": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "4": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "5": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "6": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "7": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "8": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "9": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "10": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "11": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "12": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "13": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "14": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "15": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "16": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "17": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "18": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "19": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "20": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "21": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "22": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "23": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "24": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "25": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "26": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "27": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "28": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "29": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "30": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "31": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "32": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "33": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "34": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "35": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "36": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "37": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "38": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "39": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "40": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "41": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "42": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "43": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "44": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "45": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "46": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "47": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "48": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "49": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "50": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "51": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "52": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "53": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "54": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 11,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "55": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "56": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "57": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "58": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 9,
+      "served_B": 5,
+      "served_C": 5
+    },
+    "59": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 10,
+      "served_B": 5,
+      "served_C": 5
+    }
+  }
+}

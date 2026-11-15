@@ -2,7 +2,12 @@ import concurrent.futures
 import time
 import uuid
 
+import sys
+from pathlib import Path
+
 import grpc
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # project root, so `app` imports work
 
 import app.grpc_gen.orders_pb2 as pb
 import app.grpc_gen.orders_pb2_grpc as pb_grpc

@@ -21,3 +21,4 @@ Assignment-1.docx
 *.whl
 *.tar
 *.tar.gz
+results/*.pcap

@@ -1,0 +1,84 @@
+{
+  "run": "d2-rr-delayB-grpc-140317",
+  "interface": "grpc",
+  "window_utc": [
+    "2026-11-14T14:03:18.163+00:00",
+    "2026-11-14T14:04:18.339+00:00"
+  ],
+  "client": {
+    "target_rate_rps": 20.0,
+    "actual_rate_rps": 19.996,
+    "sent": 1200,
+    "successes": 1200,
+    "failures": 0,
+    "failures_by_code": {},
+    "error_rate_pct": 0.0,
+    "client_latency_ms": {
+      "p50": 9.41,
+      "p95": 210.48,
+      "max": 275.44,
+      "method": "nearest rank, all requests"
+    }
+  },
+  "replicas": {
+    "A": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 4.6,
+      "server_p95_ms": 9.6,
+      "avg_concurrency": 0.036,
+      "max_active_sampled": 1.0,
+      "dashboard_share_pct_1m_at_75pct": 32.64,
+      "status_codes": {
+        "OK": 400
+      }
+    },
+    "B": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 175.2,
+      "server_p95_ms": 242.9,
+      "avg_concurrency": 1.368,
+      "max_active_sampled": 2.0,
+      "dashboard_share_pct_1m_at_75pct": 33.8,
+      "status_codes": {
+        "OK": 400
+      }
+    },
+    "C": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 3.6,
+      "server_p95_ms": 9.3,
+      "avg_concurrency": 0.032,
+      "max_active_sampled": 0.0,
+      "dashboard_share_pct_1m_at_75pct": 33.57,
+      "status_codes": {
+        "OK": 400
+      }
+    }
+  },
+  "envoy_upstream_rq_total_delta": 1200,
+  "envoy_log_events": 1200,
+  "envoy_log_response_flags": {
+    "-": 1200
+  },
+  "replica_log_events": {
+    "A": 1200,
+    "B": 1200,
+    "C": 1200
+  },
+  "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run."
+}

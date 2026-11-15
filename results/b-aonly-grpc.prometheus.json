@@ -1,0 +1,653 @@
+{
+ "count_range": {
+  "query": "sum by (replica) (grpc_server_handled_total{job=\"grpc-service\",grpc_method=\"CreateOrder\"})",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "121"
+       ],
+       [
+        1794664337.384,
+        "121"
+       ],
+       [
+        1794664342.384,
+        "121"
+       ],
+       [
+        1794664347.384,
+        "180"
+       ],
+       [
+        1794664352.384,
+        "280"
+       ],
+       [
+        1794664357.384,
+        "380"
+       ],
+       [
+        1794664362.384,
+        "480"
+       ],
+       [
+        1794664367.384,
+        "580"
+       ],
+       [
+        1794664372.384,
+        "680"
+       ],
+       [
+        1794664377.384,
+        "780"
+       ],
+       [
+        1794664382.384,
+        "880"
+       ],
+       [
+        1794664387.384,
+        "980"
+       ],
+       [
+        1794664392.384,
+        "1080"
+       ],
+       [
+        1794664397.384,
+        "1180"
+       ],
+       [
+        1794664402.384,
+        "1280"
+       ],
+       [
+        1794664407.384,
+        "1321"
+       ],
+       [
+        1794664412.384,
+        "1321"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "codes_range": {
+  "query": "sum by (replica, grpc_code) (grpc_server_handled_total{job=\"grpc-service\",grpc_method=\"CreateOrder\"})",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "grpc_code": "OK",
+       "replica": "A"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "121"
+       ],
+       [
+        1794664337.384,
+        "121"
+       ],
+       [
+        1794664342.384,
+        "121"
+       ],
+       [
+        1794664347.384,
+        "180"
+       ],
+       [
+        1794664352.384,
+        "280"
+       ],
+       [
+        1794664357.384,
+        "380"
+       ],
+       [
+        1794664362.384,
+        "480"
+       ],
+       [
+        1794664367.384,
+        "580"
+       ],
+       [
+        1794664372.384,
+        "680"
+       ],
+       [
+        1794664377.384,
+        "780"
+       ],
+       [
+        1794664382.384,
+        "880"
+       ],
+       [
+        1794664387.384,
+        "980"
+       ],
+       [
+        1794664392.384,
+        "1080"
+       ],
+       [
+        1794664397.384,
+        "1180"
+       ],
+       [
+        1794664402.384,
+        "1280"
+       ],
+       [
+        1794664407.384,
+        "1321"
+       ],
+       [
+        1794664412.384,
+        "1321"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "p50_server": {
+  "query": "histogram_quantile(0.50, sum by (replica, le) (increase(grpc_server_handling_seconds_bucket{job=\"grpc-service\",grpc_method=\"CreateOrder\"}[76s])))",
+  "time": 1794664414.349,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "vector",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "value": [
+       1794664414.349,
+       "0.005899390243902439"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "p95_server": {
+  "query": "histogram_quantile(0.95, sum by (replica, le) (increase(grpc_server_handling_seconds_bucket{job=\"grpc-service\",grpc_method=\"CreateOrder\"}[76s])))",
+  "time": 1794664414.349,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "vector",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "value": [
+       1794664414.349,
+       "0.010612244897959228"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "duration_sum_range": {
+  "query": "sum by (replica) (grpc_server_handling_seconds_sum{job=\"grpc-service\",grpc_method=\"CreateOrder\"})",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "0.8390049500048917"
+       ],
+       [
+        1794664337.384,
+        "0.8390049500048917"
+       ],
+       [
+        1794664342.384,
+        "0.8390049500048917"
+       ],
+       [
+        1794664347.384,
+        "1.1650704840067192"
+       ],
+       [
+        1794664352.384,
+        "1.8690543460043045"
+       ],
+       [
+        1794664357.384,
+        "2.795173694006735"
+       ],
+       [
+        1794664362.384,
+        "3.604366691004543"
+       ],
+       [
+        1794664367.384,
+        "4.315008421007406"
+       ],
+       [
+        1794664372.384,
+        "4.9614601350131124"
+       ],
+       [
+        1794664377.384,
+        "5.485162396019405"
+       ],
+       [
+        1794664382.384,
+        "5.98278800801927"
+       ],
+       [
+        1794664387.384,
+        "6.568621567022092"
+       ],
+       [
+        1794664392.384,
+        "7.073805589032418"
+       ],
+       [
+        1794664397.384,
+        "7.6218989320313995"
+       ],
+       [
+        1794664402.384,
+        "8.257376257032774"
+       ],
+       [
+        1794664407.384,
+        "8.479724612032442"
+       ],
+       [
+        1794664412.384,
+        "8.479724612032442"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "active_max": {
+  "query": "max by (replica) (max_over_time(grpc_server_in_flight_requests{job=\"grpc-service\",grpc_method=\"CreateOrder\"}[76s]))",
+  "time": 1794664414.349,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "vector",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "value": [
+       1794664414.349,
+       "0"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "dashboard_share_pct_1m": {
+  "query": "100 * sum by (replica) (rate(grpc_server_handled_total{job=\"grpc-service\",grpc_method=\"CreateOrder\"}[1m])) / ignoring(replica) group_left sum(rate(grpc_server_handled_total{job=\"grpc-service\",grpc_method=\"CreateOrder\"}[1m]))",
+  "time": 1794664387.35775,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "vector",
+    "result": [
+     {
+      "metric": {
+       "replica": "A"
+      },
+      "value": [
+       1794664387.358,
+       "100"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "envoy_rq_total_range": {
+  "query": "envoy_cluster_upstream_rq_total{envoy_cluster_name=\"grpc_cluster\"}",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "__name__": "envoy_cluster_upstream_rq_total",
+       "envoy_cluster_name": "grpc_cluster",
+       "instance": "envoy:9901",
+       "job": "envoy"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "0"
+       ],
+       [
+        1794664337.384,
+        "0"
+       ],
+       [
+        1794664342.384,
+        "0"
+       ],
+       [
+        1794664347.384,
+        "18"
+       ],
+       [
+        1794664352.384,
+        "118"
+       ],
+       [
+        1794664357.384,
+        "218"
+       ],
+       [
+        1794664362.384,
+        "318"
+       ],
+       [
+        1794664367.384,
+        "418"
+       ],
+       [
+        1794664372.384,
+        "518"
+       ],
+       [
+        1794664377.384,
+        "618"
+       ],
+       [
+        1794664382.384,
+        "718"
+       ],
+       [
+        1794664387.384,
+        "818"
+       ],
+       [
+        1794664392.384,
+        "918"
+       ],
+       [
+        1794664397.384,
+        "1018"
+       ],
+       [
+        1794664402.384,
+        "1118"
+       ],
+       [
+        1794664407.384,
+        "1200"
+       ],
+       [
+        1794664412.384,
+        "1200"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "envoy_rq_active_max": {
+  "query": "max_over_time(envoy_cluster_upstream_rq_active{envoy_cluster_name=\"grpc_cluster\"}[76s])",
+  "time": 1794664414.349,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "vector",
+    "result": [
+     {
+      "metric": {
+       "envoy_cluster_name": "grpc_cluster",
+       "instance": "envoy:9901",
+       "job": "envoy"
+      },
+      "value": [
+       1794664414.349,
+       "1"
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "envoy_membership_healthy_range": {
+  "query": "envoy_cluster_membership_healthy{envoy_cluster_name=\"grpc_cluster\"}",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "__name__": "envoy_cluster_membership_healthy",
+       "envoy_cluster_name": "grpc_cluster",
+       "instance": "envoy:9901",
+       "job": "envoy"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "1"
+       ],
+       [
+        1794664337.384,
+        "1"
+       ],
+       [
+        1794664342.384,
+        "1"
+       ],
+       [
+        1794664347.384,
+        "1"
+       ],
+       [
+        1794664352.384,
+        "1"
+       ],
+       [
+        1794664357.384,
+        "1"
+       ],
+       [
+        1794664362.384,
+        "1"
+       ],
+       [
+        1794664367.384,
+        "1"
+       ],
+       [
+        1794664372.384,
+        "1"
+       ],
+       [
+        1794664377.384,
+        "1"
+       ],
+       [
+        1794664382.384,
+        "1"
+       ],
+       [
+        1794664387.384,
+        "1"
+       ],
+       [
+        1794664392.384,
+        "1"
+       ],
+       [
+        1794664397.384,
+        "1"
+       ],
+       [
+        1794664402.384,
+        "1"
+       ],
+       [
+        1794664407.384,
+        "1"
+       ],
+       [
+        1794664412.384,
+        "1"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ },
+ "envoy_membership_total_range": {
+  "query": "envoy_cluster_membership_total{envoy_cluster_name=\"grpc_cluster\"}",
+  "start": 1794664332.384,
+  "end": 1794664414.349,
+  "step": 5,
+  "response": {
+   "status": "success",
+   "data": {
+    "resultType": "matrix",
+    "result": [
+     {
+      "metric": {
+       "__name__": "envoy_cluster_membership_total",
+       "envoy_cluster_name": "grpc_cluster",
+       "instance": "envoy:9901",
+       "job": "envoy"
+      },
+      "values": [
+       [
+        1794664332.384,
+        "1"
+       ],
+       [
+        1794664337.384,
+        "1"
+       ],
+       [
+        1794664342.384,
+        "1"
+       ],
+       [
+        1794664347.384,
+        "1"
+       ],
+       [
+        1794664352.384,
+        "1"
+       ],
+       [
+        1794664357.384,
+        "1"
+       ],
+       [
+        1794664362.384,
+        "1"
+       ],
+       [
+        1794664367.384,
+        "1"
+       ],
+       [
+        1794664372.384,
+        "1"
+       ],
+       [
+        1794664377.384,
+        "1"
+       ],
+       [
+        1794664382.384,
+        "1"
+       ],
+       [
+        1794664387.384,
+        "1"
+       ],
+       [
+        1794664392.384,
+        "1"
+       ],
+       [
+        1794664397.384,
+        "1"
+       ],
+       [
+        1794664402.384,
+        "1"
+       ],
+       [
+        1794664407.384,
+        "1"
+       ],
+       [
+        1794664412.384,
+        "1"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

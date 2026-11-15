@@ -10,6 +10,8 @@ Read the [final requirement audit](docs/final-assignment-audit.md) and [short A�
 
 **Assignment 2** extends this project with an improved HTTP API (OpenAPI, idempotency, rate limiting, consistent errors), a resilient Python caller, a gRPC `CreateOrder` service, and gRPC metrics in Prometheus and Grafana. See [the Assignment 2 report](docs/assignment2-report.md), [the scope note](docs/a2-scope.md) and the [Assignment 2 section](#assignment-2-http-api-grpc-and-metrics) below.
 
+**Assignment 3** runs three replicas (A, B, C) of the HTTP and gRPC services behind **Envoy**. Envoy is now the only entry point, still on `localhost:8000` (HTTP) and `localhost:50051` (gRPC). The old single `app` and `grpc-service` containers are replaced by `app-a/b/c` and `grpc-a/b/c`. See the [Assignment 3 section](#assignment-3-load-balancing-with-envoy) and [the Assignment 3 report](docs/a3/report.md).
+
 ## Architecture
 
 ```mermaid
@@ -40,7 +42,7 @@ Solid response arrows show data flow; dotted arrows show pull requests. [Part D]
 
 - Docker Desktop running in Linux-container mode; on Windows its WSL2 backend must be available.
 - Docker Compose v2-compatible commands (`docker compose`) and internet access for initial downloads.
-- Free ports 8000, 9090, 3000, 9200 and 5601, plus **50051 (gRPC) and 8002 (gRPC metrics)**; isolated cardinality tests also use 8010 and 9091.
+- Free ports 8000, 9090, 3000, 9200 and 5601, plus **50051 (gRPC) and 9901 (Envoy admin, A3)**; isolated cardinality tests also use 8010 and 9091. Port 8002 is no longer published (A3).
 - Python 3.10+ for scripts/tests. Audit environment: host Python 3.14; app container Python 3.12.
 - Enough Docker memory for the stack; Elasticsearch alone has a configured 512 MiB JVM heap.
 
@@ -73,9 +75,10 @@ Local execution uses `data/orders.db`. Docker uses `/app/data/orders.db` in `app
 | OpenAPI document | http://localhost:8000/openapi.json and `docs/openapi.json` | Machine-readable API contract |
 | Health / metrics | http://localhost:8000/health and http://localhost:8000/metrics | Health JSON and Prometheus text |
 | gRPC service | `localhost:50051` | `orders.v1.OrderService/CreateOrder` (plaintext, local only) |
-| gRPC metrics | http://localhost:8002/metrics | Prometheus text for the gRPC container |
-| Prometheus | http://localhost:9090/query | PromQL; target status at `/targets` (jobs `fastapi-app`, `grpc-service`, `node-exporter`) |
-| Grafana | http://localhost:3000/ | **Observable Orders → Observable Instagram Orders** dashboard |
+| gRPC metrics | not published since A3; Prometheus scrapes `grpc-a/b/c:8002` | `docker compose exec grpc-a python -c "import urllib.request;print(urllib.request.urlopen('http://127.0.0.1:8002/metrics').read().decode())"` |
+| Envoy admin (A3) | http://localhost:9901/clusters, `/stats/prometheus`, `/ready` | Endpoint health and Envoy stats |
+| Prometheus | http://localhost:9090/query | PromQL; target status at `/targets` (jobs `fastapi-app` and `grpc-service` with targets A/B/C, `envoy`, `node-exporter`) |
+| Grafana | http://localhost:3000/ | **Observable Orders → Observable Instagram Orders** dashboard; A3: **A3 Load Balancing** (`/d/a3-load-balancing`) |
 | Elasticsearch | http://localhost:9200/ | HTTP API |
 | Kibana | http://localhost:5601/ | Discover log search |
 | Node Exporter | `http://node-exporter:9100/metrics` inside Compose | Port not published to host |
@@ -201,7 +204,7 @@ histogram_quantile(0.95, sum by (le) (rate(grpc_server_handling_seconds_bucket[5
 sum by (grpc_method) (grpc_server_in_flight_requests)
 ```
 
-The Grafana dashboard shows the gRPC panels beside the HTTP `POST /api/orders` panels (provisioned from `grafana/`). Use the last 15 minutes and a 5-minute rate after running the traffic scripts, and wait one or two scrapes (15 s each). Screenshots: `docs/screenshots/`.
+The Grafana dashboard shows the gRPC panels beside the HTTP `POST /api/orders` panels (provisioned from `grafana/`). Set the dashboard range to the last 15 minutes after running the traffic scripts (the panels use Grafana’s `$__rate_interval`), and wait one or two scrapes (15 s each). Screenshots: `docs/screenshots/`.
 
 ### Assignment 2 tests
 
@@ -210,6 +213,104 @@ The Grafana dashboard shows the gRPC panels beside the HTTP `POST /api/orders` p
 ```
 
 `tests/test_api_a2.py` covers a valid order, invalid input, repeated idempotency key, key reuse with a different body, and `429` with `Retry-After`. `tests/test_grpc.py` starts an in-process gRPC server and asserts `OK` and the error codes. Pass `rate_limit=1000` to `create_app` in tests that create many orders.
+
+## Assignment 3: load balancing with Envoy
+
+Report: [docs/a3/report.md](docs/a3/report.md). Dashboard export: [docs/a3/dashboard.json](docs/a3/dashboard.json). Credits: [docs/a3/credits.md](docs/a3/credits.md). Work log: [docs/a3/progress.md](docs/a3/progress.md). Screenshots (Grafana per stage, Kibana, overviews): [docs/a3/screenshots/](docs/a3/screenshots/), with captions in section 6 of the report.
+
+### What runs
+
+| Piece | Where | Notes |
+|---|---|---|
+| Replicas A, B, C | `app-a/b/c` (HTTP :8000) and `grpc-a/b/c` (gRPC :50051, metrics :8002) | One image, defined once with YAML anchors (`x-app-replica`, `x-grpc-replica`). No host ports. `REPLICA_ID=A/B/C`. All share the `app-data` SQLite volume |
+| Envoy `v1.34.1` | `envoy` with host ports 8000 (HTTP/1.1), 50051 (HTTP/2 gRPC), 9901 (admin) | Config `envoy/envoy.yaml`, generated by `scripts/make_envoy_config.py` |
+| Backend network | `backend`, 172.28.10.0/24, fixed IPs .11-.13 (HTTP) and .21-.23 (gRPC) | A stopped and restarted replica keeps its IP |
+| Prometheus | jobs `fastapi-app`, `grpc-service` (each target has a `replica` label), `envoy` (`/stats/prometheus`), all scraped every 5 s | Scraped directly on the backend network, never through Envoy |
+| Filebeat | admits the 6 replica containers + `observable-orders-envoy` | Adds `replica`, copies Envoy fields (`request_id`, `trace_id`, `replica`, `upstream_host`, `envoy_*`) |
+| Delay control | `experiments/lb/delay-a.txt`, `delay-b.txt`, `delay-c.txt` (milliseconds, default `0`) | Mounted read-only at `/app/control`. Read on every request, so no restart is needed. Delaying B affects both `app-b` and `grpc-b` |
+
+**Why named services instead of `docker compose up --scale`:** `--scale` creates identical anonymous containers (`app-1`, `app-2`, ...) behind one DNS name. That gives no stable A/B/C identity for Envoy endpoints, an "A only" cluster, per-replica Prometheus labels or per-replica fault injection. The three services come from one shared definition, so they are still identical copies.
+
+### Setup
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe scripts\make_envoy_config.py rr      # or a-only / weighted / least, optional --health
+docker compose config --quiet
+docker compose up -d --build --remove-orphans                  # --remove-orphans removes the old A1/A2 app/grpc-service containers
+docker compose ps                                               # 6 replicas healthy, envoy up
+curl.exe -i http://localhost:8000/api/products                  # header x-served-by: A|B|C
+.\.venv\Scripts\python.exe scripts\grpc_traffic.py              # the A2 gRPC script still works through Envoy
+curl.exe http://localhost:9901/clusters                         # endpoints and health_flags
+```
+
+Switch the policy at any time: `python scripts/make_envoy_config.py <mode> [--health]`, then `docker compose restart envoy`.
+
+### Test client (fixed rate, open loop)
+
+```powershell
+.\.venv\Scripts\python.exe scripts\lb_client.py --interface http --rate 20 --duration 60 --out results\my-http.json
+.\.venv\Scripts\python.exe scripts\lb_client.py --interface grpc --rate 20 --duration 60 --out results\my-grpc.json
+.\.venv\Scripts\python.exe scripts\collect_run.py results\my-http.json   # Prometheus + Elasticsearch evidence for that run
+```
+
+The client sends at fixed times, never waits for a response before the next send, uses no retries and no circuit breaker, and has a 5 s timeout. Request IDs are `lb-<run>-<n>`. HTTP calls `GET /api/products`. gRPC calls `CreateOrder` with one fixed idempotency key per run: the first call creates one order and every later call is a replay, read from the shared SQLite idempotency table on whichever replica receives it. Output: rate, sent, successes, failures by code, p50/p95/max (nearest rank) and per-replica counts from Envoy's `x-served-by` response header.
+
+### Experiments (all in order)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_experiments.ps1                     # everything (~25 min)
+powershell -ExecutionPolicy Bypass -File scripts\run_experiments.ps1 -Stages least       # one stage: baseline | rr | weighted | least | failure
+```
+
+| Stage | Envoy mode | Fault | Result files |
+|---|---|---|---|
+| baseline (Parts A/B) | `a-only` | none | `results/b-aonly-{http,grpc}.*` |
+| rr (Part C) | `rr` | none | `results/c-rr-{http,grpc}.*` |
+| weighted | `weighted` (2:1:1) | none | `results/d1-weighted-{http,grpc}.*` |
+| least | `rr`, then `least` | `delay-b.txt = 200` | `results/d2-rr-delayB-*`, `results/d2-least-delayB-*` |
+| failure | `rr --health` | `docker compose stop app-b grpc-b` at ~30 s, `start` at ~60 s of a 90 s run | `results/d3-fail-{http,grpc}.*` (+ `.events.json`, `.envoy-hc.log`) |
+
+Manual fault commands:
+
+```powershell
+Set-Content experiments\lb\delay-b.txt 200 -Encoding ascii     # 200 ms delay on replica B (HTTP and gRPC)
+docker compose stop app-b grpc-b                               # replica B down
+docker compose start app-b grpc-b                              # replica B back
+```
+
+### Recovery: back to the normal state
+
+```powershell
+.\.venv\Scripts\python.exe scripts\make_envoy_config.py rr
+docker compose restart envoy
+Set-Content experiments\lb\delay-a.txt 0 -Encoding ascii
+Set-Content experiments\lb\delay-b.txt 0 -Encoding ascii
+Set-Content experiments\lb\delay-c.txt 0 -Encoding ascii
+docker compose start app-b grpc-b
+docker compose ps
+```
+
+### Health checks (`--health`)
+
+HTTP cluster: `GET /health` on port 8000. gRPC cluster: an HTTP/1 check (`codec_client_type: HTTP1`) of `GET /metrics` on the replica's port 8002 (`health_check_config.port_value`). Both use **interval 2 s, timeout 1 s, unhealthy_threshold 3, healthy_threshold 2** (and `no_traffic_interval` 2 s). Health events go to Envoy's stdout (`event_logger`, file sink), and from there to Elasticsearch.
+
+**DNS caveat:** the clusters are `STRICT_DNS` with `dns_refresh_rate: 300s` and `dns_failure_refresh_rate` 1-5 s. A stopped container's name stops resolving in Docker DNS. With a short refresh, B would be removed by DNS rather than by the health checker, and a restarted container could come back with a different IP. The long refresh plus the fixed IPs on the `backend` network mean removal and recovery come from the health checks. `scripts/run_experiments.ps1` restarts Envoy right before each failure run, so the 300 s timer cannot fire during the 90 s run. Envoy 1.34 marks `dns_refresh_rate` as deprecated but still applies it.
+
+### Kibana searches (data view "Observable Orders Logs")
+
+```text
+request_id : "lb-<run>-<n>"                                  # Envoy event (service.name: envoy) + the replica's event(s)
+service.name : "envoy" and replica : "B"                     # Envoy access logs routed to B
+request_id : lb-c-rr-http-* and service.name : "envoy"       # all Envoy events of one run
+container.name : "observable-orders-envoy" and not service.name : "envoy"   # Envoy health-check events (raw JSON in message)
+```
+
+### Limits and notes
+
+- The A1 Part E override `docker-compose.experiment.yml` targets the old `app` service and is kept unchanged as A1 evidence. It does not apply to the A3 Compose file.
+- The HTTP rate limiter (5 POST `/api/orders` per 10 s per client IP) is in memory in each replica, and through Envoy it sees Envoy's IP as the client. See the report's shared-state table.
+- `GRPC_DEMO_DELAY_MS` was replaced by the delay files.
 
 ## Normal traffic, Prometheus and Grafana
 

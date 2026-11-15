@@ -1,0 +1,466 @@
+{
+  "run": "c-rr-http-135412",
+  "interface": "http",
+  "operation": "GET /api/products",
+  "target_rate_rps": 20.0,
+  "duration_s": 60.0,
+  "actual_rate_rps": 19.999,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "error_rate_pct": 0.0,
+  "client_latency_ms": {
+    "p50": 14.67,
+    "p95": 20.89,
+    "max": 192.75,
+    "method": "nearest rank, all requests"
+  },
+  "client_latency_success_ms": {
+    "p50": 14.67,
+    "p95": 20.89,
+    "max": 192.75
+  },
+  "served_by_counts": {
+    "A": 400,
+    "B": 400,
+    "C": 400
+  },
+  "served_by_share_pct": {
+    "A": 33.33,
+    "B": 33.33,
+    "C": 33.33
+  },
+  "start_utc": "2026-11-14T13:54:12.980+00:00",
+  "end_utc": "2026-11-14T13:55:12.954+00:00",
+  "last_send_utc": "2026-11-14T13:55:12.933+00:00",
+  "request_id_prefix": "lb-c-rr-http-135412-",
+  "settings": {
+    "timeout_s": 5.0,
+    "retries": 0,
+    "circuit_breaker": "none",
+    "open_loop": true
+  },
+  "timeline_per_second": {
+    "0": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 8,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "1": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "2": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "3": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "4": {
+      "sent": 21,
+      "ok": 21,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 7
+    },
+    "5": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "6": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "7": {
+      "sent": 21,
+      "ok": 21,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 7
+    },
+    "8": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "9": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "10": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "11": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "12": {
+      "sent": 21,
+      "ok": 21,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 7
+    },
+    "13": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "14": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "15": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "16": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "17": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "18": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "19": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "20": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 7
+    },
+    "21": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 6,
+      "served_B": 6,
+      "served_C": 7
+    },
+    "22": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "23": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "24": {
+      "sent": 21,
+      "ok": 21,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 7
+    },
+    "25": {
+      "sent": 19,
+      "ok": 19,
+      "served_B": 7,
+      "served_C": 6,
+      "served_A": 6
+    },
+    "26": {
+      "sent": 21,
+      "ok": 21,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 7
+    },
+    "27": {
+      "sent": 19,
+      "ok": 19,
+      "served_C": 7,
+      "served_A": 6,
+      "served_B": 6
+    },
+    "28": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_B": 7,
+      "served_A": 6
+    },
+    "29": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 7
+    },
+    "30": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 7
+    },
+    "31": {
+      "sent": 19,
+      "ok": 19,
+      "served_C": 6,
+      "served_B": 7,
+      "served_A": 6
+    },
+    "32": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "33": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "34": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 7
+    },
+    "35": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "36": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "37": {
+      "sent": 19,
+      "ok": 19,
+      "served_B": 7,
+      "served_C": 6,
+      "served_A": 6
+    },
+    "38": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "39": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "40": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 7
+    },
+    "41": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "42": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "43": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "44": {
+      "sent": 21,
+      "ok": 21,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 7
+    },
+    "45": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "46": {
+      "sent": 19,
+      "ok": 19,
+      "served_B": 7,
+      "served_C": 6,
+      "served_A": 6
+    },
+    "47": {
+      "sent": 21,
+      "ok": 21,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 7
+    },
+    "48": {
+      "sent": 19,
+      "ok": 19,
+      "served_C": 7,
+      "served_A": 6,
+      "served_B": 6
+    },
+    "49": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "50": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "51": {
+      "sent": 21,
+      "ok": 21,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 7
+    },
+    "52": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "53": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 7,
+      "served_B": 6,
+      "served_C": 6
+    },
+    "54": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "55": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "56": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 7,
+      "served_A": 7,
+      "served_B": 6
+    },
+    "57": {
+      "sent": 20,
+      "ok": 20,
+      "served_B": 7,
+      "served_C": 7,
+      "served_A": 6
+    },
+    "58": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 7,
+      "served_B": 7,
+      "served_C": 6
+    },
+    "59": {
+      "sent": 20,
+      "ok": 20,
+      "served_C": 6,
+      "served_A": 7,
+      "served_B": 7
+    }
+  }
+}

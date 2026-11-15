@@ -1,0 +1,84 @@
+{
+  "run": "c-rr-grpc-135558",
+  "interface": "grpc",
+  "window_utc": [
+    "2026-11-14T13:55:58.749+00:00",
+    "2026-11-14T13:56:58.710+00:00"
+  ],
+  "client": {
+    "target_rate_rps": 20.0,
+    "actual_rate_rps": 20.0,
+    "sent": 1200,
+    "successes": 1200,
+    "failures": 0,
+    "failures_by_code": {},
+    "error_rate_pct": 0.0,
+    "client_latency_ms": {
+      "p50": 9.08,
+      "p95": 13.06,
+      "max": 86.67,
+      "method": "nearest rank, all requests"
+    }
+  },
+  "replicas": {
+    "A": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 5.1,
+      "server_p95_ms": 9.6,
+      "avg_concurrency": 0.035,
+      "max_active_sampled": 1.0,
+      "dashboard_share_pct_1m_at_75pct": 33.72,
+      "status_codes": {
+        "OK": 400
+      }
+    },
+    "B": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 5.2,
+      "server_p95_ms": 9.7,
+      "avg_concurrency": 0.038,
+      "max_active_sampled": 0.0,
+      "dashboard_share_pct_1m_at_75pct": 32.92,
+      "status_codes": {
+        "OK": 400
+      }
+    },
+    "C": {
+      "prometheus_count": 400,
+      "prometheus_share_pct": 33.33,
+      "envoy_log_count": 400,
+      "envoy_log_share_pct": 33.33,
+      "client_served_by_count": 400,
+      "client_share_pct": 33.33,
+      "server_p50_ms": 5.5,
+      "server_p95_ms": 9.7,
+      "avg_concurrency": 0.037,
+      "max_active_sampled": 0.0,
+      "dashboard_share_pct_1m_at_75pct": 33.37,
+      "status_codes": {
+        "OK": 400
+      }
+    }
+  },
+  "envoy_upstream_rq_total_delta": 1200,
+  "envoy_log_events": 1200,
+  "envoy_log_response_flags": {
+    "-": 1200
+  },
+  "replica_log_events": {
+    "A": 1200,
+    "B": 1200,
+    "C": 1200
+  },
+  "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run."
+}

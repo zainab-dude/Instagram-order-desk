@@ -192,7 +192,7 @@ All durations are measured at the **server**, in `grpc_server/server.py` around 
 | `grpc_server_handling_seconds` | Server-side duration of RPCs | Histogram, buckets 0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0 | seconds | `grpc_service`, `grpc_method` | `grpc_server/server.py` |
 | `grpc_server_in_flight_requests` | RPCs currently being handled | Gauge | calls | `grpc_service`, `grpc_method` | `grpc_server/server.py` |
 
-**Queries** (rate window 5 minutes)
+**Queries** (typed in Prometheus, 5-minute window)
 
 ```promql
 sum by (grpc_method, grpc_code) (rate(grpc_server_handled_total[5m]))
@@ -217,7 +217,7 @@ For the concurrency evidence, `scripts/grpc_concurrent.py` runs 8 parallel clien
 
 ## 12. Prometheus and Grafana evidence
 
-Prometheus scrapes the gRPC service as job `grpc-service` (target `grpc-service:8002`, see `prometheus/prometheus.yml`). The dashboard is provisioned from `grafana/`, and the gRPC panels sit beside the HTTP `POST /api/orders` panels. Rate queries use a **5-minute window**; the dashboard range is the **last 15 minutes**.
+Prometheus scrapes the gRPC service as job `grpc-service` (target `grpc-service:8002`, see `prometheus/prometheus.yml`). The dashboard is provisioned from `grafana/`, and the gRPC panels sit beside the HTTP `POST /api/orders` panels. The dashboard panels use Grafana’s `$__rate_interval`, which is at least 1 minute at my 15 s scrape interval (4 × the scrape interval). The screenshots were taken with the dashboard range set to the **last 15 minutes**. The standalone PromQL queries in section 10 use a fixed 5-minute window.
 
 HTTP comparison queries:
 

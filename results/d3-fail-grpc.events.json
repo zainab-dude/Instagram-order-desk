@@ -1,0 +1,106 @@
+{
+  "interface": "grpc",
+  "poll_interval_s": 0.5,
+  "health_check": {
+    "interval_s": 2,
+    "timeout_s": 1,
+    "unhealthy_threshold": 3,
+    "healthy_threshold": 2
+  },
+  "stop": {
+    "cmd": "docker compose stop app-b grpc-b",
+    "begin_utc": "2026-11-14T14:11:41.737+00:00",
+    "end_utc": "2026-11-14T14:11:42.398+00:00",
+    "begin": 1794665501.7371473,
+    "end": 1794665502.3989637,
+    "exit_code": 0
+  },
+  "start": {
+    "cmd": "docker compose start app-b grpc-b",
+    "begin_utc": "2026-11-14T14:12:11.737+00:00",
+    "end_utc": "2026-11-14T14:12:12.757+00:00",
+    "begin": 1794665531.7372437,
+    "end": 1794665532.7570627,
+    "exit_code": 0
+  },
+  "measured": {
+    "http_cluster/app-b": {
+      "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+      "removal_s_from_stop_cmd_begin": 8.01,
+      "removal_s_from_stop_cmd_end": 7.35,
+      "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+      "recovery_s_from_start_cmd_begin": 6.08,
+      "recovery_s_from_start_cmd_end": 5.06
+    },
+    "grpc_cluster/grpc-b": {
+      "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+      "removal_s_from_stop_cmd_begin": 8.01,
+      "removal_s_from_stop_cmd_end": 7.35,
+      "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+      "recovery_s_from_start_cmd_begin": 6.08,
+      "recovery_s_from_start_cmd_end": 5.06
+    }
+  },
+  "transitions": [
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "http_cluster/app-a",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "http_cluster/app-b",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "http_cluster/app-c",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "grpc_cluster/grpc-a",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "grpc_cluster/grpc-b",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665470.7337873,
+      "utc": "2026-11-14T14:11:10.733+00:00",
+      "host": "grpc_cluster/grpc-c",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665509.7455196,
+      "utc": "2026-11-14T14:11:49.745+00:00",
+      "host": "http_cluster/app-b",
+      "state": "unhealthy:active_hc_timeout,failed_active_health_check"
+    },
+    {
+      "t": 1794665509.7455196,
+      "utc": "2026-11-14T14:11:49.745+00:00",
+      "host": "grpc_cluster/grpc-b",
+      "state": "unhealthy:active_hc_timeout,failed_active_health_check"
+    },
+    {
+      "t": 1794665537.8160436,
+      "utc": "2026-11-14T14:12:17.816+00:00",
+      "host": "http_cluster/app-b",
+      "state": "healthy"
+    },
+    {
+      "t": 1794665537.8160436,
+      "utc": "2026-11-14T14:12:17.816+00:00",
+      "host": "grpc_cluster/grpc-b",
+      "state": "healthy"
+    }
+  ]
+}

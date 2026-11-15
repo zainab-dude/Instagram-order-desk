@@ -14,6 +14,7 @@ from app.order_services import place_order
 from app.database import connect
 from app.services import IdempotencyKeyReuseError, NotFoundError, ConflictError, BusinessRuleError, Store
 from app.logging_config import REQUEST_ID, log_event
+from app.replica import injected_delay_seconds
 
 DATABASE_PATH = Path(os.getenv("DATABASE_PATH", "data/orders.db"))
 GRPC_PORT = os.getenv("GRPC_PORT", "50051")
@@ -49,9 +50,9 @@ class OrderServicer(pb_grpc.OrderServiceServicer):
         token = REQUEST_ID.set(rid)
 
         try:
-            delay_ms = int(os.getenv("GRPC_DEMO_DELAY_MS", "0"))
-            if delay_ms > 0:
-                time.sleep(delay_ms / 1000)
+            delay = injected_delay_seconds()  # A3: per-replica delay file, 0 by default
+            if delay > 0:
+                time.sleep(delay)
             with connect(DATABASE_PATH) as connection:
                 store = Store(connection)
                 items = [(it.product_id, it.quantity) for it in request.items]

@@ -1,0 +1,141 @@
+{
+ "kibana_kql": "request_id : \"lb-c-rr-grpc-135558-2\"",
+ "elasticsearch_query": {
+  "size": 10,
+  "query": {
+   "term": {
+    "request_id": "lb-c-rr-grpc-135558-2"
+   }
+  },
+  "sort": [
+   {
+    "@timestamp": "asc"
+   }
+  ],
+  "_source": [
+   "@timestamp",
+   "service.name",
+   "container.name",
+   "replica",
+   "request_id",
+   "trace_id",
+   "upstream_host",
+   "envoy_interface",
+   "envoy_path",
+   "envoy_response_code",
+   "envoy_grpc_status",
+   "envoy_duration_ms",
+   "envoy_response_flags",
+   "message"
+  ]
+ },
+ "index": "observable-orders-v3-*",
+ "response": {
+  "took": 6,
+  "timed_out": false,
+  "_shards": {
+   "total": 8,
+   "successful": 8,
+   "skipped": 0,
+   "failed": 0
+  },
+  "hits": {
+   "total": {
+    "value": 4,
+    "relation": "eq"
+   },
+   "max_score": null,
+   "hits": [
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "21tY2qEBHSJ6p_gPHvLC",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:55:58.811Z",
+      "container": {
+       "name": "observable-orders-grpc-c"
+      },
+      "request_id": "lb-c-rr-grpc-135558-2",
+      "replica": "C",
+      "envoy_path": "/orders.v1.OrderService/CreateOrder",
+      "service": {
+       "name": "instagram-order-desk"
+      },
+      "message": "{\"message\":\"gRPC CreateOrder request received\",\"method\":\"CreateOrder\",\"path\":\"/orders.v1.OrderService/CreateOrder\",\"replica\":\"C\",\"request_id\":\"lb-c-rr-grpc-135558-2\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-11-14T13:55:58.811180+00:00\"}\n"
+     },
+     "sort": [
+      1794664558811
+     ]
+    },
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "3FtY2qEBHSJ6p_gPHvLC",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:55:58.830Z",
+      "request_id": "lb-c-rr-grpc-135558-2",
+      "replica": "C",
+      "container": {
+       "name": "observable-orders-grpc-c"
+      },
+      "service": {
+       "name": "instagram-order-desk"
+      },
+      "message": "{\"message\":\"order replayed\",\"order_id\":682,\"replica\":\"C\",\"request_id\":\"lb-c-rr-grpc-135558-2\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-11-14T13:55:58.830605+00:00\"}\n"
+     },
+     "sort": [
+      1794664558830
+     ]
+    },
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "3VtY2qEBHSJ6p_gPHvLC",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:55:58.830Z",
+      "request_id": "lb-c-rr-grpc-135558-2",
+      "container": {
+       "name": "observable-orders-grpc-c"
+      },
+      "message": "{\"message\":\"gRPC CreateOrder completed successfully\",\"order_id\":682,\"replica\":\"C\",\"request_id\":\"lb-c-rr-grpc-135558-2\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"timestamp\":\"2026-11-14T13:55:58.830737+00:00\"}\n",
+      "service": {
+       "name": "instagram-order-desk"
+      },
+      "replica": "C"
+     },
+     "sort": [
+      1794664558830
+     ]
+    },
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "EltY2qEBHSJ6p_gPHvXC",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:55:59.073Z",
+      "message": "{\"duration_ms\":28,\"grpc_status\":\"OK\",\"interface\":\"grpc\",\"method\":\"POST\",\"path\":\"/orders.v1.OrderService/CreateOrder\",\"replica\":\"C\",\"request_id\":\"lb-c-rr-grpc-135558-2\",\"response_code\":200,\"response_flags\":\"-\",\"service\":{\"name\":\"envoy\"},\"timestamp\":\"2026-11-14T13:55:58.802Z\",\"trace_id\":\"lb-c-rr-grpc-135558-2\",\"upstream_cluster\":\"grpc_cluster\",\"upstream_host\":\"172.28.10.23:50051\"}\n",
+      "envoy_path": "/orders.v1.OrderService/CreateOrder",
+      "envoy_response_flags": "-",
+      "service": {
+       "name": "envoy"
+      },
+      "upstream_host": "172.28.10.23:50051",
+      "envoy_grpc_status": "OK",
+      "trace_id": "lb-c-rr-grpc-135558-2",
+      "envoy_interface": "grpc",
+      "container": {
+       "name": "observable-orders-envoy"
+      },
+      "request_id": "lb-c-rr-grpc-135558-2",
+      "replica": "C",
+      "envoy_response_code": 200,
+      "envoy_duration_ms": 28
+     },
+     "sort": [
+      1794664559073
+     ]
+    }
+   ]
+  }
+ }
+}

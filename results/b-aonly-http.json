@@ -1,0 +1,344 @@
+{
+  "run": "b-aonly-http-135035",
+  "interface": "http",
+  "operation": "GET /api/products",
+  "target_rate_rps": 20.0,
+  "duration_s": 60.0,
+  "actual_rate_rps": 20.0,
+  "sent": 1200,
+  "successes": 1200,
+  "failures": 0,
+  "failures_by_code": {},
+  "error_rate_pct": 0.0,
+  "client_latency_ms": {
+    "p50": 16.9,
+    "p95": 27.49,
+    "max": 227.25,
+    "method": "nearest rank, all requests"
+  },
+  "client_latency_success_ms": {
+    "p50": 16.9,
+    "p95": 27.49,
+    "max": 227.25
+  },
+  "served_by_counts": {
+    "A": 1200
+  },
+  "served_by_share_pct": {
+    "A": 100.0,
+    "B": 0.0,
+    "C": 0.0
+  },
+  "start_utc": "2026-11-14T13:50:36.250+00:00",
+  "end_utc": "2026-11-14T13:51:36.228+00:00",
+  "last_send_utc": "2026-11-14T13:51:36.201+00:00",
+  "request_id_prefix": "lb-b-aonly-http-135035-",
+  "settings": {
+    "timeout_s": 5.0,
+    "retries": 0,
+    "circuit_breaker": "none",
+    "open_loop": true
+  },
+  "timeline_per_second": {
+    "0": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "1": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "2": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "3": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "4": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "5": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "6": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "7": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "8": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "9": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "10": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "11": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "12": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "13": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "14": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "15": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "16": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "17": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "18": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "19": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "20": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "21": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "22": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "23": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "24": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "25": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "26": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "27": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "28": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "29": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "30": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "31": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "32": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "33": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "34": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "35": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "36": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "37": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "38": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "39": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "40": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "41": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "42": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "43": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "44": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "45": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "46": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "47": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "48": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "49": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "50": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "51": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "52": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "53": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "54": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "55": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "56": {
+      "sent": 21,
+      "ok": 21,
+      "served_A": 21
+    },
+    "57": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    },
+    "58": {
+      "sent": 19,
+      "ok": 19,
+      "served_A": 19
+    },
+    "59": {
+      "sent": 20,
+      "ok": 20,
+      "served_A": 20
+    }
+  }
+}

@@ -1,0 +1,1074 @@
+{
+  "b-aonly-http": {
+    "policy": "A only",
+    "fault": "none",
+    "run": "b-aonly-http-135035",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T13:50:36.250+00:00",
+      "2026-11-14T13:51:36.228+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.0,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 16.9,
+        "p95": 27.49,
+        "max": 227.25,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 1200,
+        "prometheus_share_pct": 100.0,
+        "envoy_log_count": 1200,
+        "envoy_log_share_pct": 100.0,
+        "client_served_by_count": 1200,
+        "client_share_pct": 100.0,
+        "server_p50_ms": 7.7,
+        "server_p95_ms": 20.9,
+        "avg_concurrency": 0.167,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 100.0,
+        "status_codes": {
+          "200": 1200
+        }
+      },
+      "B": {
+        "prometheus_count": 0,
+        "prometheus_share_pct": 0.0,
+        "envoy_log_count": 0,
+        "envoy_log_share_pct": 0.0,
+        "client_served_by_count": 0,
+        "client_share_pct": 0.0,
+        "server_p50_ms": null,
+        "server_p95_ms": null,
+        "avg_concurrency": 0.0,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 0.0,
+        "status_codes": {}
+      },
+      "C": {
+        "prometheus_count": 0,
+        "prometheus_share_pct": 0.0,
+        "envoy_log_count": 0,
+        "envoy_log_share_pct": 0.0,
+        "client_served_by_count": 0,
+        "client_share_pct": 0.0,
+        "server_p50_ms": null,
+        "server_p95_ms": null,
+        "avg_concurrency": 0.0,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 0.0,
+        "status_codes": {}
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 1200
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "b-aonly-grpc": {
+    "policy": "A only",
+    "fault": "none",
+    "run": "b-aonly-grpc-135221",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T13:52:22.384+00:00",
+      "2026-11-14T13:53:22.349+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.999,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 9.47,
+        "p95": 17.04,
+        "max": 130.08,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 1200,
+        "prometheus_share_pct": 100.0,
+        "envoy_log_count": 1200,
+        "envoy_log_share_pct": 100.0,
+        "client_served_by_count": 1200,
+        "client_share_pct": 100.0,
+        "server_p50_ms": 5.9,
+        "server_p95_ms": 10.6,
+        "avg_concurrency": 0.127,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 100.0,
+        "status_codes": {
+          "OK": 1200
+        }
+      },
+      "B": {
+        "prometheus_count": 0,
+        "prometheus_share_pct": 0.0,
+        "envoy_log_count": 0,
+        "envoy_log_share_pct": 0.0,
+        "client_served_by_count": 0,
+        "client_share_pct": 0.0,
+        "server_p50_ms": null,
+        "server_p95_ms": null,
+        "avg_concurrency": 0.0,
+        "max_active_sampled": null,
+        "dashboard_share_pct_1m_at_75pct": null,
+        "status_codes": {}
+      },
+      "C": {
+        "prometheus_count": 0,
+        "prometheus_share_pct": 0.0,
+        "envoy_log_count": 0,
+        "envoy_log_share_pct": 0.0,
+        "client_served_by_count": 0,
+        "client_share_pct": 0.0,
+        "server_p50_ms": null,
+        "server_p95_ms": null,
+        "avg_concurrency": 0.0,
+        "max_active_sampled": null,
+        "dashboard_share_pct_1m_at_75pct": null,
+        "status_codes": {}
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 3600
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "c-rr-http": {
+    "policy": "Round robin 1:1:1",
+    "fault": "none",
+    "run": "c-rr-http-135412",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T13:54:12.980+00:00",
+      "2026-11-14T13:55:12.954+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.999,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 14.67,
+        "p95": 20.89,
+        "max": 192.75,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 7.5,
+        "server_p95_ms": 9.9,
+        "avg_concurrency": 0.051,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 33.6,
+        "status_codes": {
+          "200": 400
+        }
+      },
+      "B": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 7.4,
+        "server_p95_ms": 9.9,
+        "avg_concurrency": 0.048,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 32.68,
+        "status_codes": {
+          "200": 400
+        }
+      },
+      "C": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 7.4,
+        "server_p95_ms": 9.9,
+        "avg_concurrency": 0.053,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 33.72,
+        "status_codes": {
+          "200": 400
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 400,
+      "B": 400,
+      "C": 400
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "c-rr-grpc": {
+    "policy": "Round robin 1:1:1",
+    "fault": "none",
+    "run": "c-rr-grpc-135558",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T13:55:58.749+00:00",
+      "2026-11-14T13:56:58.710+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.0,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 9.08,
+        "p95": 13.06,
+        "max": 86.67,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 5.1,
+        "server_p95_ms": 9.6,
+        "avg_concurrency": 0.035,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 33.72,
+        "status_codes": {
+          "OK": 400
+        }
+      },
+      "B": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 5.2,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.038,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 32.92,
+        "status_codes": {
+          "OK": 400
+        }
+      },
+      "C": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 5.5,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.037,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 33.37,
+        "status_codes": {
+          "OK": 400
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 1200,
+      "B": 1200,
+      "C": 1200
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d1-weighted-http": {
+    "policy": "Weighted RR 2:1:1",
+    "fault": "none",
+    "run": "d1-weighted-http-135749",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T13:57:50.076+00:00",
+      "2026-11-14T13:58:50.049+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.999,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 15.76,
+        "p95": 22.2,
+        "max": 104.41,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 600,
+        "prometheus_share_pct": 50.0,
+        "envoy_log_count": 600,
+        "envoy_log_share_pct": 50.0,
+        "client_served_by_count": 600,
+        "client_share_pct": 50.0,
+        "server_p50_ms": 7.3,
+        "server_p95_ms": 14.6,
+        "avg_concurrency": 0.072,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 50.48,
+        "status_codes": {
+          "200": 600
+        }
+      },
+      "B": {
+        "prometheus_count": 299,
+        "prometheus_share_pct": 24.92,
+        "envoy_log_count": 299,
+        "envoy_log_share_pct": 24.92,
+        "client_served_by_count": 299,
+        "client_share_pct": 24.92,
+        "server_p50_ms": 7.4,
+        "server_p95_ms": 13.3,
+        "avg_concurrency": 0.034,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 24.34,
+        "status_codes": {
+          "200": 299
+        }
+      },
+      "C": {
+        "prometheus_count": 301,
+        "prometheus_share_pct": 25.08,
+        "envoy_log_count": 301,
+        "envoy_log_share_pct": 25.08,
+        "client_served_by_count": 301,
+        "client_share_pct": 25.08,
+        "server_p50_ms": 7.3,
+        "server_p95_ms": 12.6,
+        "avg_concurrency": 0.035,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 25.18,
+        "status_codes": {
+          "200": 301
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 600,
+      "C": 301,
+      "B": 299
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d1-weighted-grpc": {
+    "policy": "Weighted RR 2:1:1",
+    "fault": "none",
+    "run": "d1-weighted-grpc-135935",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T13:59:35.804+00:00",
+      "2026-11-14T14:00:35.757+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.003,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 9.18,
+        "p95": 11.59,
+        "max": 112.0,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 600,
+        "prometheus_share_pct": 50.0,
+        "envoy_log_count": 600,
+        "envoy_log_share_pct": 50.0,
+        "client_served_by_count": 600,
+        "client_share_pct": 50.0,
+        "server_p50_ms": 5.7,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.057,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 52.16,
+        "status_codes": {
+          "OK": 600
+        }
+      },
+      "B": {
+        "prometheus_count": 300,
+        "prometheus_share_pct": 25.0,
+        "envoy_log_count": 300,
+        "envoy_log_share_pct": 25.0,
+        "client_served_by_count": 300,
+        "client_share_pct": 25.0,
+        "server_p50_ms": 5.2,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.028,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 24.09,
+        "status_codes": {
+          "OK": 300
+        }
+      },
+      "C": {
+        "prometheus_count": 300,
+        "prometheus_share_pct": 25.0,
+        "envoy_log_count": 300,
+        "envoy_log_share_pct": 25.0,
+        "client_served_by_count": 300,
+        "client_share_pct": 25.0,
+        "server_p50_ms": 5.6,
+        "server_p95_ms": 9.6,
+        "avg_concurrency": 0.026,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 23.74,
+        "status_codes": {
+          "OK": 300
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 1800,
+      "B": 900,
+      "C": 900
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d2-rr-delayB-http": {
+    "policy": "Round robin 1:1:1",
+    "fault": "B +200 ms",
+    "run": "d2-rr-delayB-http-140131",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T14:01:32.123+00:00",
+      "2026-11-14T14:02:32.284+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.002,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 17.9,
+        "p95": 220.52,
+        "max": 278.47,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 401,
+        "prometheus_share_pct": 33.42,
+        "envoy_log_count": 401,
+        "envoy_log_share_pct": 33.42,
+        "client_served_by_count": 401,
+        "client_share_pct": 33.42,
+        "server_p50_ms": 7.3,
+        "server_p95_ms": 9.8,
+        "avg_concurrency": 0.046,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 33.9,
+        "status_codes": {
+          "200": 401
+        }
+      },
+      "B": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 175.2,
+        "server_p95_ms": 242.9,
+        "avg_concurrency": 1.383,
+        "max_active_sampled": 2.0,
+        "dashboard_share_pct_1m_at_75pct": 32.54,
+        "status_codes": {
+          "200": 400
+        }
+      },
+      "C": {
+        "prometheus_count": 399,
+        "prometheus_share_pct": 33.25,
+        "envoy_log_count": 399,
+        "envoy_log_share_pct": 33.25,
+        "client_served_by_count": 399,
+        "client_share_pct": 33.25,
+        "server_p50_ms": 7.4,
+        "server_p95_ms": 9.8,
+        "avg_concurrency": 0.044,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 33.56,
+        "status_codes": {
+          "200": 399
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 401,
+      "B": 400,
+      "C": 399
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d2-rr-delayB-grpc": {
+    "policy": "Round robin 1:1:1",
+    "fault": "B +200 ms",
+    "run": "d2-rr-delayB-grpc-140317",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T14:03:18.163+00:00",
+      "2026-11-14T14:04:18.339+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.996,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 9.41,
+        "p95": 210.48,
+        "max": 275.44,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 4.6,
+        "server_p95_ms": 9.6,
+        "avg_concurrency": 0.036,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 32.64,
+        "status_codes": {
+          "OK": 400
+        }
+      },
+      "B": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 175.2,
+        "server_p95_ms": 242.9,
+        "avg_concurrency": 1.368,
+        "max_active_sampled": 2.0,
+        "dashboard_share_pct_1m_at_75pct": 33.8,
+        "status_codes": {
+          "OK": 400
+        }
+      },
+      "C": {
+        "prometheus_count": 400,
+        "prometheus_share_pct": 33.33,
+        "envoy_log_count": 400,
+        "envoy_log_share_pct": 33.33,
+        "client_served_by_count": 400,
+        "client_share_pct": 33.33,
+        "server_p50_ms": 3.6,
+        "server_p95_ms": 9.3,
+        "avg_concurrency": 0.032,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 33.57,
+        "status_codes": {
+          "OK": 400
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 1200,
+      "B": 1200,
+      "C": 1200
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d2-least-delayB-http": {
+    "policy": "Least request (choice 3)",
+    "fault": "B +200 ms",
+    "run": "d2-least-delayB-http-140508",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T14:05:09.519+00:00",
+      "2026-11-14T14:06:09.492+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.998,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 17.14,
+        "p95": 218.77,
+        "max": 269.43,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 510,
+        "prometheus_share_pct": 42.5,
+        "envoy_log_count": 510,
+        "envoy_log_share_pct": 42.5,
+        "client_served_by_count": 510,
+        "client_share_pct": 42.5,
+        "server_p50_ms": 7.5,
+        "server_p95_ms": 14.8,
+        "avg_concurrency": 0.064,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 43.4,
+        "status_codes": {
+          "200": 510
+        }
+      },
+      "B": {
+        "prometheus_count": 192,
+        "prometheus_share_pct": 16.0,
+        "envoy_log_count": 192,
+        "envoy_log_share_pct": 16.0,
+        "client_served_by_count": 192,
+        "client_share_pct": 16.0,
+        "server_p50_ms": 175.4,
+        "server_p95_ms": 243.2,
+        "avg_concurrency": 0.665,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 15.34,
+        "status_codes": {
+          "200": 192
+        }
+      },
+      "C": {
+        "prometheus_count": 498,
+        "prometheus_share_pct": 41.5,
+        "envoy_log_count": 498,
+        "envoy_log_share_pct": 41.5,
+        "client_served_by_count": 498,
+        "client_share_pct": 41.5,
+        "server_p50_ms": 7.4,
+        "server_p95_ms": 10.0,
+        "avg_concurrency": 0.059,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 41.26,
+        "status_codes": {
+          "200": 498
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "A": 510,
+      "C": 498,
+      "B": 192
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d2-least-delayB-grpc": {
+    "policy": "Least request (choice 3)",
+    "fault": "B +200 ms",
+    "run": "d2-least-delayB-grpc-140651",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T14:06:52.249+00:00",
+      "2026-11-14T14:07:52.310+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 19.998,
+      "sent": 1200,
+      "successes": 1200,
+      "failures": 0,
+      "failures_by_code": {},
+      "error_rate_pct": 0.0,
+      "client_latency_ms": {
+        "p50": 9.19,
+        "p95": 209.84,
+        "max": 264.39,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 504,
+        "prometheus_share_pct": 42.0,
+        "envoy_log_count": 504,
+        "envoy_log_share_pct": 42.0,
+        "client_served_by_count": 504,
+        "client_share_pct": 42.0,
+        "server_p50_ms": 5.0,
+        "server_p95_ms": 9.6,
+        "avg_concurrency": 0.045,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 40.77,
+        "status_codes": {
+          "OK": 504
+        }
+      },
+      "B": {
+        "prometheus_count": 189,
+        "prometheus_share_pct": 15.75,
+        "envoy_log_count": 189,
+        "envoy_log_share_pct": 15.75,
+        "client_served_by_count": 189,
+        "client_share_pct": 15.75,
+        "server_p50_ms": 175.0,
+        "server_p95_ms": 242.5,
+        "avg_concurrency": 0.647,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 16.17,
+        "status_codes": {
+          "OK": 189
+        }
+      },
+      "C": {
+        "prometheus_count": 507,
+        "prometheus_share_pct": 42.25,
+        "envoy_log_count": 507,
+        "envoy_log_share_pct": 42.25,
+        "client_served_by_count": 507,
+        "client_share_pct": 42.25,
+        "server_p50_ms": 4.8,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.046,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 43.05,
+        "status_codes": {
+          "OK": 507
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1200,
+    "envoy_log_events": 1200,
+    "envoy_log_response_flags": {
+      "-": 1200
+    },
+    "replica_log_events": {
+      "C": 1521,
+      "A": 1512,
+      "B": 567
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": null
+  },
+  "d3-fail-http": {
+    "policy": "RR + active HC",
+    "fault": "B stopped ~30-60 s",
+    "run": "d3-fail-http-140849",
+    "interface": "http",
+    "window_utc": [
+      "2026-11-14T14:08:49.924+00:00",
+      "2026-11-14T14:10:19.894+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.0,
+      "sent": 1800,
+      "successes": 1749,
+      "failures": 51,
+      "failures_by_code": {
+        "503": 51
+      },
+      "error_rate_pct": 2.833,
+      "client_latency_ms": {
+        "p50": 15.61,
+        "p95": 28.3,
+        "max": 1015.41,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 691,
+        "prometheus_share_pct": 40.1,
+        "envoy_log_count": 691,
+        "envoy_log_share_pct": 38.39,
+        "client_served_by_count": 691,
+        "client_share_pct": 38.39,
+        "server_p50_ms": 8.1,
+        "server_p95_ms": 22.1,
+        "avg_concurrency": 0.068,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 44.87,
+        "status_codes": {
+          "200": 691
+        }
+      },
+      "B": {
+        "prometheus_count": 342,
+        "prometheus_share_pct": 19.85,
+        "envoy_log_count": 419,
+        "envoy_log_share_pct": 23.28,
+        "client_served_by_count": 419,
+        "client_share_pct": 23.28,
+        "server_p50_ms": 8.2,
+        "server_p95_ms": 22.0,
+        "avg_concurrency": 0.033,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 10.65,
+        "status_codes": {
+          "200": 342
+        }
+      },
+      "C": {
+        "prometheus_count": 690,
+        "prometheus_share_pct": 40.05,
+        "envoy_log_count": 690,
+        "envoy_log_share_pct": 38.33,
+        "client_served_by_count": 690,
+        "client_share_pct": 38.33,
+        "server_p50_ms": 8.2,
+        "server_p95_ms": 22.2,
+        "avg_concurrency": 0.072,
+        "max_active_sampled": 1.0,
+        "dashboard_share_pct_1m_at_75pct": 44.48,
+        "status_codes": {
+          "200": 690
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1749,
+    "envoy_log_events": 1800,
+    "envoy_log_response_flags": {
+      "-": 1749,
+      "UF": 51
+    },
+    "replica_log_events": {
+      "A": 691,
+      "C": 690,
+      "B": 368
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": {
+      "http_cluster/app-b": {
+        "marked_unhealthy_utc": "2026-11-14T14:09:27.144+00:00",
+        "removal_s_from_stop_cmd_begin": 7.92,
+        "removal_s_from_stop_cmd_end": 7.3,
+        "marked_healthy_utc": "2026-11-14T14:09:54.251+00:00",
+        "recovery_s_from_start_cmd_begin": 5.03,
+        "recovery_s_from_start_cmd_end": 3.93
+      },
+      "grpc_cluster/grpc-b": {
+        "marked_unhealthy_utc": "2026-11-14T14:09:27.144+00:00",
+        "removal_s_from_stop_cmd_begin": 7.92,
+        "removal_s_from_stop_cmd_end": 7.3,
+        "marked_healthy_utc": "2026-11-14T14:09:54.251+00:00",
+        "recovery_s_from_start_cmd_begin": 5.03,
+        "recovery_s_from_start_cmd_end": 3.93
+      }
+    }
+  },
+  "d3-fail-grpc": {
+    "policy": "RR + active HC",
+    "fault": "B stopped ~30-60 s",
+    "run": "d3-fail-grpc-141112",
+    "interface": "grpc",
+    "window_utc": [
+      "2026-11-14T14:11:12.423+00:00",
+      "2026-11-14T14:12:42.374+00:00"
+    ],
+    "client": {
+      "target_rate_rps": 20.0,
+      "actual_rate_rps": 20.002,
+      "sent": 1800,
+      "successes": 1749,
+      "failures": 51,
+      "failures_by_code": {
+        "UNAVAILABLE": 51
+      },
+      "error_rate_pct": 2.833,
+      "client_latency_ms": {
+        "p50": 9.0,
+        "p95": 19.23,
+        "max": 1035.36,
+        "method": "nearest rank, all requests"
+      }
+    },
+    "replicas": {
+      "A": {
+        "prometheus_count": 694,
+        "prometheus_share_pct": 39.68,
+        "envoy_log_count": 694,
+        "envoy_log_share_pct": 38.56,
+        "client_served_by_count": 694,
+        "client_share_pct": 39.68,
+        "server_p50_ms": 5.8,
+        "server_p95_ms": 9.9,
+        "avg_concurrency": 0.047,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 42.78,
+        "status_codes": {
+          "OK": 694
+        }
+      },
+      "B": {
+        "prometheus_count": 363,
+        "prometheus_share_pct": 20.75,
+        "envoy_log_count": 414,
+        "envoy_log_share_pct": 23.0,
+        "client_served_by_count": 363,
+        "client_share_pct": 20.75,
+        "server_p50_ms": 5.8,
+        "server_p95_ms": 9.7,
+        "avg_concurrency": 0.024,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 14.25,
+        "status_codes": {
+          "OK": 363
+        }
+      },
+      "C": {
+        "prometheus_count": 692,
+        "prometheus_share_pct": 39.57,
+        "envoy_log_count": 692,
+        "envoy_log_share_pct": 38.44,
+        "client_served_by_count": 692,
+        "client_share_pct": 39.57,
+        "server_p50_ms": 5.6,
+        "server_p95_ms": 9.8,
+        "avg_concurrency": 0.048,
+        "max_active_sampled": 0.0,
+        "dashboard_share_pct_1m_at_75pct": 42.97,
+        "status_codes": {
+          "OK": 692
+        }
+      }
+    },
+    "envoy_upstream_rq_total_delta": 1749,
+    "envoy_log_events": 1800,
+    "envoy_log_response_flags": {
+      "-": 1749,
+      "UF": 51
+    },
+    "replica_log_events": {
+      "A": 2082,
+      "C": 2076,
+      "B": 1089
+    },
+    "notes": "avg_concurrency = increase(duration_sum)/run seconds (Little's law, time-averaged in-flight); max_active_sampled = max of the gauge at 5 s scrapes; server p50/p95 from histogram buckets over the run.",
+    "failure_timing": {
+      "http_cluster/app-b": {
+        "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+        "removal_s_from_stop_cmd_begin": 8.01,
+        "removal_s_from_stop_cmd_end": 7.35,
+        "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+        "recovery_s_from_start_cmd_begin": 6.08,
+        "recovery_s_from_start_cmd_end": 5.06
+      },
+      "grpc_cluster/grpc-b": {
+        "marked_unhealthy_utc": "2026-11-14T14:11:49.745+00:00",
+        "removal_s_from_stop_cmd_begin": 8.01,
+        "removal_s_from_stop_cmd_end": 7.35,
+        "marked_healthy_utc": "2026-11-14T14:12:17.816+00:00",
+        "recovery_s_from_start_cmd_begin": 6.08,
+        "recovery_s_from_start_cmd_end": 5.06
+      }
+    }
+  }
+}

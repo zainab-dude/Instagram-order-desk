@@ -1,0 +1,98 @@
+{
+ "run": "d2-least-delayB-grpc",
+ "note": "Time-range query (not by request id). @timestamp is Docker capture time; Envoy's stdout access logger flushes in batches (the last lines of c-rr-http arrived ~6 s after the run), so the window is run start .. run end + 15 s. Neighbouring runs are >= 30 s apart.",
+ "kibana_kql": "service.name : \"envoy\" and envoy_interface : \"grpc\"  (time picker 2026-11-14T14:06:52.249+00:00 .. 2026-11-14T14:08:07.310000+00:00)",
+ "envoy_log_counts": {
+  "C": 507,
+  "A": 504,
+  "B": 189
+ },
+ "envoy_log_share_pct": {
+  "C": 42.25,
+  "A": 42.0,
+  "B": 15.75
+ },
+ "prometheus_share_pct": {
+  "A": 42.0,
+  "B": 15.75,
+  "C": 42.25
+ },
+ "client_share_pct": {
+  "A": 42.0,
+  "B": 15.75,
+  "C": 42.25
+ },
+ "query": {
+  "size": 0,
+  "track_total_hits": true,
+  "query": {
+   "bool": {
+    "filter": [
+     {
+      "term": {
+       "service.name": "envoy"
+      }
+     },
+     {
+      "term": {
+       "envoy_interface": "grpc"
+      }
+     },
+     {
+      "range": {
+       "@timestamp": {
+        "gte": "2026-11-14T14:06:52.249+00:00",
+        "lte": "2026-11-14T14:08:07.310000+00:00"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "aggs": {
+   "by_replica": {
+    "terms": {
+     "field": "replica"
+    }
+   }
+  }
+ },
+ "response": {
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+   "total": 8,
+   "successful": 8,
+   "skipped": 0,
+   "failed": 0
+  },
+  "hits": {
+   "total": {
+    "value": 1200,
+    "relation": "eq"
+   },
+   "max_score": null,
+   "hits": []
+  },
+  "aggregations": {
+   "by_replica": {
+    "doc_count_error_upper_bound": 0,
+    "sum_other_doc_count": 0,
+    "buckets": [
+     {
+      "key": "C",
+      "doc_count": 507
+     },
+     {
+      "key": "A",
+      "doc_count": 504
+     },
+     {
+      "key": "B",
+      "doc_count": 189
+     }
+    ]
+   }
+  }
+ }
+}

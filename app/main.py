@@ -19,6 +19,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from app.active_requests import ActiveRequestsMiddleware
     from app.database import DEFAULT_DATABASE_PATH, connect, initialize_database
     from app.logging_config import REQUEST_ID, log_event
     from app.experiment_fault import OrderLatencyFault
@@ -34,6 +35,7 @@ if __package__ in {None, ""}:
     from app.order_services import place_order
     from app.services import BusinessRuleError, Store
 else:
+    from .active_requests import ActiveRequestsMiddleware
     from .database import DEFAULT_DATABASE_PATH, connect, initialize_database
     from .logging_config import REQUEST_ID, log_event
     from .experiment_fault import OrderLatencyFault
@@ -186,6 +188,7 @@ def create_app(
         description="Order and inventory API. POST /api/orders supports Idempotency-Key and is rate limited.",
         lifespan=lifespan,
     )
+    app.add_middleware(ActiveRequestsMiddleware)  # A3: innermost, so its delay is inside the duration histogram
     order_latency_fault = OrderLatencyFault()
 
     # Limit applies to POST /api/orders only. Shared per client IP.

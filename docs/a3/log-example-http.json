@@ -1,0 +1,102 @@
+{
+ "kibana_kql": "request_id : \"lb-c-rr-http-135412-2\"",
+ "elasticsearch_query": {
+  "size": 10,
+  "query": {
+   "term": {
+    "request_id": "lb-c-rr-http-135412-2"
+   }
+  },
+  "sort": [
+   {
+    "@timestamp": "asc"
+   }
+  ],
+  "_source": [
+   "@timestamp",
+   "service.name",
+   "container.name",
+   "replica",
+   "request_id",
+   "trace_id",
+   "upstream_host",
+   "envoy_interface",
+   "envoy_path",
+   "envoy_response_code",
+   "envoy_grpc_status",
+   "envoy_duration_ms",
+   "envoy_response_flags",
+   "message"
+  ]
+ },
+ "index": "observable-orders-v3-*",
+ "response": {
+  "took": 22,
+  "timed_out": false,
+  "_shards": {
+   "total": 8,
+   "successful": 8,
+   "skipped": 0,
+   "failed": 0
+  },
+  "hits": {
+   "total": {
+    "value": 2,
+    "relation": "eq"
+   },
+   "max_score": null,
+   "hits": [
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "MVtW2qEBHSJ6p_gPeORw",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:54:13.087Z",
+      "envoy_path": "/api/products",
+      "message": "{\"duration_ms\":4.42,\"message\":\"request completed\",\"method\":\"GET\",\"path\":\"/api/products\",\"replica\":\"B\",\"request_id\":\"lb-c-rr-http-135412-2\",\"service\":{\"name\":\"instagram-order-desk\"},\"severity\":\"INFO\",\"status_code\":200,\"timestamp\":\"2026-11-14T13:54:13.087480+00:00\"}\n",
+      "container": {
+       "name": "observable-orders-app-b"
+      },
+      "service": {
+       "name": "instagram-order-desk"
+      },
+      "request_id": "lb-c-rr-http-135412-2",
+      "replica": "B",
+      "envoy_duration_ms": 4.42
+     },
+     "sort": [
+      1794664453087
+     ]
+    },
+    {
+     "_index": ".ds-observable-orders-v3-2026.11.14-2026.11.14-000001",
+     "_id": "wVtW2qEBHSJ6p_gPeORw",
+     "_score": null,
+     "_source": {
+      "@timestamp": "2026-11-14T13:54:13.088Z",
+      "envoy_interface": "http",
+      "envoy_response_code": 200,
+      "container": {
+       "name": "observable-orders-envoy"
+      },
+      "service": {
+       "name": "envoy"
+      },
+      "request_id": "lb-c-rr-http-135412-2",
+      "trace_id": "lb-c-rr-http-135412-2",
+      "envoy_grpc_status": null,
+      "envoy_response_flags": "-",
+      "message": "{\"duration_ms\":6,\"grpc_status\":null,\"interface\":\"http\",\"method\":\"GET\",\"path\":\"/api/products\",\"replica\":\"B\",\"request_id\":\"lb-c-rr-http-135412-2\",\"response_code\":200,\"response_flags\":\"-\",\"service\":{\"name\":\"envoy\"},\"timestamp\":\"2026-11-14T13:54:13.082Z\",\"trace_id\":\"lb-c-rr-http-135412-2\",\"upstream_cluster\":\"http_cluster\",\"upstream_host\":\"172.28.10.12:8000\"}\n",
+      "replica": "B",
+      "envoy_path": "/api/products",
+      "upstream_host": "172.28.10.12:8000",
+      "envoy_duration_ms": 6
+     },
+     "sort": [
+      1794664453088
+     ]
+    }
+   ]
+  }
+ }
+}

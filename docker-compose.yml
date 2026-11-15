@@ -1,43 +1,108 @@
-services:
-  app:
-    build:
-      context: .
-    container_name: observable-orders-app
-    environment:
-      DATABASE_PATH: /app/data/orders.db
-    ports:
-      - "8000:8000"
-    volumes:
-      - app-data:/app/data
-    healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
-      interval: 30s
-      timeout: 5s
-      start_period: 10s
-      retries: 3
+# A3: three identical replicas (A, B, C) from one shared definition. Each replica = one HTTP
+# container + one gRPC container. Named services instead of `--scale` so every replica has a
+# stable identity (Envoy endpoint, Prometheus target, log field, fault injection). Envoy is the
+# only entry point: HTTP localhost:8000, gRPC localhost:50051, admin localhost:9901.
+x-replica-env: &replica-env
+  DATABASE_PATH: /app/data/orders.db
+  PYTHONUNBUFFERED: "1"
 
-  grpc-service:
-    build:
-      context: .
-    container_name: observable-orders-grpc
-    command: python -m grpc_server.server
-    environment:
-      DATABASE_PATH: /app/data/orders.db
-      PYTHONUNBUFFERED: "1"
-    volumes:
-      - app-data:/app/data
-    ports:
-      - "50051:50051"
-      - "8002:8002"
-    healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/metrics')"]
-      interval: 30s
-      timeout: 5s
-      start_period: 10s
-      retries: 3
+x-replica-base: &replica-base
+  build:
+    context: .
+  image: observable-orders:a3
+  init: true
+
+x-app-replica: &app-replica
+  <<: *replica-base
+  healthcheck:
+    test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+    interval: 30s
+    timeout: 5s
+    start_period: 20s
+    start_interval: 2s
+    retries: 3
+
+x-grpc-replica: &grpc-replica
+  <<: *replica-base
+  command: python -m grpc_server.server
+  healthcheck:
+    test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8002/metrics')"]
+    interval: 30s
+    timeout: 5s
+    start_period: 20s
+    start_interval: 2s
+    retries: 3
+  depends_on:
+    app-a:
+      condition: service_healthy
+
+services:
+  app-a:
+    <<: *app-replica
+    container_name: observable-orders-app-a
+    environment: {<<: *replica-env, REPLICA_ID: A, DELAY_FILE: /app/control/delay-a.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.11}}
+
+  app-b:
+    <<: *app-replica
+    container_name: observable-orders-app-b
+    environment: {<<: *replica-env, REPLICA_ID: B, DELAY_FILE: /app/control/delay-b.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.12}}
     depends_on:
-      app:
+      app-a:
         condition: service_healthy
+
+  app-c:
+    <<: *app-replica
+    container_name: observable-orders-app-c
+    environment: {<<: *replica-env, REPLICA_ID: C, DELAY_FILE: /app/control/delay-c.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.13}}
+    depends_on:
+      app-a:
+        condition: service_healthy
+
+  grpc-a:
+    <<: *grpc-replica
+    container_name: observable-orders-grpc-a
+    environment: {<<: *replica-env, REPLICA_ID: A, DELAY_FILE: /app/control/delay-a.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.21}}
+
+  grpc-b:
+    <<: *grpc-replica
+    container_name: observable-orders-grpc-b
+    environment: {<<: *replica-env, REPLICA_ID: B, DELAY_FILE: /app/control/delay-b.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.22}}
+
+  grpc-c:
+    <<: *grpc-replica
+    container_name: observable-orders-grpc-c
+    environment: {<<: *replica-env, REPLICA_ID: C, DELAY_FILE: /app/control/delay-c.txt}
+    volumes: [app-data:/app/data, ./experiments/lb:/app/control:ro]
+    networks: {backend: {ipv4_address: 172.28.10.23}}
+
+  envoy:
+    image: envoyproxy/envoy:v1.34.1
+    container_name: observable-orders-envoy
+    command: ["envoy", "-c", "/etc/envoy/envoy.yaml", "--log-level", "warn"]
+    ports:
+      - "8000:8000"    # HTTP (A1/A2 clients unchanged)
+      - "50051:50051"  # gRPC (A2 clients unchanged)
+      - "9901:9901"    # Envoy admin (/clusters, /stats/prometheus)
+    volumes:
+      - ./envoy:/etc/envoy:ro
+    networks: [default, backend]
+    depends_on:
+      app-a: {condition: service_healthy}
+      app-b: {condition: service_healthy}
+      app-c: {condition: service_healthy}
+      grpc-a: {condition: service_healthy}
+      grpc-b: {condition: service_healthy}
+      grpc-c: {condition: service_healthy}
 
   prometheus:
     image: prom/prometheus:v3.5.0
@@ -50,9 +115,12 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prometheus-data:/prometheus
+    networks: [default, backend]
     depends_on:
-      app:
+      app-a:
         condition: service_healthy
+      envoy:
+        condition: service_started
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:9090/-/healthy"]
       interval: 30s
@@ -153,3 +221,12 @@ volumes:
   filebeat-data:
   filebeat-data-v2:
   filebeat-data-v3:
+
+networks:
+  default: {}
+  backend:
+    # Fixed replica IPs: a stopped/restarted replica keeps its address, so Envoy's health
+    # checks (not DNS changes) decide removal and recovery.
+    ipam:
+      config:
+        - subnet: 172.28.10.0/24

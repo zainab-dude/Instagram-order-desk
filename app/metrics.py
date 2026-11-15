@@ -11,6 +11,10 @@ HTTP_REQUEST_DURATION = Histogram(
     "HTTP request duration in seconds.",
     ("method", "route"),
 )
+HTTP_ACTIVE_REQUESTS = Gauge(
+    "http_server_active_requests",
+    "HTTP requests currently being handled (excludes /health and /metrics).",
+)
 ORDERS_CREATED = Counter("orders_created_total", "Total orders created.")
 ORDERS_COMPLETED = Counter("orders_completed_total", "Total orders completed.")
 ORDERS_CANCELLED = Counter("orders_cancelled_total", "Total orders cancelled.")

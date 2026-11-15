@@ -16,9 +16,19 @@ filebeat.inputs:
             not:
               or:
                 - equals:
-                    container.name: "observable-orders-app"
+                    container.name: "observable-orders-app-a"
                 - equals:
-                    container.name: "observable-orders-grpc"
+                    container.name: "observable-orders-app-b"
+                - equals:
+                    container.name: "observable-orders-app-c"
+                - equals:
+                    container.name: "observable-orders-grpc-a"
+                - equals:
+                    container.name: "observable-orders-grpc-b"
+                - equals:
+                    container.name: "observable-orders-grpc-c"
+                - equals:
+                    container.name: "observable-orders-envoy"
       - decode_json_fields:
           fields: ["message"]
           target: "json"
@@ -36,8 +46,69 @@ filebeat.inputs:
               to: "order_id"
             - from: "json.message"
               to: "message"
+            - from: "json.trace_id"
+              to: "trace_id"
+            - from: "json.replica"
+              to: "replica"
+            - from: "json.upstream_host"
+              to: "upstream_host"
+            - from: "json.interface"
+              to: "envoy_interface"
+            - from: "json.path"
+              to: "envoy_path"
+            - from: "json.response_code"
+              to: "envoy_response_code"
+            - from: "json.grpc_status"
+              to: "envoy_grpc_status"
+            - from: "json.duration_ms"
+              to: "envoy_duration_ms"
+            - from: "json.response_flags"
+              to: "envoy_response_flags"
           fail_on_error: false
           ignore_missing: true
+      # A3: replica identity from the container name (also covers non-JSON lines).
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-app-a"
+          target: ""
+          fields:
+            replica: "A"
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-app-b"
+          target: ""
+          fields:
+            replica: "B"
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-app-c"
+          target: ""
+          fields:
+            replica: "C"
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-grpc-a"
+          target: ""
+          fields:
+            replica: "A"
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-grpc-b"
+          target: ""
+          fields:
+            replica: "B"
+      - add_fields:
+          when:
+            equals:
+              container.name: "observable-orders-grpc-c"
+          target: ""
+          fields:
+            replica: "C"
       - drop_fields:
           fields: ["json"]
           ignore_missing: true
